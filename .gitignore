@@ -1,0 +1,12 @@
+# OSX
+#
+.DS_Store
+
+vendor/
+node_modules
+package-lock.json
+logs
+common/config/db.php
+common/config/url.php
+backend/web/uploads
+frontend/web/uploads

@@ -1,0 +1,23 @@
+RewriteEngine on
+
+RewriteRule ^uploads/video-lesson/(.*)/(.*\.(ts))$ _read_file_ts.php?course_id=$1&filename=$2 [QSA,L]
+
+# If a directory or a file exists, use it directly
+# Otherwise forward it to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php
+
+<FilesMatch "\.(m3u8|ts)$">
+    Header set Access-Control-Allow-Origin "https://admin.cogaivangyoga.vn"
+    Header set Access-Control-Allow-Origin "https://admin.yogalunathai.com"
+    Header set Access-Control-Allow-Credentials true
+</FilesMatch>
+#RewriteCond %{HTTP_HOST} ^cogaivangyoga\.vn$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.cogaivangyoga\.vn$
+#RewriteRule ^/?$ "https\:\/\/yogalunathai\.com\/" [R=301,L]
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+#RewriteRule ^(.*)$ "https\:\/\/yogalunathai\.com\/" [R=301,L]
+</IfModule>

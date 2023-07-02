@@ -1,0 +1,197 @@
+/*
+Theme Name: NoiThat13
+Theme URI: https://muatheme.com/san-pham/theme-wordpress-noi-that-mau-so-13/
+Author: MuaTheme.com
+Author URI: https://muatheme.com
+Description: Theme Wordpress noi that 13
+Template: flatsome
+Version: 1.0.0
+*/
+
+/*************** ADD CUSTOM CSS HERE.   ***************/
+h5.post-title.is-large {
+    text-align: left;
+}
+.entry-header-text.text-center {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    padding-bottom: 0;
+}
+.entry-header h1.entry-title {
+    margin-bottom: 0;
+}
+h6.entry-category.is-xsmall {
+    font-size: 16px;
+}
+.entry-header .entry-divider {
+    display: none;
+}
+.section-title-normal span {
+    border-bottom: 2px solid var(--primary-color);
+}
+.footer-widgets {
+    color: #fff;
+}
+#footer .is-divider.small {
+    background-color: #fff;
+}
+#footer a {
+    color: #fff;
+}
+.nav>li>a {
+    font-size: inherit;
+}
+#footer ul.menu>li {
+    border-top: none;
+}
+#footer p {
+    margin-bottom: 10px;
+}
+.nav>li>a, .nav-dropdown>li>a, .nav-column>li>a {
+    color: #000000;
+    transition: all .2s;
+}
+.portfolio-box .box-text {
+    padding: 5px 0px 0px;
+}
+.absolute-footer {
+    padding: 7px 0 7px;
+}
+.nav-uppercase>li>a {
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.portfolio-box {
+    padding: 5px;
+     background-color: #fff;
+    margin: 2px;
+    width: calc(100% - 4px);
+    transition: all linear 240ms;
+    z-index: 0;
+}
+.portfolio-box-title {
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.portfolio-element-wrapper .col-inner {
+    background: transparent !important;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.portfolio-box:after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: white;
+	}
+.portfolio-element-wrapper .col, .portfolio-related.row-small>.flickity-viewport>.flickity-slider>.col {
+    padding: 0 2px 3px;
+}
+.portfolio-box:before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), linear-gradient(var(--primary-color), var(--primary-color));
+    animation: rotate 5s linear infinite;
+}
+.portfolio-box:hover:before{
+    opacity: 1;
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.box-text .portfolio-box-category {
+    opacity: 1;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 13px;
+}
+.section-title-container {
+    margin-bottom: 0.5em;
+}
+.post-title {
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.portfolio-element-wrapper .col-inner:hover {
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.box-blog-post .box-text {
+    padding: 10px 0px;
+}
+p.from_the_blog_excerpt {
+    font-size: 14px;
+    opacity: 1;
+    color: #000;
+    text-align: left;
+}
+.blog-right .box-text {
+    padding: 0px 0px;
+    margin-left: 10px;
+    display: block;
+}
+.blog-right .post-title {
+    font-size: 14px;
+}
+.blog-right p.from_the_blog_excerpt{
+	 font-size: 12px;
+}
+.box-blog-post .is-divider {
+    display: none;
+}
+.blog-right .box-blog-post {
+    margin-bottom: 2px;
+}
+.blog-right .col.post-item:first-child {
+    display: none;
+}
+.blog-right .col.post-item .box-image{
+	margin-top:0px !important;
+	padding-top:0px !important;
+}
+.post-title:hover, .portfolio-box-title:hover {
+    color: #fb4600;
+}
+h3.row.related-title:before {
+    content: "";
+    border-bottom: 2px solid rgb(255, 118, 0);
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    display: block;
+    width: 16%;
+}
+h3.row.related-title {
+    text-transform: uppercase;
+    padding: 10px 5px;
+    font-size: 25px;
+    border-bottom: 2px solid #ececec;
+    position: relative;
+}
+.portfolio-top {
+    margin-top: 40px;
+}
+@media only screen and (max-width: 48em) {
+/*************** ADD MOBILE ONLY CSS HERE  ***************/
+
+
+}
