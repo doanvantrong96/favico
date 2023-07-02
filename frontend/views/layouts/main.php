@@ -9,9 +9,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use yii\helpers\Url;
-use backend\models\CourseCategory;
-use backend\models\OrderCart;
-use backend\models\OrderCartProduct;
 
 AppAsset::register($this);
 
@@ -24,11 +21,7 @@ if(Yii::$app->user->identity) {
     }
 }
 
-//list chuyen muc
-$data_category = CourseCategory::find()
-->where(['status' => 1,'is_delete' => 0])
-->asArray()
-->all();
+
 
 //affilicate
 if(isset($_GET['aff'])){
@@ -65,6 +58,7 @@ $check_menu = $controller .'/'.$action;
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="stylesheet" id="wp-bootstrap-starter-fontawesome-cdn-css" href="/css/fontawesome.min.css" type="text/css" media="all" />
         <link rel="stylesheet" href="/css/all.min.css" crossorigin="anonymous" />
+        <link data-optimized="2" rel="stylesheet" href="/css/layout.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="icon" type="image/png" href="/images/page/logo-fv.svg" sizes="50x50">
@@ -155,180 +149,84 @@ $check_menu = $controller .'/'.$action;
         <?php $this->registerCsrfMetaTags() ?>
     </head>
     <?php $this->beginBody() ?>
-    <div class="app padding-top">
+    <div class="elementor-2700 elementor">
         <div id="fb-customer-chat"></div>
-        <nav class="main-nav <?= Yii::$app->user->identity ? 'top-nav' : '' ?>">
-            <button class="menu-toggle"><i class="fal fa-bars"></i></button>
-            <?php if(!Yii::$app->user->isGuest) { ?>
-                <li class="nav-item cart_item_mb d-block d-lg-none">
-                    <a href="<?= Url::to(['/site/payment']) ?>" class="position-relative">
-                        <img src="/images/page/Cart.svg" alt="">
-                        <b class="count_cart"><?= $check_cart ?></b>
-                    </a>
-                </li>
-            <?php } ?>
-            <div class="container container_nav <?= Yii::$app->user->identity ? 'container_user_index' : '' ?>">
-                <div class="d-flex align-items-center">
-                    <div class="logo-wrapper">
-                        <a class="nav-link" href="/"><img src="/images/page/logo.svg" alt="" /></a>
-                    </div>
-                    <div class="menu_list">
-                        <ul class="menu">
-                            <li>
-                                <a class="nav-link <?= ($check_menu == 'site/index') ? 'active' : '' ?>" href="/">Trang Chủ</a>
-                            </li>
-                            <?php if(Yii::$app->user->identity) { ?>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'site/my-progress') ? 'active' : '' ?>" href="<?= Url::to(['/site/my-progress']) ?>">Tiến trình học tập</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'lecturers/index') ? 'active' : '' ?>" href="<?= Url::to(['/lecturers/index']) ?>">Chuyên gia</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'category/index') ? 'active' : '' ?>" href="<?= Url::to(['/category/index']) ?>"> <i class="far fa-search text-white"></i> Thư viện</a>
-                                </li>
-                            <?php }else{?>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'category/index') ? 'active' : '' ?>" href="<?= Url::to(['/category/index']) ?>">Danh mục</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'site/about') ? 'active' : '' ?>" href="<?= Url::to(['/site/about']) ?>">Về ABE Academy</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link <?= ($check_menu == 'lecturers/index') ? 'active' : '' ?>" href="<?= Url::to(['/lecturers/index']) ?>">Chuyên gia</a>
-                                </li>
-                                <li class="ml -lg-auto position-relative">
-                                     <div class="search-panel">
-                                         <div class="input-wrapper">
-                                             <input type="text" id="input-search" autocomplete="off" placeholder="Tìm Kiếm" value="" />
-                                             <!-- <button class="btn btn-clear" style="display: none;"><i class="fal fa-times"></i></button> -->
-                                             <i class="far fa-search"></i>
-                                         </div>
-                                         <div class="search-results" style="display: none;">
-                                             <ul class="course-list"></ul>
-                                         </div>
-                                         <div class="result_search_default">
-                                             <ul class="list_search_default">
-                                                 <?php foreach($data_category as $item) { ?>
-                                                 <li>
-                                                     <a href="<?= Url::to(['/category/index','slug' => $item['slug']]) ?>"> 
-                                                         <p><?= $item['name'] ?></p>
-                                                         <i class="fas fa-chevron-right"></i>
-                                                     </a>
-                                                 </li>
-                                                 <?php } ?>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </li>
-                            <?php } ?>  
-                        </ul>
-                    </div>
-                    <div class="ml-auto">
-                        <ul class="menu d-lg-flex align-items-center">
-                            <li class="li_menu_mb ml -lg-auto position-relative">
-                                <div class="search-panel">
-                                    <div class="input-wrapper">
-                                        <input type="text" id="input-search" autocomplete="off" placeholder="Tìm Kiếm" value="" />
-                                        <!-- <button class="btn btn-clear" style="display: none;"><i class="fal fa-times"></i></button> -->
-                                        <i class="far fa-search"></i>
-                                    </div>
-                                    <div class="search-results" style="display: none;">
-                                        <ul class="course-list"></ul>
-                                    </div>
-                                    <div class="result_search_default">
-                                        <ul class="list_search_default">
-                                            <?php foreach($data_category as $item) { ?>
-                                                <li>
-                                                    <a href="<?= Url::to(['/category/index','slug' => $item['slug']]) ?>"> 
-                                                        <p><?= $item['name'] ?></p>
-                                                        <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </li>
-                                            <?php } ?>                                            
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <?php if( !Yii::$app->user->identity ){ ?>
-                                <li class="nav-item d-flex li_sign">
-                                    <button type="button" id="btnSignUp" data-url="<?= Url::to(['site/signup']);?>" class="text-uppercase btn btn-outline-white btn-open-modal">Đăng ký</button>
-                                    <button type="button" id="btnLogin" data-url="<?= Url::to(['site/login']);?>" class="text-uppercase btn btn-outline-white btn-open-modal"> <img src="/images/page/icon-login.svg" alt=""> Đăng Nhập</button>
-                                </li>
-                            <?php }else{
-                           $avatar = '/images/page/icon-user.svg';
-                           if( Yii::$app->user->identity->fb_id != '' ) $avatar = Yii::$app->user->identity->avatar; ?>
-                                <li class="nav-item d-none d-lg-block">
-                                    <a href="<?= Url::to(['site/payment']) ?>" class="position-relative">
-                                        <img src="/images/page/Cart.svg" alt="">
-                                        <b class="count_cart"><?= $check_cart ?></b>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row align-items-center">
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7d7708f" data-id="7d7708f" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-794a64d elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="794a64d" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
                                     </a>
-                                </li>
-                                <li class="nav-item d-none d-lg-block"><a href="javascript:void(0)" ><?= Yii::$app->user->identity->fullname ?></a></li>
-                                <li class="dropdown nav-item d-none d-lg-block">
-                                    <a aria-haspopup="true" href="javascript:;" class="user-name position-relative nav-user dropdown-toggle nav-link" aria-expanded="false">
-                                        <div class="d-flex align-items-center">
-                                            <div class="profile-image" style="width: 32px;"><img src="<?= $avatar ?>" alt="profile" /></div>
-                                            <i class="fas fa-chevron-down ml-2"></i>
-                                        </div>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/about/"><span class="elementor-icon-list-text">Giới thiệu</span>
                                     </a>
-                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right drop_user">
-                                        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">
-                                            <a class="w-100 d-inline-block" href="<?= Url::to(['site/info-user']);?>">Thông tin tài khoản</a>
-                                        </button>
-                                        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">
-                                            <a class="w-100 d-inline-block" href="<?= Url::to(['user/change-password']);?>">Đổi mật khẩu</a>
-                                        </button>
-                                        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">
-                                            <a href="<?= Url::to(['site/logout']);?>" class="dropdown-link">Đăng xuất</a>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="d-flex d-lg-none align-items-center gap-10">
-                                    <div class="profile-image" style="width: 32px;"><img src="<?= $avatar ?>" alt="profile" /></div>
-                                    <a href="javascript:void(0)"><?= Yii::$app->user->identity->email ?></a>
-                                </li>
-                            <?php } ?>
-
-                            <li class="li_menu_mb">
-                              <a href="/">Trang Chủ</a>
-                           </li>
-                           <li class="li_menu_mb">
-                              <a href="<?= Url::to('/category/index') ?>">Danh mục</a>
-                           </li>
-                           <li class="li_menu_mb">
-                              <a href="<?= Url::to(['/site/about']) ?>">Về ABE Academy</a>
-                           </li>
-                           <li class="li_menu_mb">
-                              <a href="<?= Url::to('/lecturers/index') ?>">Chuyên gia</a>
-                           </li>
-                           <?php if( Yii::$app->user->identity ){ ?>
-                                <li class="li_menu_mb">
-                                    <a href="<?= Url::to('/site/my-progress') ?>">Tiến trình học tập</a>
-                                </li>
-                                <li class="li_menu_mb">
-                                    <a href="<?= Url::to('/site/info-user') ?>">Thông tin tài khoản</a>
-                                </li>
-                                <li class="li_menu_mb">
-                                    <a href="<?= Url::to('/user/change-password') ?>">Đổi mật khẩu</a>
-                                </li>
-                                <li class="li_menu_mb">
-                                    <a class="rs_password" href="<?= Url::to('/site/my-progress') ?>">Quên mật khẩu</a>
-                                </li>
-                                                                <li class="li_menu_mb">
-                                    <a class="logout_mb" href="<?= Url::to('/site/logout') ?>">Đăng xuất</a>
-                                </li>
-                           <?php } ?>
-                        </ul>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/services/"><span class="elementor-icon-list-text">Sản phẩm</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/shop/"><span class="elementor-icon-list-text">Tin tức</span>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-0848b61" data-id="0848b61" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-94cc6fc agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="94cc6fc" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <a href="">
+                                    <img src="/images/page/logo.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e5c92af" data-id="e5c92af" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-23ae00a elementor-icon-list--layout-inline elementor-widget__width-auto elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="23ae00a" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/"><span class="elementor-icon-list-text">Tuyển dụng</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/"><span class="elementor-icon-list-text">Liên hệ</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <a class="hotline_header flex-center" href="/">
+                                            <span class="elementor-icon-list-text text-center">GỌI NGAY <br> 02213 997 768</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
+            </div>
+        </section>
         <div id="main_content">
             <?= $content ?>
         </div>
-        <footer>
+        <footer class="agrikon-elementor-footer footer-739">
             <!-- Messenger Plugin chat Code -->
             <div id="fb-root"></div>
             <!-- Your Plugin chat code -->
@@ -355,84 +253,279 @@ $check_menu = $controller .'/'.$action;
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
             </script>
-            <div class="main-footer text-center text-lg-left">
-                <div class="container">
-                    <div class="grid_ft">
-                       <div class="lg_footer">
-                           <!-- <span class="title_ft">Viện nghiên cứu phát triển kinh tế Châu Á -Thái Bình Dương</span> -->
-                           <img class="logo_ft" src="/images/page/logo.svg" alt="logo">
-                           <p class="mt-2">
-                                VIỆN NGHIÊN CỨU PHÁT TRIỂN KINH TẾ CHÂU Á - THÁI BÌNH DƯƠNG <br>
-                                Số đăng ký: B-06/2023/ĐK-KH&CN <br>
-                                Cấp ngày: 11/01/2023<br>
-                                Nơi cấp: Sở Khoa học và Công nghệ thành phố Hà Nội
-                           </p>
-                       </div>
-                       <div class="div_address">
-                           <span class="title_ft">LIÊN HỆ</span>
-                           <p>Địa chỉ: <br> Ha Noi: NV 8.1 Green Park - 319 Vinh Hung, Thanh Tri, Hoang Mai <br> Singapore Office: 18 Sin Ming Lane, #07-01 Midview City</p>
-                           <p>Hotline: <a href="tel:0834822266">083 482 2266</a></p>
-                           <p style="word-break: break-all;"><a href="mailto:Welcome@elearning.abe.edu.vn">Email: Welcome@elearning.abe.edu.vn</a></p>
-                       </div>
-                       <div>
-                           <span class="title_ft">TÌM HIỂU THÊM</span>
-                           <ul class="ul_about">
-                              <li>
-                                 <a href="<?= Url::to(['site/about']) ?>">Về ABE Academy</a>
-                              </li>
-                              <li>
-                                 <a href="<?=  Url::to(['category/index-news','slug' => 'dieu-khoan-su-dung-tai-khoan-abe-academy','id' => 18])?>">Điều khoản dịch vụ</a>
-                              </li>
-                              <li>
-                                 <a href="https://elearning.abe.edu.vn/chinh-sach-bao-mat-thong-tin-19">Chính sách bảo mật</a>
-                              </li>
-                              <!-- <li>
-                                 <a href="">Liên hệ với chúng tôi</a>
-                              </li> -->
-                           </ul>
-                       </div>
-                       <div>
-                           <span class="title_ft d-none d-lg-block">MẠNG XÃ HỘI</span>
-                           <ul class="ul_social">
-                              <li>
-                                 <a target="_blank" href="https://www.facebook.com/elearning.abe.edu.vn"><img src="/images/page/fb.svg" alt=""> <span class="d-none d-lg-contents">Facebook</span></a>
-                              </li>
-                              <li>
-                                 <a target="_blank" href="https://www.youtube.com/@abeacademy"><img src="/images/page/yout.svg" alt=""> <span class="d-none d-lg-contents">Youtube</span></a>
-                              </li>
-                              <li>
-                                 <a target="_blank" href="https://www.tiktok.com/@abeacademy"><img src="/images/page/tiktok.svg" alt=""> <span class="d-none d-lg-contents">Tiktok</span></a>
-                              </li>
-                              <!-- <li>
-                                 <a target="_blank" href=""><img src="/images/page/inta.svg" alt=""> <span class="d-none d-lg-contents">Instagram</span></a>
-                              </li> -->
-                              <!-- <li>
-                                 <a target="_blank" href=""><img src="/images/page/spor.svg" alt=""> <span class="d-none d-lg-contents">Spotify</span></a>
-                              </li> -->
-                           </ul>
-                       </div>
-                       <div>
-                           <span class="title_ft d-none d-lg-block">TẢI XUỐNG</span>
-                           <div class="gr_down_app">
-                                <a href="javascript:void(0)" class="developing">
-                                    <img class="w-100 mb-2" src="/images/page/icon-appstore.png" alt="">
-                                </a>
-                                <a href="javascript:void(0)" class="developing">
-                                    <img class="w-100" src="/images/page/icon-google-play.png" alt="">
-                                </a>
-                           </div>
-                       </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="columb_mb d-flex justify-content-between align-items-center mb-4">
-                    <div class="text_bot_footer">
-                        <p>© <?= date("Y") ?> ABE Academy</p>
-                        <p>Secured with SSL</p>
-                    </div>
-                    <div>
-                        <img style="width:130px" src="/images/page/bo-cong-thuong.png" alt="">
+            <div data-elementor-type="section" data-elementor-id="739" class="elementor elementor-739">
+                <div class="elementor-inner">
+                    <div class="elementor-section-wrap">
+                        <div class="elementor-section elementor-top-section elementor-element elementor-element-14526050 elementor-section-full_width nt-structure nt-structure-yes nt-section-ripped-top ripped-top-yes elementor-section-height-default elementor-section-height-default nt-section-ripped-bottom ripped-bottom-no" data-id="14526050" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-row">
+                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-38747b76" data-id="38747b76" data-element_type="column">
+                                    <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-185bba6 elementor-widget__width-auto elementor-absolute elementor-hidden-phone elementor-widget elementor-widget-image" data-id="185bba6" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-image">
+                                                <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/footer-bg-icon-2.png" width="314" height="336" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png" class="attachment-medium_large size-medium_large wp-image-587 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w" data-sizes="(max-width: 314px) 100vw, 314px" data-ll-status="loaded" sizes="(max-width: 314px) 100vw, 314px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w">
+                                                <noscript><img width="314" height="336" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png" class="attachment-medium_large size-medium_large wp-image-587" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w" sizes="(max-width: 314px) 100vw, 314px" /></noscript>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-257a9126 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="257a9126" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-image">
+                                                <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/footer-bg-icon.png" width="662" height="321" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png" class="attachment-large size-large wp-image-586 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w" data-sizes="(max-width: 662px) 100vw, 662px" data-ll-status="loaded" sizes="(max-width: 662px) 100vw, 662px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w">
+                                                <noscript><img width="662" height="321" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png" class="attachment-large size-large wp-image-586" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w" sizes="(max-width: 662px) 100vw, 662px" /></noscript>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-section elementor-inner-section elementor-element elementor-element-727c466e nt-structure nt-structure-yes elementor-section-boxed elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="727c466e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                                            <div class="elementor-container elementor-column-gap-no">
+                                                <div class="elementor-row">
+                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6c39c5c4" data-id="6c39c5c4" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-2037345 elementor-widget elementor-widget-image" data-id="2037345" data-element_type="widget" data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <div class="elementor-image">
+                                                                    <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/logo-light-300x91.png" width="300" height="91" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png" class="attachment-medium size-medium wp-image-558 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w" data-sizes="(max-width: 300px) 100vw, 300px" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w">
+                                                                    <noscript><img width="300" height="91" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png" class="attachment-medium size-medium wp-image-558" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w" sizes="(max-width: 300px) 100vw, 300px" /></noscript>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-793e8037 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="793e8037" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <p class="elementor-heading-title elementor-size-default">There are many variations of passages of lorem ipsum available, but the majority suffered.</p>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-47fcf305 elementor-widget elementor-widget-agrikon-contact-form-7" data-id="47fcf305" data-element_type="widget" data-widget_type="agrikon-contact-form-7.default">
+                                                            <div class="elementor-widget-container">
+                                                                <div class="nt-cf7-form-wrapper form_47fcf305">
+                                                                    <div class="wpcf7 no-js" id="wpcf7-f560-o1" lang="en-US" dir="ltr">
+                                                                        <div class="screen-reader-response">
+                                                                        <p role="status" aria-live="polite" aria-atomic="true"></p>
+                                                                        <ul></ul>
+                                                                        </div>
+                                                                        <form action="https://ninetheme.com/themes/agrikon/home-shop/#wpcf7-f560-o1" method="post" class="wpcf7-form init demo" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                                                        <div style="display: none;">
+                                                                            <input type="hidden" name="_wpcf7" value="560">
+                                                                            <input type="hidden" name="_wpcf7_version" value="5.7.7">
+                                                                            <input type="hidden" name="_wpcf7_locale" value="en_US">
+                                                                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f560-o1">
+                                                                            <input type="hidden" name="_wpcf7_container_post" value="0">
+                                                                            <input type="hidden" name="_wpcf7_posted_data_hash" value="">
+                                                                        </div>
+                                                                        <div class="footer-widget">
+                                                                            <div class="mc-form">
+                                                                                <p><span class="wpcf7-form-control-wrap" data-name="email-434"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Address" value="" type="email" name="email-434"></span><br>
+                                                                                    <button type="submit" class="wpcf7-submit"><i class="agrikon-icon-right-arrow"></i></button>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-4a9c3ee8 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="4a9c3ee8" data-element_type="widget" data-widget_type="social-icons.default">
+                                                            <div class="elementor-widget-container">
+                                                                <div class="elementor-social-icons-wrapper elementor-grid">
+                                                                    <span class="elementor-grid-item">
+                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-0efa240" href="https://ninetheme.com/themes/agrikon/" target="_blank">
+                                                                    <span class="elementor-screen-only">Facebook</span>
+                                                                    <i class="fab fa-facebook"></i>					</a>
+                                                                    </span>
+                                                                    <span class="elementor-grid-item">
+                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-fcbf7c3" href="https://ninetheme.com/themes/agrikon/" target="_blank">
+                                                                    <span class="elementor-screen-only">Twitter</span>
+                                                                    <i class="fab fa-twitter"></i>					</a>
+                                                                    </span>
+                                                                    <span class="elementor-grid-item">
+                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-813606e" href="https://ninetheme.com/themes/agrikon/" target="_blank">
+                                                                    <span class="elementor-screen-only">Pinterest</span>
+                                                                    <i class="fab fa-pinterest"></i>					</a>
+                                                                    </span>
+                                                                    <span class="elementor-grid-item">
+                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-afbbe30" href="https://ninetheme.com/themes/agrikon/" target="_blank">
+                                                                    <span class="elementor-screen-only">Instagram</span>
+                                                                    <i class="fab fa-instagram"></i>					</a>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-521a428d" data-id="521a428d" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-467b4e72 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h3 class="elementor-heading-title elementor-size-default">Links</h3>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
+                                                            <div class="elementor-widget-container">
+                                                                <ul class="elementor-icon-list-items">
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/"><span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">Our Projects</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/about/"><span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">About us</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/services/"><span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">Our Services</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/service-details/"><span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">Upcoming Events</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/about/"><span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">Volunteers</span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-760a6c93" data-id="760a6c93" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-6250818a agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="6250818a" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h3 class="elementor-heading-title elementor-size-default">News</h3>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-3b7b2ee5 elementor-widget elementor-widget-agrikon-post-types-list" data-id="3b7b2ee5" data-element_type="widget" data-widget_type="agrikon-post-types-list.default">
+                                                            <div class="elementor-widget-container">
+                                                                <ul class="list-unstyled footer-widget__post nt-post-list nt-orderby-rand">
+                                                                    <li class="nt-post-list-item nt-post-id-2402 nt-post-type-post">
+                                                                        <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-20-150x150.jpg" width="150" height="150" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg" class="b-img wp-post-image entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w" data-sizes="(max-width: 150px) 100vw, 150px" data-ll-status="loaded" sizes="(max-width: 150px) 100vw, 150px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w">
+                                                                        <noscript><img width="150" height="150" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg" class="b-img wp-post-image" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>
+                                                                        <div class="footer-widget__post-content">
+                                                                        <span class="date">Feb 8, 2020</span>
+                                                                        <h4 class="title"><a href="https://ninetheme.com/themes/agrikon/healthiest-beans-and-legumes/" title="Healthiest Beans and Legumes">Healthiest Beans and Legumes</a></h4>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nt-post-list-item nt-post-id-2404 nt-post-type-post">
+                                                                        <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-6-e1608714911535-150x150.jpg" width="150" height="150" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg" class="b-img wp-post-image entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" data-sizes="(max-width: 150px) 100vw, 150px" data-ll-status="loaded" sizes="(max-width: 150px) 100vw, 150px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w">
+                                                                        <noscript><img width="150" height="150" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg" class="b-img wp-post-image" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>
+                                                                        <div class="footer-widget__post-content">
+                                                                        <span class="date">Feb 8, 2020</span>
+                                                                        <h4 class="title"><a href="https://ninetheme.com/themes/agrikon/friendly-breakfast-ideas/" title="Friendly Breakfast Ideas">Friendly Breakfast Ideas</a></h4>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7f043fa4" data-id="7f043fa4" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-11a6cca4 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="11a6cca4" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h3 class="elementor-heading-title elementor-size-default">Contact</h3>
+                                                            </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-3a96ffcb elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3a96ffcb" data-element_type="widget" data-widget_type="icon-list.default">
+                                                            <div class="elementor-widget-container">
+                                                                <ul class="elementor-icon-list-items">
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="fab fa-whatsapp"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">555 342 0032</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-telephone"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">666 888 0000</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-email"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">needhelp@company.com</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <span class="elementor-icon-list-icon">
+                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-pin"></i>						</span>
+                                                                        <span class="elementor-icon-list-text">80 broklyn golden street line New York, USA</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-section elementor-inner-section elementor-element elementor-element-50e0ac80 nt-section-ripped-top ripped-top-yes elementor-section-boxed elementor-section-height-default elementor-section-height-default nt-section-ripped-bottom ripped-bottom-no" data-id="50e0ac80" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                                            <div class="elementor-container elementor-column-gap-no">
+                                                <div class="elementor-row">
+                                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-396a338b" data-id="396a338b" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-2c4c7a0a agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="2c4c7a0a" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <p class="elementor-heading-title elementor-size-default">© Copyright 2020 by Ninetheme.com</p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-474a237f" data-id="474a237f" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-4fa1fa37 elementor-icon-list--layout-inline elementor-align-right elementor-tablet-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4fa1fa37" data-element_type="widget" data-widget_type="icon-list.default">
+                                                            <div class="elementor-widget-container">
+                                                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                                                        <span class="elementor-icon-list-text">Terms &amp; Conditions</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                                                        <span class="elementor-icon-list-text">/</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                                                        <span class="elementor-icon-list-text">Privacy Policy</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                                                        <span class="elementor-icon-list-text">/</span>
+                                                                    </li>
+                                                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                                                        <span class="elementor-icon-list-text">Sitemap</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
