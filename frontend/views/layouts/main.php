@@ -289,7 +289,7 @@ $check_menu = $controller .'/'.$action;
                                                                         <p role="status" aria-live="polite" aria-atomic="true"></p>
                                                                         <ul></ul>
                                                                         </div>
-                                                                        <form action="https://ninetheme.com/themes/agrikon/home-shop/#wpcf7-f560-o1" method="post" class="wpcf7-form init demo" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                                                        <form action="" method="post" class="wpcf7-form init demo" aria-label="Contact form" novalidate="novalidate" data-status="init">
                                                                         <div style="display: none;">
                                                                             <input type="hidden" name="_wpcf7" value="560">
                                                                             <input type="hidden" name="_wpcf7_version" value="5.7.7">
@@ -328,17 +328,17 @@ $check_menu = $controller .'/'.$action;
                                                             <div class="elementor-widget-container">
                                                                 <ul class="elementor-icon-list-items">
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/">
+                                                                        <a href="">
                                                                         <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
                                                                         </a>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/about/">
+                                                                        <a href="">
                                                                         <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
                                                                         </a>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/services/">
+                                                                        <a href="">
                                                                         <span class="elementor-icon-list-text link_ft">Tin tức</span>
                                                                         </a>
                                                                     </li>
@@ -361,12 +361,12 @@ $check_menu = $controller .'/'.$action;
                                                             <div class="elementor-widget-container">
                                                                 <ul class="elementor-icon-list-items">
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/">
+                                                                        <a href="">
                                                                         <span class="elementor-icon-list-text link_ft">Tuyển dụng</span>
                                                                         </a>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/about/">
+                                                                        <a href="">
                                                                         <span class="elementor-icon-list-text link_ft">Liên hệ</span>
                                                                         </a>
                                                                     </li>
@@ -467,16 +467,6 @@ $check_menu = $controller .'/'.$action;
 		</div>
     </div>
     <?= $this->render('script_after_body', ['params' => isset($this->params) ? $this->params : []]); ?>
-    <?php if(Yii::$app->user->isGuest) { ?>
-        <div class="sticky_bottom">
-            <div class="container">
-                <div class="sticky_bottom_content">
-                    <p>Bắt đầu cuộc hành trình của bạn ngày hôm nay.</p>
-                    <button type="button" id="btnSignUp" data-url="/dang-ky" class="text-uppercase btn btn-outline-white btn-open-modal">Đăng ký</button>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
     <?php $this->endBody() ?>
 </html>
 <div class="modal fade" id="modal_update_phone" role="dialog" tabindex="-1" style="display: none;">
