@@ -61,7 +61,7 @@ $check_menu = $controller .'/'.$action;
         <link data-optimized="2" rel="stylesheet" href="/css/layout.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="icon" type="image/png" href="/images/page/logo-fv.svg" sizes="50x50">
+        <link rel="icon" type="image/png" href="/images/page/logo.svg" sizes="50x50">
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="website" />
         <link rel="stylesheet" href="/css/azuremediaplayer.min.css" />
@@ -254,7 +254,7 @@ $check_menu = $controller .'/'.$action;
             }(document, 'script', 'facebook-jssdk'));
             </script>
             <div data-elementor-type="section" data-elementor-id="739" class="elementor elementor-739">
-                <div class="elementor-inner">
+                <div class="elementor-inner footer_bg">
                     <div class="elementor-section-wrap">
                         <div class="elementor-section elementor-top-section elementor-element elementor-element-14526050 elementor-section-full_width nt-structure nt-structure-yes nt-section-ripped-top ripped-top-yes elementor-section-height-default elementor-section-height-default nt-section-ripped-bottom ripped-bottom-no" data-id="14526050" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                         <div class="elementor-container elementor-column-gap-no">
@@ -262,39 +262,23 @@ $check_menu = $controller .'/'.$action;
                                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-38747b76" data-id="38747b76" data-element_type="column">
                                     <div class="elementor-column-wrap elementor-element-populated">
                                     <div class="elementor-widget-wrap">
-                                        <div class="elementor-element elementor-element-185bba6 elementor-widget__width-auto elementor-absolute elementor-hidden-phone elementor-widget elementor-widget-image" data-id="185bba6" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-                                            <div class="elementor-widget-container">
-                                                <div class="elementor-image">
-                                                <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/footer-bg-icon-2.png" width="314" height="336" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png" class="attachment-medium_large size-medium_large wp-image-587 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w" data-sizes="(max-width: 314px) 100vw, 314px" data-ll-status="loaded" sizes="(max-width: 314px) 100vw, 314px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w">
-                                                <noscript><img width="314" height="336" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png" class="attachment-medium_large size-medium_large wp-image-587" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2.png 314w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-280x300.png 280w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-2-28x30.png 28w" sizes="(max-width: 314px) 100vw, 314px" /></noscript>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="elementor-element elementor-element-257a9126 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="257a9126" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-                                            <div class="elementor-widget-container">
-                                                <div class="elementor-image">
-                                                <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/footer-bg-icon.png" width="662" height="321" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png" class="attachment-large size-large wp-image-586 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w" data-sizes="(max-width: 662px) 100vw, 662px" data-ll-status="loaded" sizes="(max-width: 662px) 100vw, 662px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w">
-                                                <noscript><img width="662" height="321" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png" class="attachment-large size-large wp-image-586" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png 662w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-300x145.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon-62x30.png 62w" sizes="(max-width: 662px) 100vw, 662px" /></noscript>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="elementor-section elementor-inner-section elementor-element elementor-element-727c466e nt-structure nt-structure-yes elementor-section-boxed elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="727c466e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                             <div class="elementor-container elementor-column-gap-no">
-                                                <div class="elementor-row">
-                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6c39c5c4" data-id="6c39c5c4" data-element_type="column">
+                                                <div class="elementor-row grid_ft">
+                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="6c39c5c4" data-element_type="column">
                                                     <div class="elementor-column-wrap elementor-element-populated">
                                                         <div class="elementor-widget-wrap">
                                                             <div class="elementor-element elementor-element-2037345 elementor-widget elementor-widget-image" data-id="2037345" data-element_type="widget" data-widget_type="image.default">
                                                             <div class="elementor-widget-container">
                                                                 <div class="elementor-image">
-                                                                    <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/logo-light-300x91.png" width="300" height="91" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png" class="attachment-medium size-medium wp-image-558 entered litespeed-loaded" alt="" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w" data-sizes="(max-width: 300px) 100vw, 300px" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w">
-                                                                    <noscript><img width="300" height="91" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png" class="attachment-medium size-medium wp-image-558" alt="" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-300x91.png 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-99x30.png 99w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light.png 626w" sizes="(max-width: 300px) 100vw, 300px" /></noscript>
+                                                                    <img data-lazyloaded="1" src="/images/page/logo.svg" width="300" height="91" data-src="/images/page/logo.svg" class="attachment-medium size-medium wp-image-558 entered litespeed-loaded" alt="" data-srcset="/images/page/logo.svg " data-sizes="(max-width: 300px) 100vw, 300px" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="/images/page/logo.svg">
+                                                                    <noscript><img width="300" height="91" src="/images/page/logo.svg" class="attachment-medium size-medium wp-image-558" alt="" srcset="/images/page/logo.svg" sizes="(max-width: 300px) 100vw, 300px" /></noscript>
                                                                 </div>
                                                             </div>
                                                             </div>
                                                             <div class="elementor-element elementor-element-793e8037 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="793e8037" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <p class="elementor-heading-title elementor-size-default">There are many variations of passages of lorem ipsum available, but the majority suffered.</p>
+                                                                <p class="elementor-heading-title text-white font-weight-bold">CÔNG TY CỔ PHẦN THỨC ĂN CHĂN NUÔI PHAVICO</p>
                                                             </div>
                                                             </div>
                                                             <div class="elementor-element elementor-element-47fcf305 elementor-widget elementor-widget-agrikon-contact-form-7" data-id="47fcf305" data-element_type="widget" data-widget_type="agrikon-contact-form-7.default">
@@ -315,9 +299,10 @@ $check_menu = $controller .'/'.$action;
                                                                             <input type="hidden" name="_wpcf7_posted_data_hash" value="">
                                                                         </div>
                                                                         <div class="footer-widget">
-                                                                            <div class="mc-form">
-                                                                                <p><span class="wpcf7-form-control-wrap" data-name="email-434"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Address" value="" type="email" name="email-434"></span><br>
-                                                                                    <button type="submit" class="wpcf7-submit"><i class="agrikon-icon-right-arrow"></i></button>
+                                                                            <p class="text-white mt-4">Đăng ký để nhận tin tức mới nhất</p>
+                                                                            <div class="mc-form d-flex">
+                                                                                <p class="mb-0"><span class="wpcf7-form-control-wrap" data-name="email-434"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email của bạn" value="" type="email" name="email-434"></span><br>
+                                                                                    <button type="submit" class="wpcf7-submit"><img src="/images/icon/rignt.svg" alt=""></button>
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -327,74 +312,34 @@ $check_menu = $controller .'/'.$action;
                                                                 </div>
                                                             </div>
                                                             </div>
-                                                            <div class="elementor-element elementor-element-4a9c3ee8 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="4a9c3ee8" data-element_type="widget" data-widget_type="social-icons.default">
-                                                            <div class="elementor-widget-container">
-                                                                <div class="elementor-social-icons-wrapper elementor-grid">
-                                                                    <span class="elementor-grid-item">
-                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-0efa240" href="https://ninetheme.com/themes/agrikon/" target="_blank">
-                                                                    <span class="elementor-screen-only">Facebook</span>
-                                                                    <i class="fab fa-facebook"></i>					</a>
-                                                                    </span>
-                                                                    <span class="elementor-grid-item">
-                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-fcbf7c3" href="https://ninetheme.com/themes/agrikon/" target="_blank">
-                                                                    <span class="elementor-screen-only">Twitter</span>
-                                                                    <i class="fab fa-twitter"></i>					</a>
-                                                                    </span>
-                                                                    <span class="elementor-grid-item">
-                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-813606e" href="https://ninetheme.com/themes/agrikon/" target="_blank">
-                                                                    <span class="elementor-screen-only">Pinterest</span>
-                                                                    <i class="fab fa-pinterest"></i>					</a>
-                                                                    </span>
-                                                                    <span class="elementor-grid-item">
-                                                                    <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-afbbe30" href="https://ninetheme.com/themes/agrikon/" target="_blank">
-                                                                    <span class="elementor-screen-only">Instagram</span>
-                                                                    <i class="fab fa-instagram"></i>					</a>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-521a428d" data-id="521a428d" data-element_type="column">
+                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
                                                     <div class="elementor-column-wrap elementor-element-populated">
                                                         <div class="elementor-widget-wrap">
-                                                            <div class="elementor-element elementor-element-467b4e72 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-element  agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <h3 class="elementor-heading-title elementor-size-default">Links</h3>
+                                                                <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Phavico</h3>
+                                                                <div class="br_ft"><i></i></div>
                                                             </div>
                                                             </div>
                                                             <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
                                                             <div class="elementor-widget-container">
                                                                 <ul class="elementor-icon-list-items">
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/"><span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">Our Projects</span>
+                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/">
+                                                                        <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
                                                                         </a>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/about/"><span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">About us</span>
+                                                                        <a href="https://ninetheme.com/themes/agrikon/about/">
+                                                                        <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
                                                                         </a>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/services/"><span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">Our Services</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/service-details/"><span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">Upcoming Events</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="https://ninetheme.com/themes/agrikon/about/"><span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fas fa-chevron-right"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">Volunteers</span>
+                                                                        <a href="https://ninetheme.com/themes/agrikon/services/">
+                                                                        <span class="elementor-icon-list-text link_ft">Tin tức</span>
                                                                         </a>
                                                                     </li>
                                                                 </ul>
@@ -403,32 +348,27 @@ $check_menu = $controller .'/'.$action;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-760a6c93" data-id="760a6c93" data-element_type="column">
+                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
                                                     <div class="elementor-column-wrap elementor-element-populated">
                                                         <div class="elementor-widget-wrap">
-                                                            <div class="elementor-element elementor-element-6250818a agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="6250818a" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-element agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <h3 class="elementor-heading-title elementor-size-default">News</h3>
+                                                                <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Liên kết</h3>
+                                                                <div class="br_ft"><i></i></div>
                                                             </div>
                                                             </div>
-                                                            <div class="elementor-element elementor-element-3b7b2ee5 elementor-widget elementor-widget-agrikon-post-types-list" data-id="3b7b2ee5" data-element_type="widget" data-widget_type="agrikon-post-types-list.default">
+                                                            <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
                                                             <div class="elementor-widget-container">
-                                                                <ul class="list-unstyled footer-widget__post nt-post-list nt-orderby-rand">
-                                                                    <li class="nt-post-list-item nt-post-id-2402 nt-post-type-post">
-                                                                        <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-20-150x150.jpg" width="150" height="150" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg" class="b-img wp-post-image entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w" data-sizes="(max-width: 150px) 100vw, 150px" data-ll-status="loaded" sizes="(max-width: 150px) 100vw, 150px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w">
-                                                                        <noscript><img width="150" height="150" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg" class="b-img wp-post-image" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-e1614194419351-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-20-750x750.jpg 750w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>
-                                                                        <div class="footer-widget__post-content">
-                                                                        <span class="date">Feb 8, 2020</span>
-                                                                        <h4 class="title"><a href="https://ninetheme.com/themes/agrikon/healthiest-beans-and-legumes/" title="Healthiest Beans and Legumes">Healthiest Beans and Legumes</a></h4>
-                                                                        </div>
+                                                                <ul class="elementor-icon-list-items">
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/projects/">
+                                                                        <span class="elementor-icon-list-text link_ft">Tuyển dụng</span>
+                                                                        </a>
                                                                     </li>
-                                                                    <li class="nt-post-list-item nt-post-id-2404 nt-post-type-post">
-                                                                        <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-6-e1608714911535-150x150.jpg" width="150" height="150" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg" class="b-img wp-post-image entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" data-sizes="(max-width: 150px) 100vw, 150px" data-ll-status="loaded" sizes="(max-width: 150px) 100vw, 150px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w">
-                                                                        <noscript><img width="150" height="150" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg" class="b-img wp-post-image" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>
-                                                                        <div class="footer-widget__post-content">
-                                                                        <span class="date">Feb 8, 2020</span>
-                                                                        <h4 class="title"><a href="https://ninetheme.com/themes/agrikon/friendly-breakfast-ideas/" title="Friendly Breakfast Ideas">Friendly Breakfast Ideas</a></h4>
-                                                                        </div>
+                                                                    <li class="elementor-icon-list-item">
+                                                                        <a href="https://ninetheme.com/themes/agrikon/about/">
+                                                                        <span class="elementor-icon-list-text link_ft">Liên hệ</span>
+                                                                        </a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -436,36 +376,33 @@ $check_menu = $controller .'/'.$action;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7f043fa4" data-id="7f043fa4" data-element_type="column">
+                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="7f043fa4" data-element_type="column">
                                                     <div class="elementor-column-wrap elementor-element-populated">
                                                         <div class="elementor-widget-wrap">
-                                                            <div class="elementor-element elementor-element-11a6cca4 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="11a6cca4" data-element_type="widget" data-widget_type="heading.default">
+                                                            <div class="elementor-element agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="11a6cca4" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <h3 class="elementor-heading-title elementor-size-default">Contact</h3>
+                                                                <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Địa chỉ</h3>
+                                                                <div class="br_ft"><i></i></div>
                                                             </div>
                                                             </div>
                                                             <div class="elementor-element elementor-element-3a96ffcb elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3a96ffcb" data-element_type="widget" data-widget_type="icon-list.default">
                                                             <div class="elementor-widget-container">
                                                                 <ul class="elementor-icon-list-items">
                                                                     <li class="elementor-icon-list-item">
-                                                                        <span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="fab fa-whatsapp"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">555 342 0032</span>
+                                                                        <img src="/images/icon/f1.svg" alt="">
+                                                                        <p class="text-white">Nhà máy 1: An Lạc, Trưng Trắc, Văn Lâm, Hưng Yên <br> Nhà máy 2: Km7, Quốc lộ 39, thị trấn Yên Mỹ, H. Yên Mỹ, Hưng Yên</p>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-telephone"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">666 888 0000</span>
+                                                                        <img src="/images/icon/f2.svg" alt="">
+                                                                        <p class="text-white">02213 997 768</p>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-email"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">needhelp@company.com</span>
+                                                                        <img src="/images/icon/f3.svg" alt="">
+                                                                        <p class="text-white">Thời gian làm việc: T.2 - T.7: 7h00 - 17h00</p>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
-                                                                        <span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true" class="flaticon seorun-icon agrikon-icon-pin"></i>						</span>
-                                                                        <span class="elementor-icon-list-text">80 broklyn golden street line New York, USA</span>
+                                                                        <img src="/images/icon/f4.svg" alt="">
+                                                                        <p class="text-white">cskh@phavico.com</p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -484,7 +421,7 @@ $check_menu = $controller .'/'.$action;
                                                         <div class="elementor-widget-wrap">
                                                             <div class="elementor-element elementor-element-2c4c7a0a agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="2c4c7a0a" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <p class="elementor-heading-title elementor-size-default">© Copyright 2020 by Ninetheme.com</p>
+                                                                <p class="elementor-heading-title elementor-size-default">Copyrights © 2012-2023 CÔNG TY CP THỨC ĂN CHĂN NUÔI PHAVICO.</p>
                                                             </div>
                                                             </div>
                                                         </div>
@@ -494,24 +431,13 @@ $check_menu = $controller .'/'.$action;
                                                     <div class="elementor-column-wrap elementor-element-populated">
                                                         <div class="elementor-widget-wrap">
                                                             <div class="elementor-element elementor-element-4fa1fa37 elementor-icon-list--layout-inline elementor-align-right elementor-tablet-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4fa1fa37" data-element_type="widget" data-widget_type="icon-list.default">
-                                                            <div class="elementor-widget-container">
-                                                                <ul class="elementor-icon-list-items elementor-inline-items">
-                                                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                                                        <span class="elementor-icon-list-text">Terms &amp; Conditions</span>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                                                        <span class="elementor-icon-list-text">/</span>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                                                        <span class="elementor-icon-list-text">Privacy Policy</span>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                                                        <span class="elementor-icon-list-text">/</span>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                                                        <span class="elementor-icon-list-text">Sitemap</span>
-                                                                    </li>
-                                                                </ul>
+                                                            <div class="elementor-widget-container gr_frs">
+                                                                <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi 02213 997 768</p>
+                                                                <div>
+                                                                    <a href=""><img src="/images/icon/s1.svg" alt=""></a>
+                                                                    <a href=""><img src="/images/icon/s2.svg" alt=""></a>
+                                                                    <a href=""><img src="/images/icon/s3.svg" alt=""></a>
+                                                                </div>
                                                             </div>
                                                             </div>
                                                         </div>

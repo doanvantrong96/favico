@@ -81,6 +81,43 @@ $(window).scroll(function() {
 }).scroll();
 
 $(document).ready(function(){
+  $('.list_cus').slick({
+    arrows: false,
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    centerMode: true,
+    variableWidth: true,
+    autoplay: false,
+    autoplaySpeed: 3000,
+});
+  $('.banner_home_gr').slick({
+    draggable: true,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    arrows: false,
+    dots: true,
+    fade: true,
+    speed: 500,
+    infinite: true,
+    cssEase: 'ease-in-out',
+    touchThreshold: 100
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $(document).on('click','.overlay_left_right .slick-prev',function(){
     $(this).parent().parent().find('.mc-carousel__peek--after').css('opacity',1);
     if( $(this).hasClass('slick-disabled')){

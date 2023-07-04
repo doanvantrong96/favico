@@ -106,7 +106,7 @@ return [
                 'thanh-toan-buoc-2' => '/site/final-payment',
                 'thanh-toan' => '/site/payment',
                 'cai-dat' => '/site/info-user',
-                've-chung-toi'=>'/site/about',
+                'about'=>'/site/about',
                 'tien-trinh-cua-toi'=>'/site/my-progress',
                 'payment/VnpayCreatePayment'    => 'payments/vnpay-create-payment',
                 'payments/VnpayIpn'    => 'payments/vnpay-ipn',

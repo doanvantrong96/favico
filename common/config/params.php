@@ -5,7 +5,7 @@ return [
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
-    'domain_frontend' => 'https://abe.edu.vn',
+    'domain_frontend' => 'https://favico.com',
     'product_status' =>[
         '0' =>'Không bán',
         '1' =>'Đang bán',

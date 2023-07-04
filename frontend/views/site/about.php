@@ -2,105 +2,48 @@
 <?php
 use yii\helpers\Url;
 use yii\web\View ;
-
-$url_abe = 'https://elearning.abe.edu.vn';
 ?>
-<link rel="stylesheet" href="/css/home.css" />
+<section class="banner_bread text-center text-white">
+    <div class="breadcrumbs">
+        <a href="/">HOME</a>
+        <span>/</span>
+        <p>GIỚI THIỆU</p>
+    </div>
+    <h6>GIỚI THIỆU</h6>
+</section>
 
-<div class="container">
-    <section class="about_top">
-        <div class="group_gt position-relative">
-            <h2>VỀ ABE ACADEMY</h2>
-            <img src="/images/about/anh-1/ntt.jpg" alt="">
-        </div>
-        <div class="mt-4">
-            <p>ABE Academy là tổ chức giáo dục đào tạo trực thuộc IMCE Global, có nhiệm vụ xây dựng và chuyển giao những chương trình giáo dục - đào tạo - huấn luyện dành cho doanh nghiệp, doanh nhân với tiêu chuẩn quốc tế. Mục tiêu của ABE Academy là kiến tạo những thế hệ doanh chủ hội nhập, hiện thực hoá khát vọng một Việt Nam giàu mạnh và uy tín trên thương trường quốc tế.</p>
-        </div>
-    </section>
-    <section class="comment_cg">
-        <div class="gr_h2">
-            <div></div>
-            <h2>TUYÊN NGÔN ĐỊNH VỊ</h2>
-            <!-- <div class="mt-4">
-            <p>Là một tổ chức giáo dục uy tín trong khu vực Đông Á với lợi thế cốt lõi là: kiến tạo &  chuyển giao những tinh hoa tri thức quản trị của thế giới.</p>
-        </div> -->
-        </div>
-        <div class="group_cg position-absolute posi_1">
-            <img src="/images/chuyengia/NTT.jpg" alt="">
-            <div class="text_cg">
-                <span>NGUYỄN TẤT THỊNH</span>
-                <p>Viện trưởng ABE Academy</p>
+<section class="top_about position-relative">
+    <div class="container">
+        <div class="gr_top_about">
+            <img src="/images/page/bg-about.png" alt="">
+            <div>
+                <p>Tầm nhìn Phavico (tới năm 2025)</p>
+                <span>Kiến tạo vị thế là một doanh nghiệp sản xuất & cung ứng những sản phẩm - giải pháp - dịch vụ trong ngành thức ăn chăn nuôi Top 1 Việt Nam, định vị thương hiệu là một doanh nghiệp mạnh - uy tín trong & ngoài nước, phụng sự xã hội vì một cộng đồng nông nghiệp Việt Nam thịnh vượng.</span>
+                <img src="/images/page/avatar-about.png" alt="">
             </div>
         </div>
-        <div class="group_cg position-absolute posi_2">
-            <img src="/images/chuyengia/NHP.jpg" alt="">
-            <div class="text_cg">
-                <span>NGUYỄN HOÀNG PHƯƠNG</span>
-                <p>Chủ tịch ABE Academy</p>
-            </div>
+    </div>
+    <img class="bg_r" src="/images/page/bg-abr.png" alt="">
+</section>
+
+<section class="content_about">
+    <div class="content_about_gr">
+        <div class="content_about_item">
+            <h2>Tư tưởng cốt lõi Phavico <br> (Giá trị cốt lõi & Mục đích cốt lõi & Sứ Mệnh)</h2>
+            <ul>
+                <li>Những giá trị cốt lõi (Những nguyên lý cần thiết & lâu dài của một tổ chức, là giá trị cơ bản và được gìn giữ, không thay đổi theo thời gian phát triển).</li>
+                <li>Cùng gánh vác trách nhiệm xã hội</li>
+                <li>Trung thực & chính trực</li>
+                <li>Lợi nhuận xuất phát từ những lợi ích hướng tới cộng đồng</li>
+                <li>Làm việc chăm chỉ & liên tục trau dồi bản thân</li>
+                <li>Khuyến khích sự sáng tạo & năng lực cá nhân.</li>
+                <li>Mục tiêu cốt lõi (Lý do tồn tại & phát triển của tổ chức, phản ánh động cơ lý tưởng của nguồn nhân lực khi làm việc tại công ty, gợi ra những cảm hứng thay đổi):</li>
+                <li>Kiến tạo những giá trị mới cho nông nghiệp - chăn nuôi Việt Nam, gìn giữ & nâng cao đời sống nông gia.</li>
+                <li>Sứ mệnh (Những bổn phận sẽ thực thi với vai trò là một doanh nghiệp sản xuất & hoạt động trong ngành thức ăn chăn nuôi, thuộc lĩnh vực nông nghiệp).</li>
+                <li>Trở thành nhà sản xuất top 1 Việt Nam về sản lượng - dẫn đầu về chất lượng trên nền tảng của một doanh nghiệp xây dựng thương hiệu qua văn hóa doanh nghiệp.</li>
+                <li>Kiến tạo năng lực hệ thống đầy đủ & toàn diện hoạt động trong chuỗi giá trị nông nghiệp Việt Nam, kết nối cùng khu vực & hội nhập được với thế giới.</li>
+                <li>Thúc đẩy việc thay đổi tư duy trong lĩnh vực sản xuất thức ăn chăn nuôi tại Viêt Nam - hướng tới cộng đồng liên hệ chặt chẽ 3 nhà: Nhà Sản Xuất - Nhà Nông - Nhà Khoa học.</li>
+            </ul>
         </div>
-        <div class="position-absolute cg_text">
-            <h2>KIẾN TẠO HOÀI BÃO LỚN!</h2>
-        </div>
-        <div class="group_cg position-absolute posi_3">
-            <img src="/images/chuyengia/CHOI.png" alt="">
-            <div class="text_cg">
-                <span>CHOI BONG SIK</span>
-                <p>Chủ tịch World OKTA</p>
-            </div>
-        </div>
-        <div class="group_cg position-absolute posi_4">
-            <img src="/images/chuyengia/DNP.jpg" alt="">
-            <div class="text_cg">
-                <span>DANIEL PHAM</span>
-                <p>Phó Chủ tịch IMCE Global</p>
-            </div>
-        </div>
-        <div class="group_cg position-absolute posi_5">
-            <img src="/images/chuyengia/SRK.jpg" alt="">
-            <div class="text_cg">
-                <span>SOREN KIRCHNER</span>
-                <p>Chủ tịch Hiệp hội Quản trị toàn cầu</p>
-            </div>
-        </div>
-    </section>
-    <section class="number_imp">
-        <div class="gr_h2">
-            <div></div>
-            <h2>ĐỘI NGŨ CHUYÊN GIA – GIẢNG SƯ HÀNG ĐẦU</h2>
-        </div>
-        <div class="group_nb">
-            <div class="number_cg">
-                <h2>20+</h2>
-                <span>20 năm giảng dậy & trực tiếp điều hành và tư vấn doanh nghiệp</span>
-            </div>
-            <div class="number_cg">
-                <h2>100K+</h2>
-                <span>Doanh nhân & quản lý cấp cao được huấn luyện và đào tạo</span>
-            </div>
-            <div class="number_cg">
-                <h2>86K+</h2>
-                <span>Người theo dõi ABE Academy tại các nền tảng social media</span>
-            </div>
-        </div>
-    </section>
-    <section class="register_about">
-        <span>ABE Academy xác định tầm nhìn: Kiến tạo và chuyển giao những tinh hoa tri thức quản trị của thế giới, trở thành một tổ chức giáo dục uy tín hàng đầu trong nước và quốc tế dành cho doanh nhân, doanh nghiệp.</span>
-        <!-- <p>Our communities of focus are low-income families, BIPOC youth, and current or formerly incarcerated individuals. If your organization supports one or more of these communities that you believe could benefit from the gift of learning, please submit an application and our team will be in touch.</p> -->
-        <a data-url="/dang-ky" id="btnSignUpInSide"  class="btn btn-link btn-open-modal a_register_about">ĐĂNG KÝ NGAY</a>
-    </section>
-</div>
-<section class="partner_about">
-        <div class="container">
-            <div class="gr_h2">
-                <div></div>
-                <h2>Sứ mệnh ABE</h2>
-            </div>
-            <div class="text_part">
-                <p>- Với vai trò giáo dục, ABE Academy có trách nhiệm xây dựng một cộng đồng doanh nghiệp Việt Nam sở hữu tri thức - trách nhiệm - khát vọng.</p>
-                <p>- Với vai trò nghiên cứu, ABE Academy đi đầu trong nghiên cứu, tiếp thu, chuyển hoá những giá trị tri thức mới, thực tế, khai phóng.</p>
-                <p>- Với vai trò đào tạo, ABE Academy sẽ đồng hành cùng các doanh nhân và doanh nghiệp trong sự phát triển dài hạn, bền vững và có trách nhiệm với xã hội.</p>
-                <a data-url="/dang-ky" id="btnSignUpInSide"  class="btn btn-link btn-open-modal a_register_about">ĐĂNG KÝ NGAY</a>
-            </div>
-        </div>
+    </div>
 </section>
