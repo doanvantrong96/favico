@@ -37,8 +37,6 @@ class AboutsController extends Controller
      */
     public function actionIndex()
     {
-        phpinfo();
-        die;
         $searchModel = new AboutsSearch();
         
         $params         = Yii::$app->request->queryParams;
