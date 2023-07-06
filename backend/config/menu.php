@@ -85,24 +85,19 @@ $group_config_home = [
         'url' => '/banner/index'
     ],
     [
-        'label' => 'Khoá học, Sự kiện',
-        'icon' => 'fal fa-window',
-        'url' => '/config/index'
-    ],
-    [
         'label' => 'Đối tác',
         'icon' => 'fal fa-users',
         'url' => '/partner/index'
     ],
     [
-        'label' => 'Câu chuyện học viên',
-        'icon' => 'fal fa-user',
-        'url' => '/student-story/index'
+        'label' => 'Về chúng tôi',
+        'icon' => 'fal fa-bookmark',
+        'url' => '/abouts/index'
     ],
     [
-        'label' => 'Câu chuyện cộng đồng',
-        'icon' => 'fal fa-user',
-        'url' => '/community-story/index'
+        'label' => 'Góc kỹ thuật',
+        'icon' => 'fal fa-wrench',
+        'url' => '/technical/index'
     ],
     [
         'label' => 'Nhóm câu hỏi thường gặp',
@@ -125,7 +120,12 @@ $group_news = [
         'label' => 'Danh sách bài viết',
         'icon' => 'fal fa-list',
         'url' => '/news/index'
-    ]
+    ],
+    [
+        'label' => 'Quản lý chuyên mục',
+        'icon' => 'fal fa-tags',
+        'url' => '/category/index'
+    ],
 ];
 $group_lecturer_report = [
     [
@@ -183,19 +183,19 @@ $menu_group_controller = [
         'icon'  => 'fal fa-cog',
         'controller' => 'banner,config',
         'child_action' => $group_config_home
-    ],
-    [
-        'label' => 'Khoá học',
-        'icon'  => 'fal fa-window',
-        'controller' => 'course,lecturer,course-category,course-lesson',
-        'child_action' => $group_course
-    ],
-    [
-        'label' => 'Mã khuyến mại',
-        'icon'  => 'fal fa-gift',
-        'controller' => 'gift-code',
-        'child_action' => $group_gift_code
-    ],
+    ],  
+    // [
+    //     'label' => 'Khoá học',
+    //     'icon'  => 'fal fa-window',
+    //     'controller' => 'course,lecturer,course-category,course-lesson',
+    //     'child_action' => $group_course
+    // ],
+    // [
+    //     'label' => 'Mã khuyến mại',
+    //     'icon'  => 'fal fa-gift',
+    //     'controller' => 'gift-code',
+    //     'child_action' => $group_gift_code
+    // ],
     [
         'label' => 'Tin tức',
         'icon'  => 'fal fa-newspaper',

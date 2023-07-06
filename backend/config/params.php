@@ -6,6 +6,14 @@ return [
         1        => 'Hoạt động',
         0        => 'Không hoạt động'
     ],
+    'positionList' => [
+        1        => 'Danh sách',
+        0        => 'Tiêu đề chính'
+    ],
+    'commentTypeList' => [
+        0        => 'Comment sản phẩm',
+        1        => 'Comment trang chủ'
+    ],
     'stateCommunityList' => [
         1        => 'Hiển thị',
         0        => 'Ẩn'

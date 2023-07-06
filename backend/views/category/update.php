@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $model backend\models\CategoryTags */
 
 $this->title = 'Cập nhật';
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Danh mục'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Chuyên mục'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->name;
 $this->params['breadcrumbs'][] = Yii::t('app', 'Cập nhật');
 ?>

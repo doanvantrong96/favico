@@ -404,6 +404,16 @@ class CommonController extends Controller
         $statusList = Yii::$app->params['statusList'];
         return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
     }
+
+    public static function getTypeComment($status_id){
+        $statusList = Yii::$app->params['commentTypeList'];
+        return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
+    }
+    
+    public static function getPositionName($status_id){
+        $statusList = Yii::$app->params['positionList'];
+        return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
+    }
     public static function getStatusNameCommunity($status_id){
         $statusList = Yii::$app->params['statusCommunityList'];
         return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';

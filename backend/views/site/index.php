@@ -96,41 +96,7 @@ $this->title = 'Dashboard';
         </div>
         <div class="panel-container collapse show top-post top" style="">
             <div class="panel-content" style="min-height:200px;position: relative;">
-                <?php 
-                if( !empty($dataProvider->getModels()) )
-                    echo GridView::widget([
-                    'dataProvider' => $dataProvider,
-                    'emptyText' => 'Không có khoá học nào',
-                    'summary' => "<p class='summary_data'>Hiển {begin} - {end} trong tổng số <b>{totalCount}</b> khoá học</p>",
-                    'layout'=> "{summary}\n{items}\n<div class='page-navigation'>{pager}</div>",
-                    'columns' => [
-                        ['class' => 'yii\grid\SerialColumn', 'header'=> 'STT'],
-                        [
-                            'label'=>'Tên khoá học',
-                            'format' => 'raw',
-                            'value' => function ($model) {
-                                $html = '<p style="margin-bottom: 0;"><a href="/course/view?id=' . $model->id . '"><b>' . $model['name'] . '</b></a></p>';
-                                // $html .= '<i class="date-create">Ngày tạo: ' . date('H:i d/m/Y', strtotime($model['create_date'])) . '</i>';
-                                // if( $model->is_coming ){
-                                //     $html .= '<label class="coming">Sắp diễn ra</label>';
-                                // }
-                                return $html;
-                            },
-                            'contentOptions' => ['style'=>'position:relative']
-                        ],
-                        [
-                            'label'=>'Lượt xem',
-                            'format' => 'raw',
-                            'value' => function ($model) {
-                                return number_format($model->total_view, 0, ',', '.');
-                            },
-                            'contentOptions' => ['style'=>'position:relative']
-                        ]
-                    ],
-                    ]); 
-                else
-                    echo '<p class="text-center" style="margin-top:30px">Không có khoá học nào</p>';
-                ?>
+                
             </div>
         </div>
     </div>

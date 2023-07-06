@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\CategoryTags */
 
 $this->title = Yii::t('app', 'Thêm');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Danh mục'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Chuyên mục'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>

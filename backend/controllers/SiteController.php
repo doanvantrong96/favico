@@ -92,17 +92,11 @@ class SiteController extends Controller
                 return $this->getDataStatistic($post['type'], $post['date_start'],$post['date_end'],true);
             }
             $dataStatistic = $this->getDataStatistic('all', $date_start,$date_end);
-            
-            $searchModel = new CourseSearch();
-            $searchModel->is_trending = 1;
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [
                 'dataStatistic' => $dataStatistic,
                 'date_start' => $date_start,
-                'date_end'   => $date_end,
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
+                'date_end'   => $date_end
             ]);
         }else{
             return $this->render('index_default', [

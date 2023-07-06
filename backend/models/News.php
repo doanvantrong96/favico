@@ -47,10 +47,10 @@ class News extends \yii\db\ActiveRecord
 
     public function beforeSave($insert){
        
-        // if( is_array($this->category_id) ){
-            $arrCateId = array_keys(Yii::$app->params['category_news']);
-            $this->category_id = ';' . implode(';',$arrCateId) . ';';
-        // }
+        if( is_array($this->category_id) ){
+            // $arrCateId = array_keys(Yii::$app->params['category_news']);
+            $this->category_id = ';' . implode(';',$this->category_id) . ';';
+        }
         if( is_array($this->related_news) ){
             $this->related_news = ';' . implode(';',$this->related_news) . ';';
         }

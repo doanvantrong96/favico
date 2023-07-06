@@ -5,9 +5,9 @@ use yii\grid\GridView;
 use backend\models\Category;
 use yii\helpers\ArrayHelper;
 
-$this->title = 'Quản lý danh mục';
+$this->title = 'Quản lý chuyên mục';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['breadcrumbs']['description_page'] = 'Quản lý danh sách danh mục';
+$this->params['breadcrumbs']['description_page'] = 'Quản lý danh sách chuyên mục';
 $controller = Yii::$app->controller->id;
 $this->params['breadcrumbs']['icon_page'] = 'fa-tag';
 ?>
@@ -19,8 +19,8 @@ $this->params['breadcrumbs']['icon_page'] = 'fa-tag';
         <div class="card-body table-responsive">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
-                'emptyText' => 'Không có danh mục nào',
-                'summary' => "<p class='summary_data'>Hiển thị {begin} - {end} trong tổng số <b>{totalCount}</b> danh mục</p>",
+                'emptyText' => 'Không có chuyên mục nào',
+                'summary' => "<p class='summary_data'>Hiển thị {begin} - {end} trong tổng số <b>{totalCount}</b> chuyên mục</p>",
                 'layout'=> "{summary}\n{items}\n<div class='page-navigation'>{pager}</div>",
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn','header' => 'STT'],
@@ -56,7 +56,7 @@ $this->params['breadcrumbs']['icon_page'] = 'fa-tag';
                                 return '<a title="Cập nhật" style="margin:0 8px" href="/' . $controller . '/update?id=' . $url->id . '"><i class="fal fa-pencil"></i></a>';
                             },
                             'delete' => function ($model, $url) use ( $controller){
-                                return '<a title="Xoá" onclick="return confirm(\'Bạn có chắc chắn muốn xoá danh mục này?\')" href="/' . $controller . '/delete?id=' . $url->id . '"><i class="fal fa-trash"></i></a>';
+                                return '<a title="Xoá" onclick="return confirm(\'Bạn có chắc chắn muốn xoá chuyên mục này?\')" href="/' . $controller . '/delete?id=' . $url->id . '"><i class="fal fa-trash"></i></a>';
                             }
                         ],
                     ],
