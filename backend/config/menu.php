@@ -146,6 +146,37 @@ $group_gift_code = [
         'url' => '/gift-code/index'
     ]
 ];
+
+$group_comment = [
+    [
+        'label' => 'Quản lý bình luận',
+        'icon' => 'fal fa-comments',
+        'url' => '/comment/index'
+    ]
+];
+
+$group_product = [
+    [
+        'label' => 'Danh sách sản phẩm',
+        'icon' => 'fal fa-tasks',
+        'url' => '/product/index'
+    ],
+    [
+        'label' => 'Thêm mới sản phẩm',
+        'icon' => 'fal fa-plus',
+        'url' => '/product/create'
+    ],
+    [
+        'label' => 'Quản lý nhà cung cấp',
+        'icon' => 'fal fa-building',
+        'url' => '/product-category/index'
+    ],
+    [
+        'label' => 'Quản lý loại sản phẩm',
+        'icon' => 'fal fa-file',
+        'url' => '/product-tag/index'
+    ]
+];
 $group_sale_admin = [
     [
         'label' => 'Dashboard',
@@ -194,8 +225,20 @@ $menu_group_controller = [
     //     'label' => 'Mã khuyến mại',
     //     'icon'  => 'fal fa-gift',
     //     'controller' => 'gift-code',
-    //     'child_action' => $group_gift_code
+    //     'child_action' => $group_gift_codegroup_comment
     // ],
+    [
+        'label' => 'Quản lý bình luận',
+        'icon'  => 'fal fa-gift',
+        'controller' => 'comment',
+        'child_action' => $group_comment
+    ],
+    [
+        'label' => 'Quản lý sản phẩm',
+        'icon'  => 'fal fa-book',
+        'controller' => 'product',
+        'child_action' => $group_product
+    ],
     [
         'label' => 'Tin tức',
         'icon'  => 'fal fa-newspaper',

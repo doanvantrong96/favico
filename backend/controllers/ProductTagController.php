@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Abouts;
-use backend\models\AboutsSearch;
+use backend\models\ProductTag;
+use backend\models\ProductTagSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,7 +14,7 @@ use backend\models\ActionLog;
 /**
  * MedicalController implements the CRUD actions for Medical model.
  */
-class AboutsController extends Controller
+class ProductTagController extends Controller
 {
     /**
      * @inheritdoc
@@ -37,9 +37,7 @@ class AboutsController extends Controller
      */
     public function actionIndex()
     {
-        phpinfo();
-        die;
-        $searchModel = new AboutsSearch();
+        $searchModel = new ProductTagSearch();
         
         $params         = Yii::$app->request->queryParams;
         $dataProvider   = $searchModel->search($params);
@@ -69,7 +67,7 @@ class AboutsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Abouts();
+        $model = new ProductTag();
        
         if($model->load(Yii::$app->request->post()) && $model->validate())
         {            
@@ -107,19 +105,19 @@ class AboutsController extends Controller
 
     public function actionDelete($id)
     {
-        $model = Abouts::findOne($id);
+        $model = ProductTag::findOne($id);
         if( $model ){
             $modelOld   = $model->getAttributes();
             $model->status = 0;
             $model->save(false);
-            Yii::$app->session->setFlash('success', "Ẩn banner thành công");
+            Yii::$app->session->setFlash('success', "Ẩn thành công");
         }
         return $this->redirect(Yii::$app->request->referrer ?: ['index']);
     }
 
     protected function findModel($id)
     {
-        if (($model = Abouts::findOne($id)) !== null) {
+        if (($model = ProductTag::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

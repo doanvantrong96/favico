@@ -6,6 +6,10 @@ return [
         1        => 'Hoạt động',
         0        => 'Không hoạt động'
     ],
+    'statusProduct' => [
+        0        => 'Sản phẩm thường',
+        1        => 'Sản phẩm nổi bật'
+    ],
     'positionList' => [
         1        => 'Danh sách',
         0        => 'Tiêu đề chính'
