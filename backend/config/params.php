@@ -65,4 +65,23 @@ return [
         'edit_all_post' => ['Sửa bài viết bỏ qua trạng thái'],
         'view_dashboard'=> ['Xem DashBoard']
     ],
+    'type_config' => [
+        'menu_top_left'     => 'Menu trên - trái',
+        'menu_top_right'    => 'Menu trên - phải',
+        'hotline'           => 'Hotline',
+        'logo'              => 'Logo',
+        'fav_icon'          => 'Logo web',
+        'map_vn'            => 'Ảnh mạng lưới',
+        'bgr_technical'     => 'Ảnh nền nền Góc kỹ thuật',     
+        'bgr_footer'        => 'Ảnh nền Chân trang',     
+        'name_web'          => 'Tên công ty',
+        'address'           => 'Địa chỉ',
+        'work_time'         => 'Thời gian làm việc',
+        'email'             => 'Email',
+        'facebook'          => 'Facebook',
+        'youtube'           => 'YouTube',
+        'zalo'              => 'Zalo',
+        'col_first_footer'  => 'Mục trong cột 1 chân trang',
+        'col_last_footer'   => 'Mục trong cột 2 chân trang'
+    ]
 ];

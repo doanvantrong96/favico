@@ -6,10 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-/**
- * StudentStorySearch represents the model behind the search form about `backend\models\StudentStory`.
- */
-class StudentStorySearch extends StudentStory
+class ConfigSearch extends Config
 {
     /**
      * @inheritdoc
@@ -17,8 +14,8 @@ class StudentStorySearch extends StudentStory
     public function rules()
     {
         return [
-            [['id','status'], 'integer'],
-            [['content'],'safe']
+            [['id'], 'integer'],
+            [['status'], 'number'],
         ];
     }
 
@@ -40,7 +37,7 @@ class StudentStorySearch extends StudentStory
      */
     public function search($params)
     {
-        $query = StudentStory::find();
+        $query = Config::find();
 
         // add conditions that should always apply here
 
@@ -61,11 +58,10 @@ class StudentStorySearch extends StudentStory
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'create_date' => $this->create_date,
             'status' => $this->status,
-            'is_delete' => 0
         ]);
         
-        $query->andFilterWhere(['like', 'content', $this->content]);
         $query->orderBy(['id' => SORT_DESC]);
 
         return $dataProvider;

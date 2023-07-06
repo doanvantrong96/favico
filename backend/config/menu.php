@@ -24,6 +24,13 @@ $group_setting = [
     //     'url' => '/permission/index'
     // ]
 ];
+$group_config = [
+    [
+        'label' => 'Cài đặt khác',
+        'icon' => 'fal fa-cogs',
+        'url' => '/config/index'
+    ]
+];
 $group_banner = [
     [
         'label' => 'Quản lý banner',
@@ -132,6 +139,12 @@ $menu_group_controller = [
         'icon'  => 'fal fa-cog',
         'controller' => 'assignment,role,permission',
         'child_action' => $group_setting
+    ],
+    [
+        'label' => 'Cái đặt khác',
+        'icon'  => 'fal fa-cogs',
+        'controller' => 'config',
+        'child_action' => $group_config
     ]
 ];
 
