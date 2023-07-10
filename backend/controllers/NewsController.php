@@ -157,7 +157,7 @@ class NewsController extends Controller
             }
             if( !isset($_POST['News']['category_id']) || empty($_POST['News']['category_id']) )
                 $model->category_id = '';
-
+                
             if( $model->save(false) ){
 
                 ActionLog::insertLog(ActionLog::MODULE_NEWS, $model, ActionLog::TYPE_UPDATE, Yii::$app->user->identity->getId(), ActionLog::SOURCE_BACKEND, $modelOld);

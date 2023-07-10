@@ -149,15 +149,15 @@ class AssignmentController extends Controller
             }
         }
         if( isset($params['User']) || isset($params['Userinfo']) ){
-            if( !Yii::$app->user->identity->is_admin && isset($params['User']['is_admin']) )
-                unset($params['User']['is_admin']);
+            // if( !Yii::$app->user->identity->is_admin && isset($params['User']['is_admin']) )
+            //     unset($params['User']['is_admin']);
             if( isset($params['Userinfo']) )
                 $params['User'] = $params['Userinfo'];
             
             foreach($params['User'] as $column=>$value){
                 $model->$column = $value;
             }
-            
+            $model->is_admin = 1;
             $model->password = md5(md5($model->password));
             $model->create_date = time();
             $model->ip          = $_SERVER['REMOTE_ADDR'];
@@ -235,10 +235,10 @@ class AssignmentController extends Controller
         }
         $modelOld['role'] = $listRoleAccess;
         if( isset($params['User']) || isset($params['Userinfo']) ){
-            if( !Yii::$app->user->identity->is_admin && isset($params['User']['is_admin']) )
-                unset($params['User']['is_admin']);
-            if( Yii::$app->user->identity->is_admin && !isset($params['User']['is_admin']) )
-                $params['User']['is_admin'] = 0;
+            // if( !Yii::$app->user->identity->is_admin && isset($params['User']['is_admin']) )
+            //     unset($params['User']['is_admin']);
+            // if( Yii::$app->user->identity->is_admin && !isset($params['User']['is_admin']) )
+            //     $params['User']['is_admin'] = 0;
             if( isset($params['Userinfo']) )
                 $params['User'] = $params['Userinfo'];
             

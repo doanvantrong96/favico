@@ -18,7 +18,7 @@ $this->registerJS('(function(){
             <div class="panel" style="width:100%">
                 <div class="panel-hdr">
                     <h2>
-                        Thông tin danh mục
+                        Thông tin chuyên mục
                     </h2>
                 </div>
                 <div class="panel-container show">
