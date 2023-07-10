@@ -12,15 +12,6 @@ use yii\helpers\Url;
 
 AppAsset::register($this);
 
-if(Yii::$app->user->identity) {
-    $session = Yii::$app->session;
-    $data_cart = $session->get('info_course_cart');
-    $check_cart = 0;
-    if(!empty($data_cart)){
-        $check_cart = count($data_cart);
-    }
-}
-
 
 
 //affilicate
@@ -118,7 +109,7 @@ $check_menu = $controller .'/'.$action;
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=1438665563271474&autoLogAppEvents=1" nonce="NvknslKE"></script>
 
         <!--Start of Tawk.to Script New-->
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -128,7 +119,7 @@ $check_menu = $controller .'/'.$action;
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
             })();
-            </script>
+            </script> -->
         <!--End of Tawk.to Script-->
 
         <!-- Messenger Chat Plugin Code --> 
@@ -149,9 +140,42 @@ $check_menu = $controller .'/'.$action;
         <?php $this->registerCsrfMetaTags() ?>
     </head>
     <?php $this->beginBody() ?>
+    <div class="logo-box">
+        <a href="https://ninetheme.com/themes/agrikon/" aria-label="logo image" class="nt-logo header-logo logo-type-img has-mobile-logo">
+            <img class="main-logo" src="/images/page/logo.png" alt="Agrikon" />
+            <img class="main-logo sticky-logo" src="" alt="Agrikon" />
+
+            <img class="main-logo mobile-logo" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-1.png" alt="Agrikon" />
+        </a>
+        <span class="fa fa-bars mobile-nav__toggler"></span>
+    </div>
+    <div class="mobile-nav__wrapper mobile-nav__default">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="far fa-times"></i></span>
+            <div class="mobile-nav__container">
+                <div class="container">
+                    <ul class="main-menu__list">
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="/">TRANG CHỦ</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['site/about']); ?>">GIỚI THIỆU</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['product/index']); ?>">SẢN PHẨM</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['news/detail']); ?>">TIN TỨC</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['news/recruitment']); ?>">TUYỂN DỤNG</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['site/contact']); ?>">LIÊN HỆ</a></li>
+                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item">
+                            <a class="hotline_header hotline_mb flex-center" href="/">
+                                <span>GỌI NGAY</span>
+                                <p class="mb-0">02213 997 768</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
     <div class="elementor-2700 elementor">
         <div id="fb-customer-chat"></div>
-        <section class="elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <section class=" <?= ($controller == 'site' && $action == 'index') ? 'theme_home' : 'not_theme_home' ?> elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-container elementor-column-gap-default">
             <div class="elementor-row align-items-center">
                 <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7d7708f" data-id="7d7708f" data-element_type="column">
@@ -165,15 +189,15 @@ $check_menu = $controller .'/'.$action;
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/about/"><span class="elementor-icon-list-text">Giới thiệu</span>
+                                    <a href="<?= Url::to(['site/about']); ?>"><span class="elementor-icon-list-text">Giới thiệu</span>
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/services/"><span class="elementor-icon-list-text">Sản phẩm</span>
+                                    <a href="<?= Url::to(['product/index']); ?>"><span class="elementor-icon-list-text">Sản phẩm</span>
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/shop/"><span class="elementor-icon-list-text">Tin tức</span>
+                                    <a href="<?= Url::to(['news/detail']); ?>"><span class="elementor-icon-list-text">Tin tức</span>
                                     </a>
                                     </li>
                                 </ul>
@@ -188,7 +212,7 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-element elementor-element-94cc6fc agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="94cc6fc" data-element_type="widget" data-widget_type="heading.default">
                             <div class="elementor-widget-container">
                                 <a href="">
-                                    <img src="/images/page/logo.svg" alt="">
+                                    <img class="logo_header" src="<?= ($controller == 'site' && $action == 'index') ? '/images/page/logo.svg' : '/images/page/logo-green.svg' ?>" alt="">
                                 </a>
                             </div>
                         </div>
@@ -202,16 +226,16 @@ $check_menu = $controller .'/'.$action;
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/"><span class="elementor-icon-list-text">Tuyển dụng</span>
+                                    <a href="<?= Url::to(['news/recruitment']); ?>"><span class="elementor-icon-list-text">Tuyển dụng</span>
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/"><span class="elementor-icon-list-text">Liên hệ</span>
+                                    <a href="<?= Url::to(['site/contact']); ?>"><span class="elementor-icon-list-text">Liên hệ</span>
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
                                         <a class="hotline_header flex-center" href="/">
-                                            <span class="elementor-icon-list-text text-center">GỌI NGAY <br> 02213 997 768</span>
+                                            <span class=" text-center text-white">GỌI NGAY <br> 02213 997 768</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -315,63 +339,65 @@ $check_menu = $controller .'/'.$action;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
-                                                    <div class="elementor-column-wrap elementor-element-populated">
-                                                        <div class="elementor-widget-wrap">
-                                                            <div class="elementor-element  agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
-                                                                <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Phavico</h3>
-                                                                <div class="br_ft"><i></i></div>
-                                                            </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
-                                                            <div class="elementor-widget-container">
-                                                                <ul class="elementor-icon-list-items">
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="">
-                                                                        <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="">
-                                                                        <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="">
-                                                                        <span class="elementor-icon-list-text link_ft">Tin tức</span>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+                                                <div class="gr_item_ft">
+                                                    <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
+                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap">
+                                                                <div class="elementor-element  agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Phavico</h3>
+                                                                    <div class="br_ft"><i></i></div>
+                                                                </div>
+                                                                </div>
+                                                                <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <ul class="elementor-icon-list-items">
+                                                                        <li class="elementor-icon-list-item">
+                                                                            <a href="">
+                                                                            <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="elementor-icon-list-item">
+                                                                            <a href="">
+                                                                            <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="elementor-icon-list-item">
+                                                                            <a href="">
+                                                                            <span class="elementor-icon-list-text link_ft">Tin tức</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
-                                                    <div class="elementor-column-wrap elementor-element-populated">
-                                                        <div class="elementor-widget-wrap">
-                                                            <div class="elementor-element agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
-                                                                <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Liên kết</h3>
-                                                                <div class="br_ft"><i></i></div>
-                                                            </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
-                                                            <div class="elementor-widget-container">
-                                                                <ul class="elementor-icon-list-items">
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="">
-                                                                        <span class="elementor-icon-list-text link_ft">Tuyển dụng</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="elementor-icon-list-item">
-                                                                        <a href="">
-                                                                        <span class="elementor-icon-list-text link_ft">Liên hệ</span>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+                                                    <div class="elementor-column elementor-inner-column elementor-element" data-id="521a428d" data-element_type="column">
+                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap">
+                                                                <div class="elementor-element agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="467b4e72" data-element_type="widget" data-widget_type="heading.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <h3 class="elementor-heading-title elementor-size-default title_ft text-white">Liên kết</h3>
+                                                                    <div class="br_ft"><i></i></div>
+                                                                </div>
+                                                                </div>
+                                                                <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <ul class="elementor-icon-list-items">
+                                                                        <li class="elementor-icon-list-item">
+                                                                            <a href="">
+                                                                            <span class="elementor-icon-list-text link_ft">Tuyển dụng</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="elementor-icon-list-item">
+                                                                            <a href="">
+                                                                            <span class="elementor-icon-list-text link_ft">Liên hệ</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -390,7 +416,10 @@ $check_menu = $controller .'/'.$action;
                                                                 <ul class="elementor-icon-list-items">
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f1.svg" alt="">
-                                                                        <p class="text-white">Nhà máy 1: An Lạc, Trưng Trắc, Văn Lâm, Hưng Yên <br> Nhà máy 2: Km7, Quốc lộ 39, thị trấn Yên Mỹ, H. Yên Mỹ, Hưng Yên</p>
+                                                                        <div>
+                                                                        <p class="text-white">Nhà máy 1: An Lạc, Trưng Trắc, Văn Lâm, Hưng Yên</p>
+                                                                        <p class="text-white">Nhà máy 2: Km7, Quốc lộ 39, thị trấn Yên Mỹ, H. Yên Mỹ, Hưng Yên</p>
+                                                                        </div>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f2.svg" alt="">
@@ -485,11 +514,6 @@ $check_menu = $controller .'/'.$action;
 <input type="hidden" value="" id="course_dis" name="course_id" value=""/>
 <script type="text/javascript">
     jQuery(function($){
-        <?php if(Yii::$app->user->identity && Yii::$app->user->identity->phone == null) { ?>
-            $(window).on('load', function() {
-                $('#modal_update_phone').modal('show');
-            });
-        <?php } ?>
         $(document).on('click','.btnSubmitUpdatePhone',function(){
             var phone = $('#phone_update').val();
             $.ajax({

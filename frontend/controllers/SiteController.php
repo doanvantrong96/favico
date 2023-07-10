@@ -179,65 +179,8 @@ class SiteController extends Controller
         ]);
     }
 
-
-
-    public function actionCreateStory(){
-        if(!empty($_POST)){
-            $address = $_POST['address'];
-            $content = $_POST['content'];
-            $expert_name = $_POST['expert_name'];
-            $file_name = NULL;
-            
-            if (!empty($_FILES['images'])) {
-                $file_name = $this->actionUploadFileAuthor($_FILES['images']);
-            }
-            $model = new CommunityStory();
-            $model->user_id = Yii::$app->user->identity->id;
-            $model->fullname = Yii::$app->user->identity->fullname;
-            $model->email = Yii::$app->user->identity->email;
-            $model->address = $address;
-            $model->content = $content;
-            $model->image = $file_name;
-            $model->expert_name = $expert_name;
-            $model->file_path = $file_name;
-            $model->save(false);
-            echo 1;
-            exit;
-        }
-    }
-
-    public function actionUploadFileAuthor($files)
-    {
-        if (!empty($files)) {
-            $year = date('Y');
-            $month = date('m');
-            $day = date('d');
-            // Create directory if it does not exist
-            if (!is_dir("uploads/image-story/")) {
-                mkdir("uploads/image-story/");
-            }
-            if (!is_dir("uploads/image-story/" . $year . "/")) {
-                mkdir("uploads/image-story/" . $year . "/");
-            }
-            if (!is_dir("uploads/image-story/" . $year . "/" . $month . "/")) {
-                mkdir("uploads/image-story/" . $year . "/" . $month . "/");
-            }
-            if (!is_dir("uploads/image-story/" . $year . "/" . $month . "/" . $day . "/")) {
-                mkdir("uploads/image-story/" . $year . "/" . $month . "/" . $day . "/");
-            }
-            // foreach($files as $file) {
-            for ($i = 0; $i < count($files['name']); $i++) {
-                $temp = explode(".", $files["name"][$i]);
-                $newfilename = date('H-i-s-') . rand() . '.' . end($temp);
-                $link_img = "/uploads/image-story/" . $year . "/" . $month . "/" . $day . "/" . $newfilename;
-                move_uploaded_file($files["tmp_name"][$i], "uploads/image-story/" . $year . "/" . $month . "/" . $day . "/" . $newfilename);
-
-                return $link_img;
-            }
-        }
-    }
     public function actionAbout(){
-        $this->view->title = 'Phavico';
+        $this->view->title = 'About';
         Yii::$app->view->registerMetaTag([
             'name' => 'description',
             'content' => ''
@@ -247,25 +190,31 @@ class SiteController extends Controller
         ]);
         return $this->render('about');
     }
-    public function actionPlan(){
-        return $this->render('plan');
-    }
-    // public function beforeAction($action)
-    // {
-    //     $referrer = Yii::$app->request->referrer ? Yii::$app->request->referrer : null;
-    //     if ( !Yii::$app->user->identity && $referrer && strpos($referrer,'login') === false && strpos($referrer,'signup') === false) {
-    //         $url_access = Yii::$app->request->referrer;
 
-    //         Yii::$app->session->set('url_access', $url_access);
-    //     }
-    //     return parent::beforeAction($action);
-    // }
-    
     /**
-     * Logs in a user.
+     * Displays contact page.
      *
      * @return mixed
      */
+    public function actionContact()
+    {
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+            } else {
+                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+            }
+
+            return $this->refresh();
+        } else {
+            return $this->render('contact', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    
     public function actionLogin()
     {
         $model = new LoginForm();
@@ -425,28 +374,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-            }
 
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
     /*
      * Signs user up.
      *

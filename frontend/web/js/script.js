@@ -99,12 +99,17 @@ $(document).ready(function(){
     arrows: false,
     dots: true,
     fade: true,
-    speed: 500,
+    speed: 1500,
     infinite: true,
     cssEase: 'ease-in-out',
     touchThreshold: 100
 });
-
+  $(document).on('click','.top_option', function(){
+    $(this).parent().toggleClass('active');
+  });
+  $(document).on('click','.mobile-nav__toggler', function(){
+    $('.mobile-nav__default').toggleClass('expanded');
+  });
 
 
 
