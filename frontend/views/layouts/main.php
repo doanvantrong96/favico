@@ -211,7 +211,7 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-widget-wrap">
                         <div class="elementor-element elementor-element-94cc6fc agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="94cc6fc" data-element_type="widget" data-widget_type="heading.default">
                             <div class="elementor-widget-container">
-                                <a href="">
+                                <a href="/">
                                     <img class="logo_header" src="<?= ($controller == 'site' && $action == 'index') ? '/images/page/logo.svg' : '/images/page/logo-green.svg' ?>" alt="">
                                 </a>
                             </div>
@@ -231,6 +231,78 @@ $check_menu = $controller .'/'.$action;
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
                                     <a href="<?= Url::to(['site/contact']); ?>"><span class="elementor-icon-list-text">Liên hệ</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <a class="hotline_header flex-center" href="/">
+                                            <span class=" text-center text-white">GỌI NGAY <br> 02213 997 768</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section class=" <?= ($controller == 'site' && $action == 'index') ? 'home_sticky' : 'not_theme_home not_home_sticky' ?> elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row align-items-center">
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7d7708f" data-id="7d7708f" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-794a64d elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="794a64d" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="<?= Url::to(['site/about']); ?>"><span class="<?= $controller.'/'.$action == 'site/about' ? 'active' : '' ?> elementor-icon-list-text">Giới thiệu</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="<?= Url::to(['product/index']); ?>"><span class="<?= $controller.'/'.$action == 'product/index' ? 'active' : '' ?> elementor-icon-list-text">Sản phẩm</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="<?= Url::to(['news/detail']); ?>"><span class="<?= $controller.'/'.$action == 'news/detail' ? 'active' : '' ?> elementor-icon-list-text">Tin tức</span>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-0848b61" data-id="0848b61" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-94cc6fc agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="94cc6fc" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <a href="/">
+                                    <img class="logo_header" src="<?= ($controller == 'site' && $action == 'index') ? '/images/page/logo.svg' : '/images/page/logo-green.svg' ?>" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e5c92af" data-id="e5c92af" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-23ae00a elementor-icon-list--layout-inline elementor-widget__width-auto elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="23ae00a" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="<?= Url::to(['news/recruitment']); ?>"><span class="<?= $controller.'/'.$action == 'news/recruitment' ? 'active' : '' ?> elementor-icon-list-text">Tuyển dụng</span>
+                                    </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                    <a href="<?= Url::to(['site/contact']); ?>"><span class="<?= $controller.'/'.$action == 'site/contact' ? 'active' : '' ?> elementor-icon-list-text">Liên hệ</span>
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">

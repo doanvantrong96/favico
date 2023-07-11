@@ -1085,8 +1085,143 @@ ul{
 .not_theme_home.elementor-element.elementor-element-6ac7fd0{
   background-color: #fff !important;
 }
+.fixed_h{
+  position: fixed;
+  top: 0 !important;
+  z-index: 11 !important;
+  width: 100%;
+  height: 90px !important;
+  transition: all .75s ease !important;
+  box-shadow: 0px 10px 60px 0px rgba(0,0,0,.1);
+}
+.home_sticky, .not_home_sticky {
+  top: -90px;
+  height: 0;
+}
+.not_home_sticky.fixed_h:after {
+  content: "";
+  width: 100%;
+  height: 16px;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  background-image: url(https://ninetheme.com/themes/agrikon/wp-content/themes/agrikon/images/shapes/ripped-paper-header-1.png);
+  background-position: center center;
+  background-size: cover;
+}
+.media_left a p, .media_left a span, .media_right a p{
+  transition: .3s;
+}
+.media_left a span:hover, .media_left a p:hover, .media_right a p:hover{
+  color: #efb443;
+  transition: .3s;
+}
+.item_map{
+  position: absolute;
+}
+.map_1 {
+  top: 7%;
+  left: 26%;
+}
+.map_2 {
+  top: 7%;
+  left: 37%;
+}
+.map_3 {
+  top: 16%;
+  left: 41%;
+}
+.map_4 {
+  top: 25%;
+  left: 36%;
+}
+.map_5 {
+  top: 35%;
+  left: 45%;
+}
+.map_6 {
+  top: 46%;
+  left: 56%;
+}
+.map_7 {
+  top: 56%;
+  left: 56%;
+}
+.map_8 {
+  top: 63%;
+  left: 63%;
+}
+.map_9 {
+  top: 73%;
+  left: 61%;
+}
+.map_10 {
+  top: 78%;
+  left: 52%;
+}
+.map_11 {
+  top: 88%;
+  left: 44%;
+}
+.link_ft:hover{
+  color: #efb443 !important;
+}
+.not_theme_home span.elementor-icon-list-text.active{
+  color: #009247 !important;
+  border-bottom: 1px solid #009247;
+}
+.not_theme_home span.elementor-icon-list-text:hover{
+  color: #009247 !important;
+}
 
 @media screen and (max-width: 1024px) {
+  .map_1 {
+    top: 7%;
+    left: 31%;
+  }
+  .map_2 {
+    top: 7%;
+    left: 42%;
+  }
+  .map_3 {
+    top: 16%;
+    left: 46%;
+  }
+  .map_4 {
+    top: 25%;
+    left: 41%;
+  }
+  .map_5 {
+    top: 35%;
+    left: 50%;
+  }
+  .map_6 {
+    top: 46%;
+    left: 61%;
+  }
+  .map_7 {
+    top: 56%;
+    left: 61%;
+  }
+  .map_8 {
+    top: 63%;
+    left: 68%;
+  }
+  .map_9 {
+    top: 73%;
+    left: 66%;
+  }
+  .map_10 {
+    top: 78%;
+    left: 57%;
+  }
+  .map_11 {
+    top: 88%;
+    left: 49%;
+  }
+  .item_map img {
+      width: 16px;
+  }
   .blog__h1{
     width: 100%;
   }

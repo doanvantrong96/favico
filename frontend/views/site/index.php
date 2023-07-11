@@ -9,7 +9,7 @@ use yii\web\View ;
          <img src="/images/banner/banner.png" alt="">
       </div>
       <div class="item">
-         <img src="/images/banner/banner.png" alt="">
+         <img src="/images/page/banner-03.jpg" alt="">
       </div>
       <div class="item">
          <img src="/images/banner/banner.png" alt="">
@@ -180,6 +180,7 @@ use yii\web\View ;
    </div>
 </section>
 
+
 <section class="introduce">
    <div class="elementor-section prod_gr elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
       <div class="elementor-container elementor-column-gap-no">
@@ -291,8 +292,41 @@ use yii\web\View ;
 <section class="map">
    <div class="container">
       <div class="map_gr">
-         <div class="map_left">
+         <div class="map_left position-relative">
             <img src="/images/page/map.png" alt="">
+            <div class="item_map map_1">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_2">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_3">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_4">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_5">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_6">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_7">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_8">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_9">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_10">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_11">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
          </div>
          <div class="map_right">
             <h4>MẠNG LƯỚI PHÂN BỐ</h4>
