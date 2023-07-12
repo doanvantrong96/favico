@@ -185,20 +185,25 @@ $check_menu = $controller .'/'.$action;
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['site/about']); ?>"><span class="elementor-icon-list-text">Giới thiệu</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['product/index']); ?>"><span class="elementor-icon-list-text">Sản phẩm</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['news/detail']); ?>"><span class="elementor-icon-list-text">Tin tức</span>
-                                    </a>
+                                        <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
+                                        </a>
+                                        </li>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                        <a href="<?= Url::to(['site/about']); ?>"><span class="elementor-icon-list-text">Giới thiệu</span>
+                                        </a>
+                                        </li>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                        <a href="<?= Url::to(['product/index']); ?>"><span class="elementor-icon-list-text">Sản phẩm</span>
+                                        </a>
+                                        </li>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                        <a href="javascript:;"><span class="elementor-icon-list-text">Tin tức</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -269,8 +274,13 @@ $check_menu = $controller .'/'.$action;
                                     </a>
                                     </li>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['news/detail']); ?>"><span class="<?= $controller.'/'.$action == 'news/detail' ? 'active' : '' ?> elementor-icon-list-text">Tin tức</span>
-                                    </a>
+                                        <a href="javascript:;"><span class="<?= $controller.'/'.$action == 'news/detail' ? 'active' : '' ?> elementor-icon-list-text">Tin tức</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>

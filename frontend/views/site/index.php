@@ -157,29 +157,62 @@ use yii\web\View ;
    </div>
 </section>
 
-<section class="product_home">
-   <div class="product_home_gr">
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp1.png" alt="">
-            <p>Thức ăn gia cầm</p>
-         </a>
-      </div>
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp2.png" alt="">
-            <p> Thức ăn gia súc</p>
-         </a>
-      </div>
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp3.png" alt="">
-            <p> Thức ăn thuỷ sản</p>
-         </a>
+
+
+
+
+
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg10.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-829ce47 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="829ce47" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fe1f65a" data-id="fe1f65a" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-198b509 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="198b509" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn gia cầm</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </section>
-
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg9.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-fef4d01 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="fef4d01" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e8d699f" data-id="e8d699f" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-b086d94 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="b086d94" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn gia súc</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg6.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-cdd42d8 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="cdd42d8" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a70a710" data-id="a70a710" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-60fab01 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="60fab01" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn hải sản</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
 
 <section class="introduce">
    <div class="elementor-section prod_gr elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
