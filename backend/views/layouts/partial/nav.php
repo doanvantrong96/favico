@@ -25,14 +25,16 @@
         </div>
     </div>
     <div class="info-card">
-        <img src="/img/demo/avatars/avatar-admin.png" class="profile-image rounded-circle" alt="<?= $user->fullname ?>">
+        <div class="img-avatars">
+            <img src="/img/demo/avatars/logo.png" class="profile-image" alt="<?= $user->fullname ?>">
+        </div>
         <div class="info-card-text">
             <a href="#" class="d-flex align-items-center text-white">
                 <span class="text-truncate text-truncate-sm d-inline-block">
                     Xin chào, <?= $user->fullname ?>
                 </span>
             </a>
-            <span class="d-inline-block text-truncate text-truncate-sm"></span>
+            <!-- <span class="d-inline-block text-truncate text-truncate-sm"></span> -->
         </div>
         <img src="/img/card-backgrounds/cover-2-lg.png" class="cover" alt="cover">
         <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">

@@ -1584,7 +1584,7 @@ html body {
     position: absolute;
     height: auto; }
   .info-card .profile-image {
-    width: 3.125rem;
+    width: 5rem;
     height: auto;
     display: inline-block;
     z-index: 2;
