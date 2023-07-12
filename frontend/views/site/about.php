@@ -45,5 +45,45 @@ use yii\web\View ;
                 <li>Thúc đẩy việc thay đổi tư duy trong lĩnh vực sản xuất thức ăn chăn nuôi tại Viêt Nam - hướng tới cộng đồng liên hệ chặt chẽ 3 nhà: Nhà Sản Xuất - Nhà Nông - Nhà Khoa học.</li>
             </ul>
         </div>
+        <div class="content_about_item">
+            <h2>HỆ TRIẾT LÝ <br> (NGUỒN NHÂN LỰC & CÔNG NGHỆ & THỊ TRƯỜNG)</h2>
+            <ul>
+                <li>Triết lý nguồn nhân lực </li>
+                <li>Tại Phavico, ban lãnh đạo đề cao 3 chữ Nhân trong việc Tuyển/Dùng/Giữ Nhân sự </li>
+                <li>Nhân hòa (nơi mọi người cùng nhau gây dựng phát triển sự nghiệp, có vị thế trong xã hội, cùng nhau hòa hợp, là một gia đình thứ 2 của mình, yên tâm cống hiến). </li>
+                <li>Nhân Văn (Là những giá trị mà công ty dựa trên chất lượng con người, định hướng phục vụ và phát triển khách hàng văn minh tiến bộ hưng thịnh. Ví dụ sản phẩm lành, thân thiện, giao dịch lịch sự…). </li>
+                <li>Nhân bản: cùng với phát triển kinh doanh, Công ty tạo ra những giá trị phi kinh doanh: ảnh hưởng tích cực đến các khách hàng, đối tác và xã hội, coi đó là sự nghiệp xã hội của mình. </li>
+            </ul>
+        </div>
+        <div class="content_about_item">
+            <h2>HỆ TRIẾT LÝ <br> (NGUỒN NHÂN LỰC & CÔNG NGHỆ & THỊ TRƯỜNG)</h2>
+            <ul>
+                <li>Triết lý nguồn nhân lực </li>
+                <li>Tại Phavico, ban lãnh đạo đề cao 3 chữ Nhân trong việc Tuyển/Dùng/Giữ Nhân sự </li>
+                <li>Nhân hòa (nơi mọi người cùng nhau gây dựng phát triển sự nghiệp, có vị thế trong xã hội, cùng nhau hòa hợp, là một gia đình thứ 2 của mình, yên tâm cống hiến). </li>
+                <li>Nhân Văn (Là những giá trị mà công ty dựa trên chất lượng con người, định hướng phục vụ và phát triển khách hàng văn minh tiến bộ hưng thịnh. Ví dụ sản phẩm lành, thân thiện, giao dịch lịch sự…). </li>
+                <li>Nhân bản: cùng với phát triển kinh doanh, Công ty tạo ra những giá trị phi kinh doanh: ảnh hưởng tích cực đến các khách hàng, đối tác và xã hội, coi đó là sự nghiệp xã hội của mình. </li>
+            </ul>
+        </div>
+        <div class="content_about_item">
+            <h2>HỆ TRIẾT LÝ <br> (NGUỒN NHÂN LỰC & CÔNG NGHỆ & THỊ TRƯỜNG)</h2>
+            <ul>
+                <li>Triết lý nguồn nhân lực </li>
+                <li>Tại Phavico, ban lãnh đạo đề cao 3 chữ Nhân trong việc Tuyển/Dùng/Giữ Nhân sự </li>
+                <li>Nhân hòa (nơi mọi người cùng nhau gây dựng phát triển sự nghiệp, có vị thế trong xã hội, cùng nhau hòa hợp, là một gia đình thứ 2 của mình, yên tâm cống hiến). </li>
+                <li>Nhân Văn (Là những giá trị mà công ty dựa trên chất lượng con người, định hướng phục vụ và phát triển khách hàng văn minh tiến bộ hưng thịnh. Ví dụ sản phẩm lành, thân thiện, giao dịch lịch sự…). </li>
+                <li>Nhân bản: cùng với phát triển kinh doanh, Công ty tạo ra những giá trị phi kinh doanh: ảnh hưởng tích cực đến các khách hàng, đối tác và xã hội, coi đó là sự nghiệp xã hội của mình. </li>
+            </ul>
+        </div>
+        <div class="content_about_item">
+            <h2>HỆ TRIẾT LÝ <br> (NGUỒN NHÂN LỰC & CÔNG NGHỆ & THỊ TRƯỜNG)</h2>
+            <ul>
+                <li>Triết lý nguồn nhân lực </li>
+                <li>Tại Phavico, ban lãnh đạo đề cao 3 chữ Nhân trong việc Tuyển/Dùng/Giữ Nhân sự </li>
+                <li>Nhân hòa (nơi mọi người cùng nhau gây dựng phát triển sự nghiệp, có vị thế trong xã hội, cùng nhau hòa hợp, là một gia đình thứ 2 của mình, yên tâm cống hiến). </li>
+                <li>Nhân Văn (Là những giá trị mà công ty dựa trên chất lượng con người, định hướng phục vụ và phát triển khách hàng văn minh tiến bộ hưng thịnh. Ví dụ sản phẩm lành, thân thiện, giao dịch lịch sự…). </li>
+                <li>Nhân bản: cùng với phát triển kinh doanh, Công ty tạo ra những giá trị phi kinh doanh: ảnh hưởng tích cực đến các khách hàng, đối tác và xã hội, coi đó là sự nghiệp xã hội của mình. </li>
+            </ul>
+        </div>
     </div>
 </section>

@@ -9,7 +9,7 @@ use yii\web\View ;
          <img src="/images/banner/banner.png" alt="">
       </div>
       <div class="item">
-         <img src="/images/banner/banner.png" alt="">
+         <img src="/images/page/banner-03.jpg" alt="">
       </div>
       <div class="item">
          <img src="/images/banner/banner.png" alt="">
@@ -72,8 +72,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-6-e1608714911535-500x500.jpg" width="500" height="500" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" data-sizes="(max-width: 500px) 100vw, 500px" data-ll-status="loaded" sizes="(max-width: 500px) 100vw, 500px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w">
-                                                   <noscript><img width="500" height="500" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" sizes="(max-width: 500px) 100vw, 500px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt1.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -102,8 +101,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/vegetables-800-300x300.jpg" width="300" height="300" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w" data-sizes="(max-width: 300px) 100vw, 300px" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w">
-                                                   <noscript><img width="300" height="300" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt2.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -129,8 +127,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/bg8-e1614194514219-500x500.jpg" width="500" height="500" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w" data-sizes="(max-width: 500px) 100vw, 500px" data-ll-status="loaded" sizes="(max-width: 500px) 100vw, 500px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w">
-                                                   <noscript><img width="500" height="500" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w" sizes="(max-width: 500px) 100vw, 500px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt3.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -182,6 +179,7 @@ use yii\web\View ;
       </div>
    </div>
 </section>
+
 
 <section class="introduce">
    <div class="elementor-section prod_gr elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -294,8 +292,41 @@ use yii\web\View ;
 <section class="map">
    <div class="container">
       <div class="map_gr">
-         <div class="map_left">
+         <div class="map_left position-relative">
             <img src="/images/page/map.png" alt="">
+            <div class="item_map map_1">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_2">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_3">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_4">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_5">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_6">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_7">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_8">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_9">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_10">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_11">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
          </div>
          <div class="map_right">
             <h4>MẠNG LƯỚI PHÂN BỐ</h4>
@@ -404,6 +435,7 @@ use yii\web\View ;
             <div class="item_cus container">
                <img src="/images/page/cus.png" alt="">
                <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
                   <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
                   <span> <i></i>Phạm Khắc Hưng</span>
                </div>
@@ -413,6 +445,7 @@ use yii\web\View ;
             <div class="item_cus container">
                <img src="/images/page/cus.png" alt="">
                <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
                   <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
                   <span> <i></i>Phạm Khắc Hưng</span>
                </div>
@@ -422,6 +455,7 @@ use yii\web\View ;
             <div class="item_cus container">
                <img src="/images/page/cus.png" alt="">
                <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
                   <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
                   <span> <i></i>Phạm Khắc Hưng</span>
                </div>
