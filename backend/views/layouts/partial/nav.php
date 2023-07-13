@@ -26,7 +26,7 @@
     </div>
     <div class="info-card">
         <div class="img-avatars">
-            <img src="/img/demo/avatars/logo.png" class="profile-image" alt="<?= $user->fullname ?>">
+            <img src="/img/demo/avatars/logo.png" class="profile-image rounded-circle" alt="<?= $user->fullname ?>">
         </div>
         <div class="info-card-text">
             <a href="#" class="d-flex align-items-center text-white">
