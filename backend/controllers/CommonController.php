@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\District;
 use backend\models\News;
+use backend\models\Product;
 use yii\base\Exception;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -12,13 +13,13 @@ use yii\helpers\ArrayHelper;
 use backend\components\EncodeVideo;
 use mdm\admin\components\AccessControl;
 
-require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php');
-require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php');
-require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/Cell.php');
+// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php');
+// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php');
+// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/Cell.php');
 
-use PHPExcel;
-use PHPExcel_IOFactory;
-use PHPExcel_Cell;
+// use PHPExcel;
+// use PHPExcel_IOFactory;
+// use PHPExcel_Cell;
 
 class CommonController extends Controller
 {
@@ -363,6 +364,53 @@ class CommonController extends Controller
         return $arrReturn;
     }
 
+    public function actionGetRelatedProduct(){
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $arrReturn  = [
+            'total_count' => 0,
+            'incomplete_results' => false,
+            'items' => []
+        ];
+        $request    = $_REQUEST;
+        $q          = $request['q'];
+        $page       = isset($request['page']) ? $request['page'] : 1;
+        $ids_igrs   = isset($request['ids_igrs']) && !empty($request['ids_igrs']) ? $request['ids_igrs'] : [];
+        $limit      = 30;
+        $offset     = ($page - 1) * $limit;
+        if( !empty($q) ){
+            $listCate = [];
+            // if( !Yii::$app->user->identity->is_admin ){
+            //     $listCateOfUser  = Yii::$app->user->identity->categoryIds();
+            //     if( empty($listCateOfUser) ){
+            //         return $arrReturn;
+            //     }else{
+            //         if( !in_array(-1, $listCateOfUser) ){
+            //             $listCate = $listCateOfUser;
+            //         }
+            //     }
+            // }
+            $query = Product::find()->select('A.id, A.title as name')->from(Product::tableName() . ' A')->where(['or',['like','title',$q],['like','slug',$q]])->andWhere(['status'=>1]);
+            // if( !empty($listCate) ){
+            //     $query->innerJoin(\backend\models\CategoryNews::tableName() . ' B', 'A.id = B.news_id');
+            //     $query->andWhere(['in', 'B.category_id', $listCate]);
+            //     if( count($listCate) > 1 )
+            //         $query->groupBy(['A.id']);
+            // }
+            if( !empty($ids_igrs) ){
+                if( !is_array($ids_igrs) ){
+                    if( strpos($ids_igrs, ',') !== false ){
+                        $ids_igrs = explode(',', $ids_igrs);
+                    }else
+                        $ids_igrs = [$ids_igrs];
+                }
+                $query->andWhere(['not in', 'A.id', $ids_igrs ]);
+            }
+            $arrReturn['total_count']   = $query->count();
+            $arrReturn['items']         = $query->limit($limit)->offset($offset)->asArray()->all();
+        }
+        return $arrReturn;
+    }
+
     public static function getAgentIp(){
         $ipString = @getenv("HTTP_X_FORWARDED_FOR");
         if (!empty($ipString)) {
@@ -402,6 +450,16 @@ class CommonController extends Controller
 
     public static function getStatusName($status_id){
         $statusList = Yii::$app->params['statusList'];
+        return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
+    }
+
+    public static function getTypeComment($status_id){
+        $statusList = Yii::$app->params['commentTypeList'];
+        return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
+    }
+    
+    public static function getPositionName($status_id){
+        $statusList = Yii::$app->params['positionList'];
         return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
     }
     public static function getStatusNameCommunity($status_id){
@@ -446,38 +504,38 @@ class CommonController extends Controller
         return $output;
     }
 
-    public static function exportDataExcel($header, $data, $file_name)
-    {
-        if (empty($data)) {
-            exit();
-        }
-        $excel = new PHPExcel();
-        $excel->setActiveSheetIndex(0);
-        $excel->getActiveSheet()->setTitle('Danh sách');
-        $lastColumn = '';
-        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
-            $excel->getActiveSheet()->getColumnDimension($j)->setAutoSize(true);
-            $lastColumn = $j;
-        }
-        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFont()->setBold(true);
-        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
-        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('FFE8E5E5');
-        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
-            $excel->getActiveSheet()->setCellValue($j .'1', $header[$i - 1]);
-        }
-        $numRow = 2;
-        foreach ($data as $key => $row) {
-            for($i=1 ,$j='A'; $i <= count($row);$i++,$j++) {
-                $excel->getActiveSheet()->setCellValue($j . $numRow, $row[$i - 1]);
-            }
+    // public static function exportDataExcel($header, $data, $file_name)
+    // {
+    //     if (empty($data)) {
+    //         exit();
+    //     }
+    //     $excel = new PHPExcel();
+    //     $excel->setActiveSheetIndex(0);
+    //     $excel->getActiveSheet()->setTitle('Danh sách');
+    //     $lastColumn = '';
+    //     for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+    //         $excel->getActiveSheet()->getColumnDimension($j)->setAutoSize(true);
+    //         $lastColumn = $j;
+    //     }
+    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFont()->setBold(true);
+    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('FFE8E5E5');
+    //     for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+    //         $excel->getActiveSheet()->setCellValue($j .'1', $header[$i - 1]);
+    //     }
+    //     $numRow = 2;
+    //     foreach ($data as $key => $row) {
+    //         for($i=1 ,$j='A'; $i <= count($row);$i++,$j++) {
+    //             $excel->getActiveSheet()->setCellValue($j . $numRow, $row[$i - 1]);
+    //         }
             
-            $numRow++;
-        }
+    //         $numRow++;
+    //     }
         
-        header('Content-type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
-        PHPExcel_IOFactory::createWriter($excel, 'Excel5')->save('php://output');
-        exit;
-    }
+    //     header('Content-type: application/vnd.ms-excel');
+    //     header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
+    //     PHPExcel_IOFactory::createWriter($excel, 'Excel5')->save('php://output');
+    //     exit;
+    // }
     
 }

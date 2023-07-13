@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by Visual code.
- * User: ngochan
- * Date: 12/03/20
- * Time: 22:10 PM
- */
-
 $group_dashboard = [
     [
         'label' => 'Dashboard',
@@ -14,60 +7,28 @@ $group_dashboard = [
     ],
 ];
 
-$group_course = [
-    [
-        'label' => 'Danh sách khoá học',
-        'icon' => 'fal fa-list-alt',
-        'url' => '/course/index'
-    ],
-    // [
-    //     'label' => 'Danh sách bài học',
-    //     'icon' => 'fal fa-book',
-    //     'url' => '/course-lesson/index'
-    // ],
-    [
-        'label' => 'Quản lý danh mục',
-        'icon' => 'fal fa-tags',
-        'url' => '/category/index'
-    ],
-    [
-        'label' => 'Danh sách giảng viên',
-        'icon' => 'fal fa-user-md',
-        'url' => '/lecturer/index'
-    ],
-];
-$group_users = [
-    [
-        'label' => 'Danh sách khách hàng',
-        'icon' => 'fal fa-users',
-        'url' => '/customer/index'
-    ],
-    [
-        'label' => 'Giao dịch mua khoá học',
-        'icon' => 'fal fa-money-bill-alt',
-        'url' => '/history-transaction/index'
-    ],
-    [
-        'label' => 'Đăng ký email ưu đãi',
-        'icon' => 'fal fa-envelope',
-        'url' => '/user-register-email/index'
-    ],
-];
 $group_setting = [
     [
         'label' => 'Quản lý tài khoản',
         'icon' => 'fal fa-user',
         'url' => '/assignment/index'
     ],
+    // [
+    //     'label' => 'Quản lý vai trò',
+    //     'icon' => 'fal fa-users',
+    //     'url' => '/role/index'
+    // ],
+    // [
+    //     'label' => 'Quản lý task',
+    //     'icon' => 'fal fa-tasks',
+    //     'url' => '/permission/index'
+    // ]
+];
+$group_config = [
     [
-        'label' => 'Quản lý vai trò',
-        'icon' => 'fal fa-users',
-        'url' => '/role/index'
-    ],
-    [
-        'label' => 'Quản lý task',
-        'icon' => 'fal fa-tasks',
-        'url' => '/permission/index'
+        'label' => 'Cài đặt khác',
+        'icon' => 'fal fa-cogs',
+        'url' => '/config/index'
     ]
 ];
 $group_banner = [
@@ -85,35 +46,20 @@ $group_config_home = [
         'url' => '/banner/index'
     ],
     [
-        'label' => 'Khoá học, Sự kiện',
-        'icon' => 'fal fa-window',
-        'url' => '/config/index'
-    ],
-    [
         'label' => 'Đối tác',
         'icon' => 'fal fa-users',
         'url' => '/partner/index'
     ],
     [
-        'label' => 'Câu chuyện học viên',
-        'icon' => 'fal fa-user',
-        'url' => '/student-story/index'
+        'label' => 'Về chúng tôi',
+        'icon' => 'fal fa-bookmark',
+        'url' => '/abouts/index'
     ],
     [
-        'label' => 'Câu chuyện cộng đồng',
-        'icon' => 'fal fa-user',
-        'url' => '/community-story/index'
-    ],
-    [
-        'label' => 'Nhóm câu hỏi thường gặp',
-        'icon' => 'fal fa-book',
-        'url' => '/frequently-questions-group/index'
-    ],
-    [
-        'label' => 'Câu hỏi thường gặp',
-        'icon' => 'fal fa-book',
-        'url' => '/frequently-questions/index'
-    ],
+        'label' => 'Góc kỹ thuật',
+        'icon' => 'fal fa-wrench',
+        'url' => '/technical/index'
+    ]
 ];
 $group_news = [
     [
@@ -125,59 +71,45 @@ $group_news = [
         'label' => 'Danh sách bài viết',
         'icon' => 'fal fa-list',
         'url' => '/news/index'
+    ],
+    [
+        'label' => 'Quản lý chuyên mục',
+        'icon' => 'fal fa-tags',
+        'url' => '/category/index'
+    ],
+];
+
+$group_comment = [
+    [
+        'label' => 'Quản lý bình luận',
+        'icon' => 'fal fa-comments',
+        'url' => '/comment/index'
     ]
 ];
-$group_lecturer_report = [
+
+$group_product = [
     [
-        'label' => 'Dashboard',
-        'icon' => 'fal fa-chart-pie',
-        'url' => '/lecturer-report/index'
+        'label' => 'Danh sách sản phẩm',
+        'icon' => 'fal fa-tasks',
+        'url' => '/product/index'
     ],
     [
-        'label' => 'Khoá học',
-        'icon' => 'fal fa-list-alt',
-        'url' => '/lecturer-report/list-course'
+        'label' => 'Thêm mới sản phẩm',
+        'icon' => 'fal fa-plus',
+        'url' => '/product/create'
     ],
-];
-$group_gift_code = [
     [
-        'label' => 'Mã khuyến mại',
-        'icon' => 'fal fa-gift',
-        'url' => '/gift-code/index'
+        'label' => 'Quản lý nhà cung cấp',
+        'icon' => 'fal fa-building',
+        'url' => '/product-category/index'
+    ],
+    [
+        'label' => 'Quản lý loại sản phẩm',
+        'icon' => 'fal fa-file',
+        'url' => '/product-tag/index'
     ]
-];
-$group_sale_admin = [
-    [
-        'label' => 'Dashboard',
-        'icon' => 'fal fa-chart-pie',
-        'url' => '/sale-admin/index'
-    ],
-    [
-        'label' => 'Quản lý tài khoản sale',
-        'icon' => 'fal fa-list-alt',
-        'url' => '/sale-admin/list-sale'
-    ],
 ];
 $menu_group_controller = [
-    // [
-    //     'label' => 'Dashboard',
-    //     'controller' => 'site',
-    //     'child_action' => $group_dashboard
-    // ],
-    [
-        'label' => 'Thống kê',
-        'icon'  => 'fal fa-chart-bar',
-        'controller' => 'lecturer-report',
-        'child_action' => $group_lecturer_report,
-        'enable'=> 'lecturer'
-    ],
-    [
-        'label' => 'Sale Admin',
-        'icon'  => 'fal fa-chart-bar',
-        'controller' => 'sale-admin',
-        'child_action' => $group_sale_admin,
-        'enable'=> 'sale_admin'
-    ],
     [
         'label' => 'Cấu hình trang chủ',
         'icon'  => 'fal fa-cog',
@@ -185,16 +117,16 @@ $menu_group_controller = [
         'child_action' => $group_config_home
     ],
     [
-        'label' => 'Khoá học',
-        'icon'  => 'fal fa-window',
-        'controller' => 'course,lecturer,course-category,course-lesson',
-        'child_action' => $group_course
+        'label' => 'Quản lý bình luận',
+        'icon'  => 'fal fa-gift',
+        'controller' => 'comment',
+        'child_action' => $group_comment
     ],
     [
-        'label' => 'Mã khuyến mại',
-        'icon'  => 'fal fa-gift',
-        'controller' => 'gift-code',
-        'child_action' => $group_gift_code
+        'label' => 'Quản lý sản phẩm',
+        'icon'  => 'fal fa-book',
+        'controller' => 'product',
+        'child_action' => $group_product
     ],
     [
         'label' => 'Tin tức',
@@ -203,16 +135,16 @@ $menu_group_controller = [
         'child_action' => $group_news
     ],
     [
-        'label' => 'Khách hàng',
-        'icon'  => 'fal fa-users',
-        'controller' => 'users,user-course,register-practice-try,history-transaction',
-        'child_action' => $group_users
-    ],
-    [
         'label' => 'Quản lý hệ thống',
         'icon'  => 'fal fa-cog',
         'controller' => 'assignment,role,permission',
         'child_action' => $group_setting
+    ],
+    [
+        'label' => 'Cái đặt khác',
+        'icon'  => 'fal fa-cogs',
+        'controller' => 'config',
+        'child_action' => $group_config
     ]
 ];
 

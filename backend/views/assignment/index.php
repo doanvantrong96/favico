@@ -112,7 +112,31 @@ tr.disabled{opacity:0.7}
     
     <div class="card mb-g">
         <div class="card-body table-responsive">
-            <?php Pjax::begin(); ?>
+            <?php Pjax::begin(); 
+                $button = [
+                    'reset_pass' => function ($model, $url) use ($searchModel) {
+                        return '<a title="Cấp lại mật khẩu" href="javascript:;" class="reset_pass" style="margin:0 5px" data-fullname="' . ($url->fullname ? $url->fullname : $url->username) . '" data-id="' . $url->id . '"><i class="ni ni-refresh"></i></a>';
+                    },
+                    // 'permission' => function ($model, $url) use ($searchModel) {
+                    //     return '<a class="permission" href="/assignment/getpermisstion" title="Cấp quyền" name="' . $url->username . '" id="' . $url['id'] . '"><i class="fal fa-list"></i></a>';
+                    // },
+                    'view' => function ($model, $url) use ($userCurrent,$searchModel) {
+                        return '<a title="Xem chi tiết tài khoản" style="margin:0 0 0 8px" href="/assignment/view?id=' . $url['id'] . '"><i class="fal fa-search"></i></a>';
+                    },
+                    'update' => function ($model, $url) use ($userCurrent,$searchModel) {
+                        return '<a title="Cập nhật tài khoản" style="margin:0 8px" href="/assignment/update?id=' . $url['id'] . '"><i class="fal fa-pencil"></i></a>';
+                    },
+                    // 'delete' => function ($model, $url) use ($userCurrent,$searchModel) {
+                    //     $username = $url->username;
+                    //     return '<a class="btn_banned" title="Banned tài khoản" dtname="' . $username . '" dtid="' . $url['id'] . '" href="javascript:;"><i class="fal fa-ban"></i></a>';
+                    // }
+                ];
+                if(Yii::$app->user->identity->id == 1)
+                    $button['delete']   = function ($model, $url) use ($userCurrent,$searchModel) {
+                        $username = $url->username;
+                        return '<a class="btn_banned" title="Banned tài khoản" dtname="' . $username . '" dtid="' . $url['id'] . '" href="javascript:;"><i class="fal fa-ban"></i></a>';
+                    };
+            ?>
                 <?=
                 GridView::widget([
                     'dataProvider' => $dataProvider,
@@ -144,36 +168,45 @@ tr.disabled{opacity:0.7}
                                 // 'contentOptions'=> ['class'=>'text-center'],
                                 // 'headerOptions' => ['class'=>'text-center']
                             ],
+                            
                             [
-                                'label'=>'Nhóm quyền',
-                                'value' => function($model) use ($dataRole,$listRole){
-                                    // var_dump($model);
-                                    if( isset($model->is_admin) ){
-                                        if( $model->is_admin == 1 ){
-                                            return 'All quyền';
-                                        }
-                                        else{
-                                            return isset($dataRole[$model->id]) ? $dataRole[$model->id] : '';
-                                        }
-                                    }else if( isset($model->roleid) )
-                                        return isset($listRole[$model->roleid]) ? $listRole[$model->roleid] : '';
-                                    else
-                                        return 'N/A';
-                                },
-                                'contentOptions'=> ['style'=>'max-width:250px'],
-                                // 'headerOptions' => ['class'=>'text-center']
+                                'attribute' => 'Email',
+                                'label'=>'Email',
                             ],
                             [
-                                'label'=>'Loại tài khoản',
-                                'value' => function($model){
-                                    $employeeAccountType = Yii::$app->params['employeeAccountType'];
-                                    return isset($employeeAccountType[$model->account_type]) ? $employeeAccountType[$model->account_type] : 'N/A';
-                                },
-                                'contentOptions'=> ['class'=>'text-center status-user'],
-                                'headerOptions' => ['class'=>'text-center']
-                                // 'contentOptions'=> ['class'=>'text-center'],
-                                // 'headerOptions' => ['class'=>'text-center']
+                                'attribute' => 'Phone',
+                                'label'=>'Phone',
                             ],
+                            // [
+                            //     'label'=>'Nhóm quyền',
+                            //     'value' => function($model) use ($dataRole,$listRole){
+                            //         // var_dump($model);
+                            //         if( isset($model->is_admin) ){
+                            //             if( $model->is_admin == 1 ){
+                            //                 return 'All quyền';
+                            //             }
+                            //             else{
+                            //                 return isset($dataRole[$model->id]) ? $dataRole[$model->id] : '';
+                            //             }
+                            //         }else if( isset($model->roleid) )
+                            //             return isset($listRole[$model->roleid]) ? $listRole[$model->roleid] : '';
+                            //         else
+                            //             return 'N/A';
+                            //     },
+                            //     'contentOptions'=> ['style'=>'max-width:250px'],
+                            //     // 'headerOptions' => ['class'=>'text-center']
+                            // ],
+                            // [
+                            //     'label'=>'Loại tài khoản',
+                            //     'value' => function($model){
+                            //         $employeeAccountType = Yii::$app->params['employeeAccountType'];
+                            //         return isset($employeeAccountType[$model->account_type]) ? $employeeAccountType[$model->account_type] : 'N/A';
+                            //     },
+                            //     'contentOptions'=> ['class'=>'text-center status-user'],
+                            //     'headerOptions' => ['class'=>'text-center']
+                            //     // 'contentOptions'=> ['class'=>'text-center'],
+                            //     // 'headerOptions' => ['class'=>'text-center']
+                            // ],
                             [
                                 'label'=>'Trạng thái',
                                 'value' => function($model){
@@ -184,38 +217,20 @@ tr.disabled{opacity:0.7}
                                 // 'contentOptions'=> ['class'=>'text-center'],
                                 // 'headerOptions' => ['class'=>'text-center']
                             ],
-                            [
-                                'label'=>'Banned/UnBanned',
-                                'format' => 'raw',
-                                'value' => function($model){
-                                    return '<input type="checkbox" class="checkbox_banned" value="' . $model['id'] . '" />';
-                                },
-                                'contentOptions'=> ['class'=>'text-center'],
-                                'headerOptions' => ['class'=>'text-center']
-                                // 'contentOptions'=> ['class'=>'text-center'],
-                                // 'headerOptions' => ['class'=>'text-center']
-                            ],
+                            // [
+                            //     'label'=>'Banned/UnBanned',
+                            //     'format' => 'raw',
+                            //     'value' => function($model){
+                            //         return '<input type="checkbox" class="checkbox_banned" value="' . $model['id'] . '" />';
+                            //     },
+                            //     'contentOptions'=> ['class'=>'text-center'],
+                            //     'headerOptions' => ['class'=>'text-center']
+                            //     // 'contentOptions'=> ['class'=>'text-center'],
+                            //     // 'headerOptions' => ['class'=>'text-center']
+                            // ],
                             ['class' => 'yii\grid\ActionColumn',
                             'template' => '{reset_pass}{permission}{view}{update}{delete}',
-                            'buttons' => [
-                                'reset_pass' => function ($model, $url) use ($searchModel) {
-                                    return '<a title="Cấp lại mật khẩu" href="javascript:;" class="reset_pass" style="margin:0 5px" data-fullname="' . ($url->fullname ? $url->fullname : $url->username) . '" data-id="' . $url->id . '"><i class="ni ni-refresh"></i></a>';
-                                },
-                                'permission' => function ($model, $url) use ($searchModel) {
-                                    return '<a class="permission" href="/assignment/getpermisstion" title="Cấp quyền" name="' . $url->username . '" id="' . $url['id'] . '"><i class="fal fa-list"></i></a>';
-                                },
-                                'view' => function ($model, $url) use ($userCurrent,$searchModel) {
-                                    return '<a title="Xem chi tiết tài khoản" style="margin:0 0 0 8px" href="/assignment/view?id=' . $url['id'] . '"><i class="fal fa-search"></i></a>';
-                                },
-                                'update' => function ($model, $url) use ($userCurrent,$searchModel) {
-                                    return '<a title="Cập nhật tài khoản" style="margin:0 8px" href="/assignment/update?id=' . $url['id'] . '"><i class="fal fa-pencil"></i></a>';
-                                },
-                                'delete' => function ($model, $url) use ($userCurrent,$searchModel) {
-                                    $username = $url->username;
-
-                                    return '<a class="btn_banned" title="Banned tài khoản" dtname="' . $username . '" dtid="' . $url['id'] . '" href="javascript:;"><i class="fal fa-ban"></i></a>';
-                                }
-                            ],
+                            'buttons' => $button
                             ]
                     ]
                 ]);

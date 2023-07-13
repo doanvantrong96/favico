@@ -49,16 +49,17 @@ foreach($resultCategory as $rowCat){
                     <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['news_status'],['prompt'=>'Trạng thái','class'=>'form-control select2'])->label(false) ?>
                 </div>
                 <?php endif; ?>
-                <?php /*if(!empty($listAuthor) && Yii::$app->user->identity->is_admin){ ?>
-                <div class="col-lg-3">
+                <?php if(!empty($listAuthor) && Yii::$app->user->identity->is_admin){ ?>
+                
+                <?php /*    <div class="col-lg-3">
                     <?= $form->field($model, 'author')->dropDownList($listAuthor,['prompt'=>'Người đăng bài','class'=>'form-control select2'])->label(false) ?>
                 </div>
-                
+                */ ?>
 
                 <div class="col-lg-9">
                     <?= $form->field($model, 'category_id')->dropDownList($listCategory,['class'=>'form-control select2','multiple'=>true,'placeholder'=> "Chuyên mục"])->label(false) ?>
                 </div>
-                <?php }*/ ?>
+                <?php } ?>
                 <div class="col-lg-3">
                     
                     <div class="form-group">

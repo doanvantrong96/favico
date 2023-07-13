@@ -8,7 +8,9 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use backend\models\Customer;
 use backend\models\CourseSearch;
+use backend\models\Product;
 use backend\models\News;
+use backend\models\ProductCategory;
 use backend\models\Employee;
 use backend\controllers\CommonController;
 use DatePeriod;
@@ -91,18 +93,23 @@ class SiteController extends Controller
                 $post       = Yii::$app->request->post();
                 return $this->getDataStatistic($post['type'], $post['date_start'],$post['date_end'],true);
             }
-            $dataStatistic = $this->getDataStatistic('all', $date_start,$date_end);
-            
-            $searchModel = new CourseSearch();
-            $searchModel->is_trending = 1;
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+           
+            $product    = Product::find()->count();
+            $news       = News::find()->count();
+            $user       = Employee::find()->count();
+            $category   = ProductCategory::find()->count();
 
+            $dataStatistic = [
+                'total_product' => $product,//san pham
+                'total_news' => $news,//bai viet
+                'total_user' => $user,//user quan tri
+                'total_category' => $category,//nha cung cap
+            ];//$this->getDataStatistic('all', $date_start,$date_end);
+            
             return $this->render('index', [
                 'dataStatistic' => $dataStatistic,
                 'date_start' => $date_start,
-                'date_end'   => $date_end,
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
+                'date_end'   => $date_end
             ]);
         }else{
             return $this->render('index_default', [

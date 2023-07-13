@@ -3,137 +3,16 @@
 use yii\helpers\Url;
 use yii\web\View ;
 ?>
-<section class="elementor-section elementor-top-section elementor-element elementor-element-f5d99e4 elementor-section-full_width elementor-section-content-middle elementor-section-stretched elementor-section-height-full elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="f5d99e4" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1903px; left: 0px;">
-   <div class="elementor-container elementor-column-gap-no">
-      <div class="elementor-row">
-         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-bf18f0f" data-id="bf18f0f" data-element_type="column">
-            <div class="elementor-column-wrap elementor-element-populated">
-               <div class="elementor-widget-wrap">
-                  <div class="elementor-element elementor-element-6b61484 elementor-widget elementor-widget-agrikon-vegas-template" data-id="6b61484" data-element_type="widget" data-widget_type="agrikon-vegas-template.default">
-                     <div class="elementor-widget-container">
-                        <div class="slider-vegas-template slider-vegas-template-wrapper">
-                           <div id="slider-6b61484" class="slider-vegas-template vegas-container" data-slider-settings="{&quot;animation&quot;:[&quot;kenburns&quot;,&quot;kenburnsUp&quot;,&quot;kenburnsRight&quot;],&quot;transition&quot;:[&quot;fade&quot;,&quot;fade2&quot;,&quot;blur&quot;,&quot;blur2&quot;],&quot;delay&quot;:7000,&quot;duration&quot;:2000,&quot;timer&quot;:&quot;&quot;,&quot;shuffle&quot;:&quot;yes&quot;,&quot;overlay&quot;:&quot;none&quot;,&quot;autoplay&quot;:true}" style="height: 0px;">
-                              <div class="vegas-slide vegas-transition-blur vegas-transition-blur-in vegas-transition-blur-out" style="transition: all 2000ms ease 0s;">
-                                 <div class="vegas-slide-inner vegas-animation-kenburnsUp" style="background-image: url(&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/bg2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; animation-duration: 7000ms;"></div>
-                              </div>
-                              <div class="vegas-slide vegas-transition-blur vegas-transition-blur-in" style="transition: all 2000ms ease 0s;">
-                                 <div class="vegas-slide-inner vegas-animation-kenburnsUp" style="background-image: url(&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/bg1.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; animation-duration: 7000ms;"></div>
-                              </div>
-                              <div class="vegas-wrapper" style="overflow: visible; padding: 0px;"></div>
-                           </div>
-                           <div data-elementor-type="section" data-elementor-id="2726" class="elementor elementor-2726">
-                              <div class="elementor-inner">
-                                 <div class="elementor-section-wrap">
-                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-c5e9564 elementor-section-full_width elementor-section-height-full elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no vegas-slide-template-section active" data-id="c5e9564" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-image: none; background-color: transparent;">
-                                       <div class="elementor-background-overlay"></div>
-                                       <div class="elementor-container elementor-column-gap-no">
-                                          <div class="elementor-row">
-                                             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-89f4f5f" data-id="89f4f5f" data-element_type="column">
-                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                   <div class="elementor-widget-wrap">
-                                                      <div class="elementor-element elementor-element-5134c2e agrikon-transform transform-type-translate elementor-widget elementor-widget-heading animated fadeInDown" data-id="5134c2e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">Welcome to agricon</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-7e0e6572 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading animated fadeInDown" data-id="7e0e6572" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <h3 class="elementor-heading-title elementor-size-default">What We’re Offering</h3>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-82609ef elementor-widget__width-initial agrikon-transform transform-type-translate elementor-widget elementor-widget-heading animated fadeInDown" data-id="82609ef" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">Try this vegan french toast recipe for a delicious weekend brunch. This classic breakfast is quick and easy to make and will guarantee happy tummies all round.</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-2f1d3e4 elementor-widget elementor-widget-agrikon-button animated fadeInDown" data-id="2f1d3e4" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:500}" data-widget_type="agrikon-button.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <div class="agrikon-button has-icon"><a class="agrikon-btn thm-btn  btn-icon-right" href="https://ninetheme.com/themes/agrikon/shop/">Buy Products <i aria-hidden="true" class="fas fa-arrow-right"></i></a></div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </section>
-                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-81194cf elementor-section-full_width elementor-section-height-full elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no vegas-slide-template-section" data-id="81194cf" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-image: none; background-color: transparent;">
-                                       <div class="elementor-background-overlay"></div>
-                                       <div class="elementor-container elementor-column-gap-no">
-                                          <div class="elementor-row">
-                                             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e221b8" data-id="6e221b8" data-element_type="column">
-                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                   <div class="elementor-widget-wrap">
-                                                      <div class="elementor-element elementor-element-d6b9047 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="d6b9047" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">Welcome to agricon</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-496d6fe agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="496d6fe" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <h3 class="elementor-heading-title elementor-size-default">What We’re Offering</h3>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-30b65b5 elementor-widget__width-initial agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="30b65b5" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">Try this vegan french toast recipe for a delicious weekend brunch. This classic breakfast is quick and easy to make and will guarantee happy tummies all round.</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-dd5a474 elementor-widget elementor-widget-agrikon-button" data-id="dd5a474" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:500}" data-widget_type="agrikon-button.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <div class="agrikon-button has-icon"><a class="agrikon-btn thm-btn  btn-icon-right" href="https://ninetheme.com/themes/agrikon/shop/">Buy Products <i aria-hidden="true" class="fas fa-arrow-right"></i></a></div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </section>
-                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-0eaf710 elementor-section-full_width elementor-section-height-full elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no vegas-slide-template-section" data-id="0eaf710" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-image: none; background-color: transparent;">
-                                       <div class="elementor-background-overlay"></div>
-                                       <div class="elementor-container elementor-column-gap-no">
-                                          <div class="elementor-row">
-                                             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8f43868" data-id="8f43868" data-element_type="column">
-                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                   <div class="elementor-widget-wrap">
-                                                      <div class="elementor-element elementor-element-08fa171 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="08fa171" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInDown&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">fresh and organic fruits</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-94915a2 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="94915a2" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInDown&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <h3 class="elementor-heading-title elementor-size-default">Buy the Health + Future</h3>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-27cbc97 elementor-widget__width-initial agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="27cbc97" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInDown&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="heading.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <p class="elementor-heading-title elementor-size-default">Try this vegan french toast recipe for a delicious weekend brunch. This classic breakfast is quick and easy to make and will guarantee happy tummies all round.</p>
-                                                         </div>
-                                                      </div>
-                                                      <div class="elementor-element elementor-element-f7910c8 elementor-widget elementor-widget-agrikon-button" data-id="f7910c8" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInDown&quot;,&quot;_animation_delay&quot;:500}" data-widget_type="agrikon-button.default" style="animation-delay: 0.2s;">
-                                                         <div class="elementor-widget-container">
-                                                            <div class="agrikon-button has-icon"><a class="agrikon-btn thm-btn  btn-icon-right" href="https://ninetheme.com/themes/agrikon/shop/">Buy Products <i aria-hidden="true" class="fas fa-arrow-right"></i></a></div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </section>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="nt-vegas-slide-counter"><span class="current">1</span><span class="separator"> / </span><span class="total">3</span></div>
-                           <div class="vegas-control"><span id="vegas-control-prev" class="vegas-control-prev vegas-control-btn"><i class="fas fa-caret-left"></i></span><span id="vegas-control-next" class="vegas-control-next vegas-control-btn"><i class="fas fa-caret-right"></i></span></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+<section class="banner_home slideshow">
+   <div class="banner_home_gr slider">
+      <div class="item">
+         <img src="/images/banner/banner.png" alt="">
+      </div>
+      <div class="item">
+         <img src="/images/page/banner-03.jpg" alt="">
+      </div>
+      <div class="item">
+         <img src="/images/banner/banner.png" alt="">
       </div>
    </div>
 </section>
@@ -144,7 +23,7 @@ use yii\web\View ;
    </div>
 </section>
 
-<section class="introduce">
+<section class="introduce bg_gray">
    <div class="elementor-section elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
       <div class="elementor-container elementor-column-gap-no">
          <div class="elementor-row">
@@ -193,8 +72,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/organic-news-6-e1608714911535-500x500.jpg" width="500" height="500" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" data-sizes="(max-width: 500px) 100vw, 500px" data-ll-status="loaded" sizes="(max-width: 500px) 100vw, 500px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w">
-                                                   <noscript><img width="500" height="500" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-6-e1608714911535-750x750.jpg 750w" sizes="(max-width: 500px) 100vw, 500px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt1.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -223,8 +101,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/vegetables-800-300x300.jpg" width="300" height="300" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w" data-sizes="(max-width: 300px) 100vw, 300px" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w">
-                                                   <noscript><img width="300" height="300" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-300x300.jpg 300w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-450x450.jpg 450w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-100x100.jpg 100w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-750x750.jpg 750w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-768x768.jpg 768w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-30x30.jpg 30w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/vegetables-800.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt2.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -250,8 +127,7 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="./Home – Shop – Agrikon_files/bg8-e1614194514219-500x500.jpg" width="500" height="500" data-src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg" class="s-img entered litespeed-loaded" alt="" decoding="async" data-srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w" data-sizes="(max-width: 500px) 100vw, 500px" data-ll-status="loaded" sizes="(max-width: 500px) 100vw, 500px" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w">
-                                                   <noscript><img width="500" height="500" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg" class="s-img" alt="" decoding="async" srcset="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-500x500.jpg 500w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-150x150.jpg 150w, https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg8-e1614194514219-750x750.jpg 750w" sizes="(max-width: 500px) 100vw, 500px" /></noscript>
+                                                   <img data-lazyloaded="1" src="/images/page/gt3.png" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
@@ -281,31 +157,65 @@ use yii\web\View ;
    </div>
 </section>
 
-<section class="product_home">
-   <div class="product_home_gr">
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp1.png" alt="">
-            <p>Thức ăn gia cầm</p>
-         </a>
+
+
+
+
+
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg10.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-829ce47 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="829ce47" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fe1f65a" data-id="fe1f65a" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-198b509 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="198b509" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn gia cầm</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp2.png" alt="">
-            <p> Thức ăn gia súc</p>
-         </a>
+   </div>
+</section>
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg9.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-fef4d01 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="fef4d01" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e8d699f" data-id="e8d699f" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-b086d94 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="b086d94" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn gia súc</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="product_home_item">
-         <a href="">
-            <img class="w-100" src="/images/page/sp3.png" alt="">
-            <p> Thức ăn thuỷ sản</p>
-         </a>
+   </div>
+</section>
+<section  data-agrikon-parallax="{&quot;type&quot;:&quot;scroll&quot;,&quot;speed&quot;:&quot;0.6&quot;,&quot;imgsize&quot;:&quot;cover&quot;,&quot;imgsrc&quot;:&quot;https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/bg6.jpg&quot;,&quot;mobile&quot;:&quot;&quot;}" class="w-100-mb elementor-section elementor-top-section elementor-element elementor-element-cdd42d8 elementor-section-height-min-height elementor-section-stretched agrikon-parallax jarallax parallax-yes elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="cdd42d8" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="z-index: 0; background-image: none; width: 1903px; left: 0px;">
+   <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a70a710" data-id="a70a710" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+               <div class="elementor-widget-wrap">
+                  <div class="elementor-element elementor-element-60fab01 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="60fab01" data-element_type="widget" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default h2_paral"><a href="/">Thức ăn hải sản</a></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </section>
 
 <section class="introduce">
-   <div class="elementor-section elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+   <div class="elementor-section prod_gr elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
       <div class="elementor-container elementor-column-gap-no">
          <div class="elementor-row">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-766b9302" data-id="766b9302" data-element_type="column">
@@ -328,12 +238,12 @@ use yii\web\View ;
                                        </div>
                                        <div class="elementor-element elementor-element-72e24671 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="72e24671" data-element_type="widget" data-widget_type="heading.default">
                                           <div class="elementor-widget-container">
-                                             <p class="elementor-heading-title elementor-size-default">CHÀO MỪNG ĐẾN VỚI PHAVICO</p>
+                                             <p class="elementor-heading-title elementor-size-default">Hệ Thống Sản Phẩm</p>
                                           </div>
                                        </div>
                                        <div class="elementor-element elementor-element-1191b8c1 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="1191b8c1" data-element_type="widget" data-widget_type="heading.default">
                                           <div class="elementor-widget-container">
-                                             <h3 class="elementor-heading-title elementor-size-default">Giới Thiệu Về Chúng Tôi</h3>
+                                             <h3 class="elementor-heading-title elementor-size-default">Mang các dòng sản phẩm tốt nhất cho trang trại của bạn.</h3>
                                           </div>
                                        </div>
                                     </div>
@@ -342,18 +252,245 @@ use yii\web\View ;
                            </div>
                         </div>
                      </div>
-                     <div class="list_product_home">
-                        
+                     <div class="list_product_home container">
+                        <div class="item_product_home text-center">
+                           <div class="thumb_prod">
+                              <img src="/images/page/mockup-13.png" alt="">
+                           </div>
+                           <div class="more_prod">
+                              <p>Cám Phavico</p>
+                              <a href="" class="flex-center">Xem tiếp</a>
+                           </div>
+                        </div>
+                        <div class="item_product_home text-center">
+                           <div class="thumb_prod">
+                              <img src="/images/page/mockup-13.png" alt="">
+                           </div>
+                           <div class="more_prod">
+                              <p>Cám Phavico</p>
+                              <a href="" class="flex-center">Xem tiếp</a>
+                           </div>
+                        </div>
+                        <div class="item_product_home text-center">
+                           <div class="thumb_prod">
+                              <img src="/images/page/mockup-13.png" alt="">
+                           </div>
+                           <div class="more_prod">
+                              <p>Cám Phavico</p>
+                              <a href="" class="flex-center">Xem tiếp</a>
+                           </div>
+                        </div>
                      </div>
-
-
-
-
-
-
-
-
                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="media">
+   <div class="container">
+      <h2>Truyền Thông Phavico</h2>
+      <div class="media_grid">
+         <div class="media_left">
+            <a href="">
+               <img src="/images/page/media1.png" alt="">
+               <span>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</span>
+               <p>Cục Xuất nhập khẩu (Bộ Công Thương) cho biết, tháng 8/2019, giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm giá sâu và khó tiêu thụ.</p>
+            </a>
+         </div>
+         <div class="media_right">
+            <a href="">
+               <img src="/images/page/media2.png" alt="">
+               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
+            </a>
+            <a href="">
+               <img src="/images/page/media2.png" alt="">
+               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
+            </a>
+            <a href="">
+               <img src="/images/page/media2.png" alt="">
+               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
+            </a>
+            <a href="">
+               <img src="/images/page/media2.png" alt="">
+               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
+            </a>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="map">
+   <div class="container">
+      <div class="map_gr">
+         <div class="map_left position-relative">
+            <img src="/images/page/map.png" alt="">
+            <div class="item_map map_1">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_2">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_3">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_4">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_5">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_6">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_7">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_8">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_9">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_10">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+            <div class="item_map map_11">
+               <img src="/images/icon/ic-map.svg" alt="">
+            </div>
+         </div>
+         <div class="map_right">
+            <h4>MẠNG LƯỚI PHÂN BỐ</h4>
+            <p class="mb-5">Phavico hiện nay đã được phân bố & bao phủ khắp <br> các tỉnh thành trên toàn quốc!</p>
+            <div class="grid_map_right">
+               <img src="/images/page/icon-map2.png" alt="">
+               <div class="text_map_right">
+                  <span>VĂN PHÒNG ĐẠI DIỆN:</span>
+                  <p>Địa chỉ: TT 12-04, Khu 31ha, Thị trấn Trâu Quỳ, Gia Lâm, Hà Nội</p>
+               </div>
+            </div>
+            <div class="grid_map_right">
+               <img src="/images/page/icon-map1.png" alt="">
+               <div class="text_map_right">
+                  <span>NHÀ MÁY SẢN XUẤT:</span>
+                  <p class="mb-2">Nhà máy 1: An Lạc, Trưng Trắc, Văn Lâm, Hưng Yên</p>
+                  <p>Nhà máy 2: Km7, Quốc lộ 39, thị trấn Yên Mỹ, H. Yên Mỹ, Hưng Yên</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="tech">
+   <div class="elementor-section elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+      <div class="elementor-container elementor-column-gap-no">
+         <div class="elementor-row">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-766b9302" data-id="766b9302" data-element_type="column">
+               <div class="elementor-column-wrap elementor-element-populated">
+                  <div class="elementor-widget-wrap">
+                     <div class="elementor-section elementor-inner-section elementor-element elementor-element-17e9c59d elementor-section-boxed elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="17e9c59d" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-no">
+                           <div class="elementor-row">
+                              <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3e3a0b56" data-id="3e3a0b56" data-element_type="column">
+                                 <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                       <div class="elementor-element elementor-element-7ef93fa1 elementor-widget elementor-widget-image" data-id="7ef93fa1" data-element_type="widget" data-widget_type="image.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="elementor-image flex-center gap-20">
+                                                <div class="bd-logo"></div>
+                                                <img data-lazyloaded="1" src="/images/page/logo.svg">
+                                                <div class="bd-logo"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-1191b8c1 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="1191b8c1" data-element_type="widget" data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h3 class="elementor-heading-title elementor-size-default text-white">Góc Kỹ Thuật</h3>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-72e24671 agrikon-transform transform-type-translate elementor-widget elementor-widget-heading" data-id="72e24671" data-element_type="widget" data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <p class="elementor-heading-title elementor-size-default text-white text-lett text-lh">Liên hệ với chúng tôi để được tư vấn các kỹ thuật trong chăn <br> nuôi từ các chuyên gia đầu ngành nhiều kinh nghiệm.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="list_tech_home container">
+                        <div class="item_tech">
+                           <img src="/images/page/t1.png" alt="">
+                           <span>Con giống</span>
+                           <p>Làm sao để chọn con giống tốt, khoẻ mạnh, mang lại hiệu quả kinh tế cao</p>
+                        </div>
+                        <div class="item_tech">
+                           <img src="/images/page/t1.png" alt="">
+                           <span>Thức ăn</span>
+                           <p>Những loại thức ăn nào phù hợp với trang trại của bạn</p>
+                        </div>
+                        <div class="item_tech">
+                           <img src="/images/page/t1.png" alt="">
+                           <span>Chuồng trại</span>
+                           <p>Vệ sinh như nào là đúng cách. Các bước vệ sinh chuồng trại sạch sẽ</p>
+                        </div>
+                        <div class="item_tech">
+                           <img src="/images/page/t1.png" alt="">
+                           <span>Phòng bệnh</span>
+                           <p>Tìm hiểu về các dịch bệnh. Làm thế nào để phòng và tránh các dịch bệnh</p>
+                        </div>
+                        <div class="item_tech">
+                           <img src="/images/page/t1.png" alt="">
+                           <span>Quản lý</span>
+                           <p>Mô tả danh mục quản lý (cập nhật thêm trên trang quản trị)</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="customer">
+   <div class="container">
+      <div class="cus_title">
+         <h4>CHIA SẺ KHÁCH HÀNG</h4>
+         <p>Lắng nghe khách hàng của chúng tôi</p>
+      </div>
+      <div class="list_cus">
+         <div>
+            <div class="item_cus container">
+               <img src="/images/page/cus.png" alt="">
+               <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
+                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
+                  <span> <i></i>Phạm Khắc Hưng</span>
+               </div>
+            </div>
+         </div>
+         <div>
+            <div class="item_cus container">
+               <img src="/images/page/cus.png" alt="">
+               <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
+                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
+                  <span> <i></i>Phạm Khắc Hưng</span>
+               </div>
+            </div>
+         </div>
+         <div>
+            <div class="item_cus container">
+               <img src="/images/page/cus.png" alt="">
+               <div class="right_cus">
+                  <img src="/images/page/icon-text.png" alt="">
+                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
+                  <span> <i></i>Phạm Khắc Hưng</span>
                </div>
             </div>
          </div>

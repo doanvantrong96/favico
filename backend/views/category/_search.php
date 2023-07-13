@@ -20,7 +20,7 @@ use backend\models\Category;
             ]); ?>
             <div class="row">
                 <div class="col-lg-3">
-                    <?= $form->field($model, 'name')->textInput(['placeholder' => 'Nhập tên danh mục' ])->label(false) ?>
+                    <?= $form->field($model, 'name')->textInput(['placeholder' => 'Nhập tên chuyên mục' ])->label(false) ?>
                 </div>
                 <div class="col-lg-3">
                     <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['statusList'],['prompt'=>'Trạng thái'])->label(false) ?>

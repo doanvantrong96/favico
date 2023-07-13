@@ -124,8 +124,8 @@ if( $disabledEditForm ){
 
             <div class="col-md-4">
                 <?php 
-                    // $category_id       = is_array($model->category_id) ? $model->category_id : [];
-                    // echo $form->field($model, 'category_id')->dropDownList($listCategory,['data-placeholder'=>'Nhập tên chuyên mục', 'class' => 'form-control select2', 'multiple' => 'multiple' ])->label('Chuyên mục');
+                    $category_id       = is_array($model->category_id) ? $model->category_id : [];
+                    echo $form->field($model, 'category_id')->dropDownList($listCategory,['data-placeholder'=>'Nhập tên chuyên mục', 'class' => 'form-control select2', 'multiple' => 'multiple' ])->label('Chuyên mục');
                 ?>
                          
                 <div id="gallery">

@@ -200,8 +200,20 @@
     opacity: .85;
 }
 .slick-dots li.slick-active button:before {
-    color: #f54040;
+    color: #009247;
+    background-color: #009247;
     opacity: 1;
+}
+.slick-dots li{
+    width: 35px;
+    margin: 0 1px;
+}
+.slick-dots li button:before{
+    content: '';
+    background: #C1C1C180;
+    height: 3px;
+    color: #C1C1C180;
+    width: 30px;
 }
 .heading-page{
     font-size: 26px;
@@ -275,6 +287,9 @@
 }
 .stars .fa-star{
     cursor: pointer;
+}
+.slick-dots{
+    bottom: -60px;
 }
 @media only screen and (max-width: 600px) {
     #col-472054414{

@@ -24,9 +24,11 @@ use yii\widgets\ActiveForm;
                 <div class="col-lg-2">
                     <?php echo $form->field($model, 'is_active')->dropDownList([0=>'InActive', 1=>'Active'],['prompt'=>'Trạng thái tài khoản'])->label(false) ?>
                 </div>
+                <?php /*
                 <div class="col-lg-2">
                     <?php echo $form->field($model, 'account_type')->dropDownList(Yii::$app->params['employeeAccountType'],['prompt'=>'Loại tài khoản'])->label(false) ?>
                 </div>
+                */ ?>
                 <div class="col-lg-5">
                     <div class="form-group">
                         <?= Html::submitButton('<i class="fal fa-search"></i> Lọc', ['class' => 'btn btn-primary']) ?>

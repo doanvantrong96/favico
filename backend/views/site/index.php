@@ -14,6 +14,7 @@ $this->title = 'Dashboard';
             <h2>
                 Tổng quan
             </h2>
+            <?php /*
             <div class="box-date">
                 <span>Từ</span>
                 <div style="width: auto;" class="input-date-statistic pull-right tooltips btn btn-fit-height grey-salt" data-format="YYYY-MM-DD">
@@ -31,6 +32,7 @@ $this->title = 'Dashboard';
                 <button class="btn btn-panel waves-effect waves-themed minus" data-action="panel-collapse" data-trigger="hover" data-toggle="tooltip" data-offset="0,10" data-original-title="Thu gọn"><i class="fal fa-minus" style="color: #fff; position: relative; top: -2px;"></i></button>
                 <button class="btn btn-panel waves-effect waves-themed plus" data-action="panel-collapse" data-trigger="hover" data-toggle="tooltip" data-offset="0,10" data-original-title="Mở rộng"><i class="fal fa-plus" style="color: #fff; position: relative; top: -2px;"></i></button>
             </div>
+            */ ?>
         </div>
         <div class="panel-container collapse show top-post top" style="">
             <div class="panel-content" style="position: relative;">
@@ -40,8 +42,8 @@ $this->title = 'Dashboard';
                         <div class="p-3 bg-warning-400 rounded overflow-hidden position-relative text-white mb-g">
                             <div style="position:relative;z-index:1">
                                 <h3 class="display-4 d-block l-h-n m-0 fw-500">
-                                    <a href="/history-transaction/index?OrderCartSearch[status]=1" class="link-detail total_revenue" style="color:#fff"><?= $dataStatistic['total_revenue'] ?></a>
-                                    <small style="font-size: 14px;" class="m-0 l-h-n">Doanh thu <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng doanh thu bán khoá học thành công theo thời gian đã chọn"></span></small>
+                                    <a href="/product/index" class="link-detail total_revenue" style="color:#fff"><?= $dataStatistic['total_product'] ?></a>
+                                    <small style="font-size: 14px;" class="m-0 l-h-n">Sản phẩm <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng số sản phẩm"></span></small>
                                 </h3>
                             </div>
                             <i class="fal fa-money-bill position-absolute pos-right pos-bottom opacity-15  mb-n1 mr-n4" style="font-size: 6rem;"></i>
@@ -51,8 +53,8 @@ $this->title = 'Dashboard';
                         <div class="p-3 bg-success-200 rounded overflow-hidden position-relative text-white mb-g">
                             <div class="">
                                 <h3 class="display-4 d-block l-h-n m-0 fw-500">
-                                    <a href="/course/index?CourseSearch[is_sell]=1" class="link-detail total_course" style="color:#fff"><?= $dataStatistic['total_course_sell'] ?></a>
-                                    <small style="font-size: 14px;" class="m-0 l-h-n">Khoá học đang bán <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng số khoá học đang bán"></span></small>
+                                    <a href="/news/index" class="link-detail total_course" style="color:#fff"><?= $dataStatistic['total_news'] ?></a>
+                                    <small style="font-size: 14px;" class="m-0 l-h-n">Bài viết <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết"></span></small>
                                 </h3>
                             </div>
                             <i class="fal fa-list-alt position-absolute pos-right pos-bottom opacity-15  mb-n1 mr-n4" style="font-size: 6rem;"></i>
@@ -62,8 +64,8 @@ $this->title = 'Dashboard';
                         <div class="p-3 bg-primary-300 rounded overflow-hidden position-relative text-white mb-g">
                             <div class="">
                                 <h3 class="display-4 d-block l-h-n m-0 fw-500">
-                                    <a href="/customer/index" class="link-detail total_user_register" style="color:#fff"><?= $dataStatistic['total_user_register'] ?></a>
-                                    <small style="font-size: 14px;" class="m-0 l-h-n">Khách hàng đăng ký mới <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng khách hàng đăng ký mới theo thời gian đã chọn"></span></small>
+                                    <a href="/assignment/index" class="link-detail total_user_register" style="color:#fff"><?= $dataStatistic['total_user'] ?></a>
+                                    <small style="font-size: 14px;" class="m-0 l-h-n">Tài khoản <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng số tài khoản quản trị"></span></small>
                                 </h3>
                             </div>
                             <i class="fal fa-user-plus position-absolute pos-right pos-bottom opacity-15  mb-n1 mr-n4" style="font-size: 6rem;"></i>
@@ -73,8 +75,8 @@ $this->title = 'Dashboard';
                         <div class="p-3 bg-success-200 rounded overflow-hidden position-relative text-white mb-g">
                             <div class="">
                                 <h3 class="display-4 d-block l-h-n m-0 fw-500">
-                                    <a href="/customer/index?CustomerSearch[status][]=0&CustomerSearch[status][]=2" class="link-detail total_user_lock" style="color:#fff"><?= $dataStatistic['total_user_lock'] ?></a>
-                                    <small style="font-size: 14px;" class="m-0 l-h-n">Khách hàng bị khoá <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng khách hàng bị khoá từ CMS hoặc bị khoá do đăng nhập nhiều thiết bị theo thời gian đã chọn"></span></small>
+                                    <a href="/product-category/index" class="link-detail total_user_lock" style="color:#fff"><?= $dataStatistic['total_category'] ?></a>
+                                    <small style="font-size: 14px;" class="m-0 l-h-n">Nhà cung cấp <span class="fal fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Tổng số nhà cung cấp"></span></small>
                                 </h3>
                             </div>
                             <i class="fal fa-user position-absolute pos-right pos-bottom opacity-15 mb-n5 mr-n6" style="font-size: 8rem;"></i>
@@ -87,52 +89,18 @@ $this->title = 'Dashboard';
     <div class="panel">
         <div class="panel-hdr">
             <h2>
-                Khoá học Trending
+                Thời gian: <?= date('d/m/Y', time()) ?>
             </h2>
-            <div class="panel-toolbar">
+            <!-- <div class="panel-toolbar">
                 <button class="btn btn-panel waves-effect waves-themed minus" data-action="panel-collapse" data-trigger="hover" data-toggle="tooltip" data-offset="0,10" data-original-title="Thu gọn"><i class="fal fa-minus" style="color: #fff; position: relative; top: -2px;"></i></button>
                 <button class="btn btn-panel waves-effect waves-themed plus" data-action="panel-collapse" data-trigger="hover" data-toggle="tooltip" data-offset="0,10" data-original-title="Mở rộng"><i class="fal fa-plus" style="color: #fff; position: relative; top: -2px;"></i></button>
-            </div>
+            </div> -->
         </div>
-        <div class="panel-container collapse show top-post top" style="">
+        <!-- <div class="panel-container collapse show top-post top" style="">
             <div class="panel-content" style="min-height:200px;position: relative;">
-                <?php 
-                if( !empty($dataProvider->getModels()) )
-                    echo GridView::widget([
-                    'dataProvider' => $dataProvider,
-                    'emptyText' => 'Không có khoá học nào',
-                    'summary' => "<p class='summary_data'>Hiển {begin} - {end} trong tổng số <b>{totalCount}</b> khoá học</p>",
-                    'layout'=> "{summary}\n{items}\n<div class='page-navigation'>{pager}</div>",
-                    'columns' => [
-                        ['class' => 'yii\grid\SerialColumn', 'header'=> 'STT'],
-                        [
-                            'label'=>'Tên khoá học',
-                            'format' => 'raw',
-                            'value' => function ($model) {
-                                $html = '<p style="margin-bottom: 0;"><a href="/course/view?id=' . $model->id . '"><b>' . $model['name'] . '</b></a></p>';
-                                // $html .= '<i class="date-create">Ngày tạo: ' . date('H:i d/m/Y', strtotime($model['create_date'])) . '</i>';
-                                // if( $model->is_coming ){
-                                //     $html .= '<label class="coming">Sắp diễn ra</label>';
-                                // }
-                                return $html;
-                            },
-                            'contentOptions' => ['style'=>'position:relative']
-                        ],
-                        [
-                            'label'=>'Lượt xem',
-                            'format' => 'raw',
-                            'value' => function ($model) {
-                                return number_format($model->total_view, 0, ',', '.');
-                            },
-                            'contentOptions' => ['style'=>'position:relative']
-                        ]
-                    ],
-                    ]); 
-                else
-                    echo '<p class="text-center" style="margin-top:30px">Không có khoá học nào</p>';
-                ?>
+                
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <script src="/js/jquery-1.12.4.js"></script>

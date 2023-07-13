@@ -43,16 +43,36 @@ class NewsController extends Controller
             // 'Lessions'=>$Lessions
         ]);
     }
-    public function actionDetail($slug){
-        $this->layout = 'news';
-        $model = new News();
-        $new = $model->find()->where(['slug'=>$slug])->one();
-        $new_more =  $model->find()->where(['<>','id',$new['id']])->orderBy(['id'=>SORT_DESC])->limit(5)->all();
+    public function actionDetail(){
+        // $this->layout = 'news';
+        // $model = new News();
+        // $new = $model->find()->where(['slug'=>$slug])->one();
+        // $new_more =  $model->find()->where(['<>','id',$new['id']])->orderBy(['id'=>SORT_DESC])->limit(5)->all();
         return $this->render('detail',[
-            'new'=>$new,
-            'news_more'=>$new_more
+            // 'new'=>$new,
+            // 'news_more'=>$new_more
             // 'Sections'=>$Sections,
             // 'Lessions'=>$Lessions
         ]);
+    }
+
+    //tuyển dụng
+    public function actionRecruitment()
+    {
+
+        return $this->render('recruitment', [
+        ]);
+    }
+
+    public function actionDetailRecruitment(){
+        $this->view->title = 'Tuyển dụng';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => ''
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'image',
+        ]);
+        return $this->render('detail_recruitment');
     }
 }

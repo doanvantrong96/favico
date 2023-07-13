@@ -6,6 +6,18 @@ return [
         1        => 'Hoạt động',
         0        => 'Không hoạt động'
     ],
+    'statusProduct' => [
+        0        => 'Sản phẩm thường',
+        1        => 'Sản phẩm nổi bật'
+    ],
+    'positionList' => [
+        1        => 'Danh sách',
+        0        => 'Tiêu đề chính'
+    ],
+    'commentTypeList' => [
+        0        => 'Comment sản phẩm',
+        1        => 'Comment trang chủ'
+    ],
     'stateCommunityList' => [
         1        => 'Hiển thị',
         0        => 'Ẩn'
@@ -53,4 +65,23 @@ return [
         'edit_all_post' => ['Sửa bài viết bỏ qua trạng thái'],
         'view_dashboard'=> ['Xem DashBoard']
     ],
+    'type_config' => [
+        'menu_top_left'     => 'Menu trên - trái',
+        'menu_top_right'    => 'Menu trên - phải',
+        'hotline'           => 'Hotline',
+        'logo'              => 'Logo',
+        'fav_icon'          => 'Logo web',
+        'map_vn'            => 'Ảnh mạng lưới',
+        'bgr_technical'     => 'Ảnh nền nền Góc kỹ thuật',     
+        'bgr_footer'        => 'Ảnh nền Chân trang',     
+        'name_web'          => 'Tên công ty',
+        'address'           => 'Địa chỉ',
+        'work_time'         => 'Thời gian làm việc',
+        'email'             => 'Email',
+        'facebook'          => 'Facebook',
+        'youtube'           => 'YouTube',
+        'zalo'              => 'Zalo',
+        'col_first_footer'  => 'Mục trong cột 1 chân trang',
+        'col_last_footer'   => 'Mục trong cột 2 chân trang'
+    ]
 ];
