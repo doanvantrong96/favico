@@ -6,50 +6,102 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\models\News;
-use backend\models\CategoryTags;
+use backend\models\Category;
 use yii\data\Pagination;
+use yii\helpers\Url;
+
 /**
  * Site controller
  */
 class NewsController extends Controller
 {
-    public function actionIndex($id = null){
-        $this->layout = 'news';
-        $model = new News();
-        $categoty = new CategoryTags();
-        $des = '';
-        if( $id){
-            $condition = ';'.$id.'%';
-            $news = $model->find()->where(['status'=>2,'is_delete'=>0])->filterWhere(['like','categories',$condition,false])->orderBy(['id'=>SORT_DESC]);
-            $name = $categoty->find()->where(['id'=>$id])->one();
-            $title = $name->name;
-            $des = $name->except;
-        }else{
-            $title = 'Tin tức';
-            $news = $model->find()->where(['status'=>2,'is_delete'=>0])->orderBy(['id'=>SORT_DESC]);
-        }
-        $countQuery = clone $news;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->setPageSize(12);
-        $allnews = $news->offset($pages->offset)
-            ->limit($pages->limit)
-            ->all();
+    public function actionIndex($slug){
+        $category = Category::findOne(['slug' => $slug]);
+        $limit = 2;
+        $post = News::find()
+        ->where(['like','category_id',";$category->id;"])
+        ->andWhere(['status' => 1,'is_delete' => 0])
+        ->limit($limit)
+        ->all();
+
+       
+
         return $this->render('index',[
-            'news'=>$allnews,
-            'title'=> $title,
-            'des' =>$des,
-            'pages' => $pages,
-            // 'Sections'=>$Sections,
-            // 'Lessions'=>$Lessions
+            'category'      => $category,
+            'post'      => $post,
         ]);
     }
-    public function actionDetail(){
+
+    public function actionMoreNew(){
+        if(isset($_POST['page']) && isset($_POST['category_id'])){
+            $category_id = $_POST['category_id'];
+            $limit = 2;
+            $page = $_POST['page'];
+            $offset = $page * $limit;
+
+            $post_more = News::find()
+            ->where(['like','category_id',";$category_id;"])
+            ->andWhere(['status' => 1,'is_delete' => 0])
+            ->limit($limit)
+            ->offset($offset)
+            ->all();
+            $result_more_offset = News::find()
+            ->select(['id'])
+            ->where(['like','category_id',";$category_id;"])
+            ->andWhere(['status' => 1,'is_delete' => 0])
+            ->limit($limit)
+            ->offset($offset + $limit)
+            ->one();
+            $arr_res = [];
+            $response = '';
+            if(!empty($post_more)){
+                foreach($post_more as $row){
+                    $response .= '<div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <img
+                                                data-lazyloaded="1"
+                                                src="'. $row['image'] .'"
+                                            />
+                                            <a href="/"></a>
+                                        </div>
+                                        <div class="blog-card__content">
+                                            <div class="blog-card__date"><a href="/"> '. date('d/m', strtotime($row['date_publish'])) .'</a></div>
+                                            <h3 class="title"><a href="'. Url::to(['/news/detail','id' => $row['id']]) .'">'. $row['title'] .'</a></h3>
+                                            <a class="btn_read" href="'. Url::to(['/news/detail','id' => $row['id']]) .'">Đọc ngay</a>
+                                        </div>
+                                    </div>
+                                </div>';
+                }
+            }
+            $arr_res['data'] = $response;
+            $arr_res['check_more'] = !empty($result_more_offset) ? true : false;
+            echo json_encode($arr_res);
+            exit;
+
+        }
+    }
+    public function actionDetail($id){
         // $this->layout = 'news';
         // $model = new News();
         // $new = $model->find()->where(['slug'=>$slug])->one();
         // $new_more =  $model->find()->where(['<>','id',$new['id']])->orderBy(['id'=>SORT_DESC])->limit(5)->all();
+
+        $post = News::find()
+        ->where(['id' => $id,'status' => 1,'is_delete' => 0])
+        ->one();
+      
+        //bai viet lien quan
+        $post_lq = News::find()
+        ->where(['like','category_id',"$post->category_id"])
+        ->andWhere(['status' => 1,'is_delete' => 0])
+        ->andWhere(['<>','id', $post->category_id])
+        ->limit(6)
+        ->all();
+        
         return $this->render('detail',[
-            // 'new'=>$new,
+            'new'=>$post,
+            'post_lq'   => $post_lq,
             // 'news_more'=>$new_more
             // 'Sections'=>$Sections,
             // 'Lessions'=>$Lessions

@@ -11,38 +11,18 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Users;
-use backend\models\Course;
-use backend\models\CoachCourse;
-use backend\models\CourseLesson;
-use backend\models\CourseCategory;
-use common\models\Order;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ForgotPassword;
 use frontend\models\ContactForm;
-use yii\data\ArrayDataProvider;
 use backend\models\News;
-use frontend\models\Contact;
 
-use backend\models\Banner;
-use backend\models\Lecturer;
-use backend\models\Partner;
-use backend\models\StudentStory;
-use backend\models\FrequentlyQuestions;
-use backend\models\OrderCart;
-use backend\models\OrderCartProduct;
-use backend\models\UserCourse;
-use backend\models\CourseLessonActive;
-use backend\models\CourseLessonNote;
-use backend\models\FavoriteCourse;
-use backend\models\ContinueLesson;
-use backend\models\GiftCode;
-use backend\models\UserRegisterEmail;
-use backend\models\CommunityStory;
 use backend\models\UserLogin;
-use backend\models\FrequentlyQuestionsGroup;
-use frontend\controllers\PaymentsController;
+use backend\models\Banner;
+use backend\models\Partner;
+use backend\models\Abouts;
+use backend\models\Technical;
 
 
 /**
@@ -159,7 +139,7 @@ class SiteController extends Controller
         $this->view->title = 'favico';
         Yii::$app->view->registerMetaTag([
             'name' => 'description',
-            'content' => 'ABE Academy cung cấp các khoá học trực tuyến được tạo cho sinh viên ở mọi cấp độ kỹ năng. Chuyên gia hướng dẫn tốt nhất Việt Nam.'
+            'content' => 'content'
         ]);
         Yii::$app->view->registerMetaTag([
             'property' => 'og:image',
@@ -171,11 +151,37 @@ class SiteController extends Controller
             'prefix' => 'og: http://ogp.me/ns#',
             'content' => "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]",
         ]);
-        
 
-       
+        //get banner 
+        $result_banner = Banner::find()
+        ->where(['status' => 1,'is_delete' => 0])
+        ->all();
+
+        //get partner 
+        $result_partner = Partner::find()
+        ->where(['status' => 1,'is_delete' => 0])
+        ->orderBy(['position' => SORT_ASC])
+        ->all();
+
+        //get about 
+        $result_about = Abouts::find()
+        ->where(['status' => 1])
+        ->orderBy(['position' => SORT_ASC])
+        ->limit(3)
+        ->all();
+
+        //get technical
+        $result_technical = Technical::find()
+        ->where(['status' => 1])
+        ->orderBy(['position' => SORT_ASC])
+        ->limit(5)
+        ->all();
+
         return $this->render('index',[
-            
+            'result_banner'     => $result_banner,
+            'result_partner'    => $result_partner,
+            'result_about'      => $result_about,
+            'result_technical'  => $result_technical,
         ]);
     }
 

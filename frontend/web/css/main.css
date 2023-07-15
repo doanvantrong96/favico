@@ -560,6 +560,10 @@ ul{
 }
 .blog-details__content img{
   margin: 20px 0 35px;
+  width: 100%;
+}
+.blog-details__content h2 {
+  font-size: 20px;
 }
 .blog-details__content p{
  margin-bottom: 30px;
@@ -1209,7 +1213,49 @@ ul{
 .h2_paral{
   font-size: 48px !important;
 }
+.partner_group{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5,1fr);
+}
+.partner_group img {
+  max-width: 100%;
+}
+ul.pagination {
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #FFF;
+  width: max-content;
+  margin: 0 auto;
+  width: max-content;
+  overflow: hidden;
+}
+li.page-item a {
+  border: unset;
+  padding: 11px 17px;
+  height: 90%;
+  margin: 5% 0;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #000;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+}
+.page-item.active .page-link{
+  background-color: #009247;
+  border-color: #009247;
+}
+.list_product_hot p{
+  color: #000;
+}
 @media screen and (max-width: 1024px) {
+  li.page-item a{
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+    padding: 11px 0;
+  }
   .h2_paral {
       font-size: 40px !important;
   }

@@ -5,21 +5,28 @@ use yii\web\View ;
 ?>
 <section class="banner_home slideshow">
    <div class="banner_home_gr slider">
+      <?php 
+         if(!empty($result_banner)){ 
+         foreach($result_banner as $row) {
+         ?>
       <div class="item">
-         <img src="/images/banner/banner.png" alt="">
+         <img src="<?= $row['image'] ?>" alt="">
       </div>
-      <div class="item">
-         <img src="/images/page/banner-03.jpg" alt="">
-      </div>
-      <div class="item">
-         <img src="/images/banner/banner.png" alt="">
-      </div>
+      <?php }} ?>
    </div>
 </section>
 
 <section class="partner">
    <div class="container">
-      <img src="/images/page/partner.png" alt="">
+      <div class="partner_group">
+      <?php 
+         if(!empty($result_partner)){ 
+         foreach($result_partner as $row) {
+      ?>
+            <img src="<?= $row['image'] ?>" alt="">
+      <?php }} ?>
+      </div>
+      <!-- <img src="/images/page/partner.png" alt=""> -->
    </div>
 </section>
 
@@ -64,6 +71,12 @@ use yii\web\View ;
                      <div class="elementor-section elementor-inner-section elementor-element elementor-element-6c22f2bb elementor-section-boxed elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6c22f2bb" data-element_type="section">
                         <div class="elementor-container elementor-column-gap-default">
                            <div class="elementor-row">
+
+                              <?php 
+                                 if(!empty($result_about)) {
+                                    foreach($result_about as $row) {
+                              ?>
+
                               <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-742bbd6" data-id="742bbd6" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                  <div class="elementor-column-wrap elementor-element-populated">
                                     <div class="elementor-background-overlay"></div>
@@ -72,20 +85,23 @@ use yii\web\View ;
                                           <div class="elementor-widget-container">
                                              <div class="service-two__card">
                                                 <div class="service-two__card-image">
-                                                   <img data-lazyloaded="1" src="/images/page/gt1.png" class="s-img entered litespeed-loaded" alt="">
+                                                   <img data-lazyloaded="1" src="<?= $row['image'] ?>" class="s-img entered litespeed-loaded" alt="">
                                                 </div>
                                                 <div class="service-two__card-content">
                                                    <div class="service-two__card-icon">
-                                                      <img src="/images/page/p1.svg" alt="">
+                                                      <img src="<?= $row['avatar'] ?>" alt="">
                                                    </div>
-                                                   <h3 class="title"><a href="https://ninetheme.com/themes/agrikon/home-shop/#0" target="_blank">Giá Trị Cốt Lõi</a></h3>
-                                                   <ul class="text-left ul_cont">
-                                                      <li>Trung thực & chính trực</li>
-                                                      <li>Làm việc chăm chỉ & liên tục trau dồi bản thân</li>
-                                                      <li>Chuyên nghiệp trong mọi hành xử.</li>
-                                                      <li>Khuyến khích sự sáng tạo & năng lực cá nhân.</li>
-                                                      <li>Lợi nhuận xuất phát từ những lợi ích hướng tới cộng đồng..</li>
-                                                   </ul>
+                                                   <h3 class="title"><a href="javascript:;" target="_blank"><?= $row['title'] ?></a></h3>
+                                                   <div class="content_about_home">
+                                                      <?= $row['content'] ?>
+                                                      <!-- <ul class="text-left ul_cont">
+                                                         <li>Trung thực & chính trực</li>
+                                                         <li>Làm việc chăm chỉ & liên tục trau dồi bản thân</li>
+                                                         <li>Chuyên nghiệp trong mọi hành xử.</li>
+                                                         <li>Khuyến khích sự sáng tạo & năng lực cá nhân.</li>
+                                                         <li>Lợi nhuận xuất phát từ những lợi ích hướng tới cộng đồng..</li>
+                                                      </ul> -->
+                                                   </div>
                                                 </div>
                                              </div>
                                           </div>
@@ -93,7 +109,11 @@ use yii\web\View ;
                                     </div>
                                  </div>
                               </div>
-                              <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f911da4" data-id="f911da4" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+
+                              <?php }} ?>
+
+
+                              <!-- <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f911da4" data-id="f911da4" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                  <div class="elementor-column-wrap elementor-element-populated">
                                     <div class="elementor-background-overlay"></div>
                                     <div class="elementor-widget-wrap">
@@ -145,7 +165,7 @@ use yii\web\View ;
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
                            </div>
                         </div>
                      </div>
@@ -423,31 +443,17 @@ use yii\web\View ;
                         </div>
                      </div>
                      <div class="list_tech_home container">
-                        <div class="item_tech">
-                           <img src="/images/page/t1.png" alt="">
-                           <span>Con giống</span>
-                           <p>Làm sao để chọn con giống tốt, khoẻ mạnh, mang lại hiệu quả kinh tế cao</p>
-                        </div>
-                        <div class="item_tech">
-                           <img src="/images/page/t1.png" alt="">
-                           <span>Thức ăn</span>
-                           <p>Những loại thức ăn nào phù hợp với trang trại của bạn</p>
-                        </div>
-                        <div class="item_tech">
-                           <img src="/images/page/t1.png" alt="">
-                           <span>Chuồng trại</span>
-                           <p>Vệ sinh như nào là đúng cách. Các bước vệ sinh chuồng trại sạch sẽ</p>
-                        </div>
-                        <div class="item_tech">
-                           <img src="/images/page/t1.png" alt="">
-                           <span>Phòng bệnh</span>
-                           <p>Tìm hiểu về các dịch bệnh. Làm thế nào để phòng và tránh các dịch bệnh</p>
-                        </div>
-                        <div class="item_tech">
-                           <img src="/images/page/t1.png" alt="">
-                           <span>Quản lý</span>
-                           <p>Mô tả danh mục quản lý (cập nhật thêm trên trang quản trị)</p>
-                        </div>
+                        <?php 
+                           if(!empty($result_technical)) {
+                              foreach($result_technical as $row) {
+                        
+                        ?>
+                           <div class="item_tech">
+                              <img src="<?= $row['image'] ?>" alt="">
+                              <span><?= $row['title'] ?></span>
+                              <p><?= $row['content'] ?></p>
+                           </div>
+                        <?php }} ?>
                      </div>
                   </div>
                </div>
