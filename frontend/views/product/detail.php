@@ -12,7 +12,7 @@ use yii\web\View ;
         <span>/</span>
         <p>CHI TIẾT SẢN PHẨM</p>
     </div>
-    <h6>Cám gà</h6>
+    <h6><?= $result->title ?></h6>
 </section>
 
 <section class="product_detail">
@@ -22,8 +22,8 @@ use yii\web\View ;
                 <div class="grid_detail_top">
                     <img class="w-100 img_sp" src="/images/page/image 20.png" alt="">
                     <div class="d-flex">
-                        <span>Cám cá Hanofeed: C-01</span>
-                        <p>Xây dựng chiến lược phát triển thị trường & Định hướng kinh doanh để đạt mục tiêu sản lượng đăng kí</p>
+                        <span><?= $result->title ?></span>
+                        <p><?= $result->description ?></p>
                     </div>
                 </div>
                 <img class="img_ab" src="/images/page/bg-abr.png" alt="">
@@ -38,11 +38,7 @@ use yii\web\View ;
             <div class="tab-content">
                 <div id="description_product" class="tab-pane fade in active show">
                     <h3>Mô tả sản phẩm</h3>
-                    <p>C-01 là thức ăn hỗn hợp cho cá giống giúp vật nuôi lớn nhanh, khỏe mạnh. <br>
-                    Loại bao: 25 <br>
-                    Đạm: 0.41% <br>
-                    Không chứa hóa chất, kháng sinh <br>
-                    CreAMINO, Enzyme, Probiotic</p>
+                    <?= $result->content ?>
                 </div>
                 <div id="review_product" class="tab-pane fade">
                     <h3>Đánh giá</h3>
@@ -74,29 +70,30 @@ use yii\web\View ;
             </div>
             </div>
         </div>
-
-        <div class="product_relate_detail new_relate">
-            <div class="rel_title flex-center gap-20">
-                <div class="bd-logo"></div>
-                <img data-lazyloaded="1" src="/images/icon/logo-fa.svg">
-                <div class="bd-logo"></div>
+        <?php if(!empty($product_lq)) { ?>
+            <div class="product_relate_detail new_relate">
+                <div class="rel_title flex-center gap-20">
+                    <div class="bd-logo"></div>
+                    <img data-lazyloaded="1" src="/images/icon/logo-fa.svg">
+                    <div class="bd-logo"></div>
+                </div>
+                <h2>Sản Phẩm Liên Quan</h2>
+                <div class="product_relate">
+                <div class="list_product">
+                    <?php foreach($product_lq as $row) { ?>
+                        <div class="item_product">
+                            <a class="flex-center" href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                <img src="/images/page/image 20.png" alt="">
+                                <p><?= $row['title'] ?></p>
+                                <span>Chi tiết</span>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="flex-center w-100 mt-4">
+                    <a href="<?= Url::to(['/prodict/index']) ?>" class="see_more_td flex-center">Xem tất cả</a>
+                </div>
             </div>
-            <h2>Sản Phẩm Liên Quan</h2>
-            <div class="product_relate">
-            <div class="list_product">
-                <?php for($i = 0; $i < 6; $i++) { ?>
-                    <div class="item_product">
-                        <a class="flex-center" href="">
-                            <img src="/images/page/image 20.png" alt="">
-                            <p>Cám cá Hanofeed: C-01</p>
-                            <span>Chi tiết</span>
-                        </a>
-                    </div>
-                <?php } ?>
-            </div>
-            <div class="flex-center w-100 mt-4">
-                <span class="see_more_td flex-center">Xem tất cả</span>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </section>

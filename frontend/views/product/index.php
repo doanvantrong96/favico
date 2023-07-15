@@ -1,8 +1,10 @@
 <?php
 use yii\helpers\Url;
 use yii\web\View ;
-
+use yii\widgets\LinkPager;
 ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
 
 <section class="banner_bread text-center text-white">
     <div class="breadcrumbs">
@@ -31,21 +33,15 @@ use yii\web\View ;
                             <img src="/images/icon/arrow-b.svg" class="img_arrow" alt="">
                         </div>
                         <div class="checkbox_option">
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Phavico</label>
-                            </div>
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Phavico</label>
-                            </div>
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Phavico</label>
-                            </div>
+                            <?php 
+                                foreach($product_cat as $id => $name){ 
+                            ?>
+                                <div class="form_group d-flex gap-16">
+                                    <input class="trigger product_cat" name="product_cat" type="checkbox" value="<?= $id ?>">
+                                    <label for="trigger" class="checker"></label>
+                                    <label for=""><?= $name ?></label>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="option_filter active">
@@ -54,114 +50,154 @@ use yii\web\View ;
                             <img src="/images/icon/arrow-b.svg" class="img_arrow" alt="">
                         </div>
                         <div class="checkbox_option">
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Cám lợn</label>
-                            </div>
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Cám lợn</label>
-                            </div>
-                            <div class="form_group d-flex gap-16">
-                                <input class="trigger" type="checkbox">
-                                <label for="trigger" class="checker"></label>
-                                <label for="">Cám lợn</label>
-                            </div>
+                            <?php 
+                                foreach($product_tag as $id => $name){ 
+                            ?>
+                                <div class="form_group d-flex gap-16">
+                                    <input class="trigger product_tag" name="product_tag" type="radio" value="<?= $id ?>">
+                                    <label for="trigger" class="checker"></label>
+                                    <label for=""><?= $name ?></label>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-                <div class="product_hot filter_cat">
-                    <h4>Sản Phẩm Nổi Bật</h4>
-                    <div class="list_product_hot">
-                        <div>
-                            <a href="">
-                                <img src="/images/page/image 20.png" alt="">
-                            </a>
-                            <p>Cám cá <br> Hanofeed: <br> C-01</p>
-                        </div>
-                        <div>
-                            <a href="">
-                                <img src="/images/page/image 20.png" alt="">
-                            </a>
-                            <p>Cám cá <br> Hanofeed: <br> C-01</p>
-                        </div>
-                        <div>
-                            <a href="">
-                                <img src="/images/page/image 20.png" alt="">
-                            </a>
-                            <p>Cám cá <br> Hanofeed: <br> C-01</p>
+                <?php if(!empty($most)) { ?>
+                    <div class="product_hot filter_cat">
+                        <h4>Sản Phẩm Nổi Bật</h4>
+                        <div class="list_product_hot">
+                            <?php foreach($most as $row) { ?>
+                                <div>
+                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                        <img src="<?= $row['image'] ?>" alt="">
+                                    </a>
+                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                        <p><?= $row['title'] ?></p>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
             <div class="product_right">
+
                 <div class="filter_right">
                     <div class="summeri">
-                        <p class="mb-0">Hiển thị 1–9 trên 14 kết quả</p>
+                        <!-- <p class="mb-0">Hiển thị 1–9 trên 14 kết quả</p> -->
                     </div>
-                    <div class="sort_prod">
+                    <!-- <div class="sort_prod">
                         <select name="" id="">
                             <option value="">Sắp xếp theo mới nhất</option>
                             <option value="">Sắp xếp theo cũ nhất</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="result_product">
+                    <?php
+                        if(!empty($arr_data)){ 
+                        foreach($arr_data as $name_tag => $item_product) {
+                    ?>
                     <div class="result_product_gr">
                         <div class="cat_result">
-                            <h6>CÁM CÁ</h6>
+                            <h6><?= $name_tag ?></h6>
                             <div class="line_tit"></div>
                         </div>
                         <div class="list_product">
-                            <?php for($i = 0; $i < 9; $i++) { ?>
+                            <?php foreach($item_product as $row) { ?>
                                 <div class="item_product">
-                                    <a class="flex-center" href="">
-                                        <img src="/images/page/image 20.png" alt="">
-                                        <p>Cám cá Hanofeed: C-01</p>
+                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                        <img src="<?= $row['image'] ?>" alt="">
+                                        <p><?= $row['title'] ?></p>
                                         <span>Chi tiết</span>
                                     </a>
                                 </div>
                             <?php } ?>
                         </div>
                     </div>
-                    <div class="result_product_gr">
-                        <div class="cat_result">
-                            <h6>CÁM GÀ</h6>
-                            <div class="line_tit"></div>
-                        </div>
-                        <div class="list_product">
-                            <?php for($i = 0; $i < 9; $i++) { ?>
-                                <div class="item_product">
-                                    <a class="flex-center" href="">
-                                        <img src="/images/page/image 20.png" alt="">
-                                        <p>Cám cá Hanofeed: C-01</p>
-                                        <span>Chi tiết</span>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="result_product_gr">
-                        <div class="cat_result">
-                            <h6>CÁM LỢNK</h6>
-                            <div class="line_tit"></div>
-                        </div>
-                        <div class="list_product">
-                            <?php for($i = 0; $i < 9; $i++) { ?>
-                                <div class="item_product">
-                                    <a class="flex-center" href="">
-                                        <img src="/images/page/image 20.png" alt="">
-                                        <p>Cám cá Hanofeed: C-01</p>
-                                        <span>Chi tiết</span>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
+                    <?php }} ?>
                 </div>
+                <div id="demo"></div>
             </div>
         </div>
     </div>
 </section>
+<input type="hidden" value="<?= $total_page ?>" id="total_page">
+
+<script>
+    $(document).ready(function(){
+        $(document).on('change','.product_cat,.product_tag', function(){
+            getDataSearch();
+            // let totalPage = $('#total_page').val();
+        });
+
+
+        var totalPage = $('#total_page').val();
+        renderPagination(totalPage);
+        function renderPagination(totalPage){
+            $('#demo').twbsPagination({
+                totalPages: totalPage,
+                visiblePages: 10,
+                next: '<img src="/images/icon/next.svg">',
+                prev: '<img src="/images/icon/prev.svg">',
+                last: '',
+                first: '',
+                onPageClick: function (event, page) {
+                jQuery("html,body").animate({scrollTop: 480}, 500);
+                getDataSearchPage(page);
+                // getDataSearch(page);
+                console.log('getDataSearchs');
+                }
+            });
+        }
+
+        function getDataSearchPage(page = 1){
+            let arr_cat = [];
+            $("input:checkbox[name=product_cat]:checked").each(function(){
+                arr_cat.push($(this).val());
+            });
+        
+            var tag = "";
+            var selected = $("input:radio[name=product_tag]:checked");
+            if (selected.length > 0) {
+                tag = selected.val();
+            }
+            $.ajax({
+            type: 'POST',
+            url: '/product/index',
+            data: {category: arr_cat, tag: tag, page:page},
+            success: function(res){
+                var data = $.parseJSON(res);
+                $('.result_product').html(data.res);
+                $('#total_page').val(data.total_page);
+            }
+            })
+        }
+        function getDataSearch(page = 1){
+            let arr_cat = [];
+            $("input:checkbox[name=product_cat]:checked").each(function(){
+                arr_cat.push($(this).val());
+            });
+        
+            var tag = "";
+            var selected = $("input:radio[name=product_tag]:checked");
+            if (selected.length > 0) {
+                tag = selected.val();
+            }
+            $.ajax({
+            type: 'POST',
+            url: '/product/index',
+            data: {category: arr_cat, tag: tag, page:page},
+            success: function(res){
+                var data = $.parseJSON(res);
+                $('.result_product').html(data.res);
+                $('#total_page').val(data.total_page);
+                var $pagination = $('#demo');
+                $pagination.twbsPagination('destroy');
+                renderPagination(data.total_page);
+                console.log(1121212);
+            }
+            })
+        }
+    });
+</script>

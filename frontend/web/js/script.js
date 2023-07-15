@@ -32,27 +32,27 @@ $.fn.stars = function() {
       });
   });
 }
-var getDataSearch = function(type, query){
+// var getDataSearch = function(type, query){
   
-  $.ajax({
-    type: 'GET',
-    url: '/tim-kiem',
-    data: {type: type, q: query},
-    success: function(res){
-      console.log('data ' + res.data);
-        var html_search = '';
-        if( res.data.length <= 0 ){
-          html_search = '<li class="no-results">Không tìm thấy dữ liệu.</li>';
-        }else{
-            for(var i = 0; i < res.data.length; i++){
-              var dt = res.data[i];
-              html_search += '<li class="result_item_search"><a href="'+ dt.link +'"><img src="' + dt.avatar + '" alt=""><div><span>'+ dt.name +'</span><p>'+ dt.description +'</p></div></a></li>';
-            }
-        }
-        $('.search-results ul').html(html_search);
-    }
-  })
-}
+//   $.ajax({
+//     type: 'GET',
+//     url: '/tim-kiem',
+//     data: {type: type, q: query},
+//     success: function(res){
+//       console.log('data ' + res.data);
+//         var html_search = '';
+//         if( res.data.length <= 0 ){
+//           html_search = '<li class="no-results">Không tìm thấy dữ liệu.</li>';
+//         }else{
+//             for(var i = 0; i < res.data.length; i++){
+//               var dt = res.data[i];
+//               html_search += '<li class="result_item_search"><a href="'+ dt.link +'"><img src="' + dt.avatar + '" alt=""><div><span>'+ dt.name +'</span><p>'+ dt.description +'</p></div></a></li>';
+//             }
+//         }
+//         $('.search-results ul').html(html_search);
+//     }
+//   })
+// }
 
 // function onScroll(event){
 //   var scrollPos = $(document).scrollTop();
@@ -153,6 +153,29 @@ $(document).ready(function(){
   });
   $(document).on('click','.mobile-nav__toggler', function(){
     $('.mobile-nav__default').toggleClass('expanded');
+  });
+
+
+
+  let page_new = 0;
+  $(document).on('click','.see_more_td', function(){
+    let cat_id = $(this).attr('cat-id');
+    page_new++;
+    $.ajax({
+      type:'POST',
+      url:'/news/more-new',
+      data:{page:page_new, category_id:cat_id},
+      success:function(res){
+        var data = $.parseJSON(res);
+        console.log(data['data']);
+        if(data['data'] != ""){
+          $('.parent_new').append(data['data']);
+        }
+        if(!data['check_more']){
+          $('.see_more_td').hide();
+        }
+      }
+    });
   });
 
 

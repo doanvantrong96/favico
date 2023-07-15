@@ -11,7 +11,7 @@ use yii\web\View ;
         <span>/</span>
         <p>Tin Tức</p>
     </div>
-    <h6>Tin Tức</h6>
+    <h6><?= $new->title ?></h6>
 </section>
 
 <section class="content_new">
@@ -20,7 +20,7 @@ use yii\web\View ;
             <div class="col-lg-10 col-xl-9">
                 <div class="nt-theme-content">
                     <div class="blog__h1">
-                        <h1>Nguồn cung ngô đang dần nới lỏng - gánh nặng về chi phí trong ngành chăn nuôi sẽ giảm bớt?</h1>
+                        <h1><?= $new->description ?></h1>
                     </div>
                     <div class="blog-details__image">
                         <img src="/images/page/new1.png" alt="">
@@ -28,29 +28,13 @@ use yii\web\View ;
                             <img
                                 width="1600"
                                 height="900"
-                                src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-e1614194379515.jpg"
+                                src="<?= $new->image ?>"
                                 class="img-fluid wp-post-image"
-                                alt=""
-                                decoding="async"
-                                srcset="
-                                    https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-e1614194379515.jpg         1600w,
-                                    https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-e1614194379515-980x551.jpg  980w
-                                "
-                                sizes="(max-width: 1600px) 100vw, 1600px"
                             />
                         </noscript>
                     </div>
                     <div class="blog-details__content">
-                        <div class="grid">
-                            <div class="grid_row is-60">
-                                <p>Sau khi liên tục suy yếu từ mức đỉnh 10 năm do những thông tin tích cực về nguồn cung tại các quốc gia sản xuất ngô hàng đầu thế giới như Brazil, Ukraine và Mỹ, giá ngô đang có dấu hiệu hồi phục trở lại.Kết thúc phiên giao dịch ngày 7/6, giá hợp đồng ngô kỳ hạn tháng 7 được giao dịch liên thông với thế giới tại Sở Giao dịch Hàng hoá Việt Nam (MXV) đã nhảy vọt 1% lên mức 765 cents/giạ (300 USD/tấn). Đây đã là phiên tăng mạnh thứ 3 liên tiếp, sau khi giá ngô hạ nhiệt và suy yếu khoảng 10%, tính từ vùng đỉnh thiết lập vào cuối tháng 04.</p>
-                                <p>Sau khi liên tục suy yếu từ mức đỉnh 10 năm do những thông tin tích cực về nguồn cung tại các quốc gia sản xuất ngô hàng đầu thế giới như Brazil, Ukraine và Mỹ, giá ngô đang có dấu hiệu hồi phục trở lại.Kết thúc phiên giao dịch ngày 7/6, giá hợp đồng ngô kỳ hạn tháng 7 được giao dịch liên thông với thế giới tại Sở Giao dịch Hàng hoá Việt Nam (MXV) đã nhảy vọt 1% lên mức 765 cents/giạ (300 USD/tấn). Đây đã là phiên tăng mạnh thứ 3 liên tiếp, sau khi giá ngô hạ nhiệt và suy yếu khoảng 10%, tính từ vùng đỉnh thiết lập vào cuối tháng 04.</p>
-                                <p>Sau khi liên tục suy yếu từ mức đỉnh 10 năm do những thông tin tích cực về nguồn cung tại các quốc gia sản xuất ngô hàng đầu thế giới như Brazil, Ukraine và Mỹ, giá ngô đang có dấu hiệu hồi phục trở lại.Kết thúc phiên giao dịch ngày 7/6, giá hợp đồng ngô kỳ hạn tháng 7 được giao dịch liên thông với thế giới tại Sở Giao dịch Hàng hoá Việt Nam (MXV) đã nhảy vọt 1% lên mức 765 cents/giạ (300 USD/tấn). Đây đã là phiên tăng mạnh thứ 3 liên tiếp, sau khi giá ngô hạ nhiệt và suy yếu khoảng 10%, tính từ vùng đỉnh thiết lập vào cuối tháng 04.</p>
-                                <img src="/images/page/new2.png" alt="">
-                                <p>Sau khi liên tục suy yếu từ mức đỉnh 10 năm do những thông tin tích cực về nguồn cung tại các quốc gia sản xuất ngô hàng đầu thế giới như Brazil, Ukraine và Mỹ, giá ngô đang có dấu hiệu hồi phục trở lại.Kết thúc phiên giao dịch ngày 7/6, giá hợp đồng ngô kỳ hạn tháng 7 được giao dịch liên thông với thế giới tại Sở Giao dịch Hàng hoá Việt Nam (MXV) đã nhảy vọt 1% lên mức 765 cents/giạ (300 USD/tấn). Đây đã là phiên tăng mạnh thứ 3 liên tiếp, sau khi giá ngô hạ nhiệt và suy yếu khoảng 10%, tính từ vùng đỉnh thiết lập vào cuối tháng 04.</p>
-                                <p>Sau khi liên tục suy yếu từ mức đỉnh 10 năm do những thông tin tích cực về nguồn cung tại các quốc gia sản xuất ngô hàng đầu thế giới như Brazil, Ukraine và Mỹ, giá ngô đang có dấu hiệu hồi phục trở lại.Kết thúc phiên giao dịch ngày 7/6, giá hợp đồng ngô kỳ hạn tháng 7 được giao dịch liên thông với thế giới tại Sở Giao dịch Hàng hoá Việt Nam (MXV) đã nhảy vọt 1% lên mức 765 cents/giạ (300 USD/tấn). Đây đã là phiên tăng mạnh thứ 3 liên tiếp, sau khi giá ngô hạ nhiệt và suy yếu khoảng 10%, tính từ vùng đỉnh thiết lập vào cuối tháng 04.</p>
-                            </div>
-                        </div>
+                        <?= $new->content ?>
                     </div>
                     <div class="blog-details__meta">
                         <div class="blog-details__tags">
