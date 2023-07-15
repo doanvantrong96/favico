@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use backend\components\EncodeVideo;
 use mdm\admin\components\AccessControl;
+use yii\helpers\Url;
 
 // require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php');
 // require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php');
@@ -94,17 +95,18 @@ class CommonController extends Controller
         $image_type = mime_content_type($_FILES['file']['tmp_name']);
 
         $target_dir = $_SERVER['DOCUMENT_ROOT'];
-
+        
         if (!file_exists($target_dir . "/uploads/" . $folder)) {
             mkdir($target_dir . "/uploads/" . $folder, 0777, true);
             chmod($target_dir . "/uploads/" . $folder, 0777);
         }
-        // if( isset(Yii::$app->params['root_foder_upload'])){
-        //     $target_dir_sync = Yii::$app->params['root_foder_upload'];
-        //     if (!file_exists($target_dir_sync . "/uploads/" . $folder)) {
-        //         mkdir($target_dir_sync . "/uploads/" . $folder, 0775, true);
-        //     }
-        // }
+        if( isset(Yii::$app->params['root_foder_upload'])){
+            $target_dir_sync = Url::to('@frontend/web');
+            
+            if (!file_exists($target_dir_sync . "/uploads/" . $folder)) {
+                mkdir($target_dir_sync . "/uploads/" . $folder, 0775, true);
+            }
+        }
 
         $method = $_SERVER['REQUEST_METHOD'];
         if ($method != 'POST') {
@@ -125,8 +127,10 @@ class CommonController extends Controller
             return (array("message" => "", "status" => false));
         } else {
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-                // if( isset(Yii::$app->params['root_foder_upload']) && file_exists($target_file) )
-                //     copy($target_file, Yii::$app->params['root_foder_upload'] . $name_file);
+                if( isset(Yii::$app->params['root_foder_upload']) && file_exists($target_file) )
+                {
+                    copy($target_file, Url::to('@frontend/web') . $name_file);
+                }
                 $message = "The file " . basename($_FILES["file"]["name"]) . " has been uploaded.";
                 if( strpos($folder,'video-lesson') !== false ){
                     $dataFolder = explode('/',$folder);
