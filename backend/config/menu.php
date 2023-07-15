@@ -31,6 +31,13 @@ $group_config = [
         'url' => '/config/index'
     ]
 ];
+$group_branch = [
+    [
+        'label' => 'Quản lý chi nhánh',
+        'icon' => 'fal fa-map-marker',
+        'url' => '/branch/index'
+    ]
+];
 $group_banner = [
     [
         'label' => 'Quản lý banner',
@@ -135,6 +142,11 @@ $menu_group_controller = [
         'child_action' => $group_news
     ],
     [
+        'label' => 'Quản lý chi nhánh',
+        'icon'  => 'fal fa-map',
+        'controller' => 'branch',
+        'child_action' => $group_branch
+    ],[
         'label' => 'Quản lý hệ thống',
         'icon'  => 'fal fa-cog',
         'controller' => 'assignment,role,permission',

@@ -49,7 +49,7 @@ use yii\widgets\ActiveForm;
                         </div>
 
                         <div class="col-md-12">
-                            <?= $form->field($model, 'title')->textInput(['maxlength' => true,'input-set'=>'.set-unicode','class'=>'form-control remove-unicode'])->label('Tiêu đề') ?>
+                            <?= $form->field($model, 'title')->textarea(['id'=>'editors','class'=>'form-control','style'=>'height: 210px;'])->label('Tiêu đề') ?>
                         </div>
 
                         <div class="col-md-12">
@@ -160,6 +160,96 @@ jQuery(document).ready(function(){
             $('.box-loading-upload').hide();
         } );
         editor.on('change',function(){
+            $('#is_edit_post').val(1);
+        });
+        $(window).resize(function(){
+            if(screen.width === window.innerWidth){
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        })
+    }
+    if( $('#editors').length > 0 )
+    {
+        CKEDITOR.timestamp='<?= strtotime('2022-07-14') ?>';
+        CKEDITOR.config.removePlugins = 'flash';
+        CKEDITOR.config.removeButtons = 'Flash';
+        CKEDITOR.config.language = 'vi';
+        var editors = CKEDITOR.replace('editors', {
+            extraPlugins: "image2,wordcount,notification",
+            removePlugins: 'image,scayt,wsc,language',
+            image2_alignClasses: [ 'align-left', 'align-center', 'align-right' ],
+            // filebrowserBrowseUrl: '/assets/global/plugins/ckeditor/ckfinder/ckfinder.html',
+            // filebrowserUploadUrl: '/assets/global/plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&currentFolder=<?= date('Y/m/d') ?>&type=Hình ảnh',
+            filebrowserBrowseUrl: '/assets/global/plugins/ckeditor/ckfinder/ckfinder.html?type=Video',
+            filebrowserImageBrowseUrl: '/assets/global/plugins/ckeditor/ckfinder/ckfinder.html?type=Images',
+            filebrowserUploadUrl: '/assets/global/plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&currentFolder=<?= date('Y/m/d') ?>&type=Video',
+            filebrowserImageUploadUrl: '/assets/global/plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&currentFolder=<?= date('Y/m/d') ?>&type=Images',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700',
+            height: '500px',
+            allowedContent: {
+                script: true,
+                div: true,
+                $1: {
+                    // This will set the default set of elements
+                    elements: CKEDITOR.dtd,
+                    attributes: true,
+                    styles: true,
+                    classes: true
+                }
+            },
+            wordcount: {
+                showWordCount: true,
+                showCharCount: true,
+                filter: new CKEDITOR.htmlParser.filter({
+                    elements: {
+                        div: function( element ) {
+                            if(element.attributes.class == 'mediaembed') {
+                                return false;
+                            }
+                        }
+                    }
+                })
+            },
+            on: {
+                dialogShow: function( evt ) {
+                    var dialog = evt.data;
+                    if ( dialog._.name === 'image2' && !dialog._.model.data.src ) {
+                        evt.data.getContentElement( 'info', 'hasCaption' ).setValue( true );
+                    }else if ( dialog._.name === 'html5video' && !dialog._.model.ready ) {
+                        evt.data.getContentElement( 'info', 'responsive' ).setValue( true );
+                        evt.data.getContentElement( 'info', 'controls' ).setValue( true );
+                    }
+                }
+            }
+        } );
+        editors.on( 'fileUploadRequest', function( evt ) {
+            var fileLoader = evt.data.fileLoader,
+            xhr = fileLoader.xhr;
+            if( $('.box-loading-upload').length <= 0 )
+                $('body').append('<div class="box-loading-upload"> <img src="/img/loading-upload.svg" /> Đang tải file lên (<span class="percent_complete">0</span>%) </div>');
+
+            $('.box-loading-upload').show();
+            xhr.upload.onprogress = function(e){
+                if (e.lengthComputable){
+                    var percentComplete = parseInt((e.loaded / e.total) * 100);
+                    $('.box-loading-upload .percent_complete').text(percentComplete);
+                    if( percentComplete == 100 )
+                        $('.box-loading-upload').hide();
+                }
+            };
+        } );
+        
+        editors.on( 'fileUploadResponse', function( evt ) {
+            $('.box-loading-upload').hide();
+        } );
+        editors.on('change',function(){
             $('#is_edit_post').val(1);
         });
         $(window).resize(function(){

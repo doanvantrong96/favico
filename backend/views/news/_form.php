@@ -123,6 +123,7 @@ if( $disabledEditForm ){
             </div>
 
             <div class="col-md-4">
+                <?= $form->field($model, 'is_hot')->dropDownList([0 => 'Bài viết thường', 1 => 'Bài viết nổi bật (hiển thị trên trang chủ)'])->label('Loại bài viết') ?>
                 <?php 
                     $category_id       = is_array($model->category_id) ? $model->category_id : [];
                     echo $form->field($model, 'category_id')->dropDownList($listCategory,['data-placeholder'=>'Nhập tên chuyên mục', 'class' => 'form-control select2', 'multiple' => 'multiple' ])->label('Chuyên mục');
