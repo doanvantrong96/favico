@@ -1,7 +1,7 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
-    'root_foder_upload' => '/home/edhcklfhosting/public_html/yogalunathai/frontend/web',
+    'root_foder_upload' => '@frontend/web',
     'statusList' => [
         1        => 'Hoạt động',
         0        => 'Không hoạt động'

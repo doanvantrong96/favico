@@ -16,6 +16,8 @@ use yii\db\Query;
 use yii\imagine\Image;
 use backend\controllers\CommonController;
 use backend\models\ActionLog;
+use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * BannerController implements the CRUD actions for Banner model.
@@ -74,7 +76,7 @@ class BannerController extends Controller
         $model = new Banner();
        
         if($model->load(Yii::$app->request->post()) && $model->validate())
-        {            
+        {    
             if( $model->save() ){
                 ActionLog::insertLog(ActionLog::MODULE_BANNER, $model, ActionLog::TYPE_CREATE, Yii::$app->user->identity->getId(), ActionLog::SOURCE_BACKEND);
                 

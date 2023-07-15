@@ -3,7 +3,6 @@
 use yii\helpers\Url;
 use yii\web\View ;
 ?>
-<img src="<?= Url::to("@backend/web") ?>/uploads/images/category/1688539579-rkg68.jpg" />
 <section class="banner_home slideshow">
    <div class="banner_home_gr slider">
       <div class="item">

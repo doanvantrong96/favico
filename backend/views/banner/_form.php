@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
                             <div class="form-group mb-0">
                                 <label class="control-label">Ảnh</label>
                                 <div class="custom-file">
-                                    <input type="file" name="avatar" accept="image/*" class="custom-file-input file-upload-ajax" data-folder="images/category" id="imgUpload">
+                                    <input type="file" name="avatar" accept="image/*" class="custom-file-input file-upload-ajax" data-folder="images/banner" id="imgUpload">
                                     <label class="custom-file-label" for="imgUpload"><?= $model->image != '' ? $model->image : 'Chọn ảnh' ?></label>
                                 </div>
                                 <img class="img-preview" src="<?= $model->image ?>" style="<?= $model->image != '' ? '' : 'display:none' ?>" />
