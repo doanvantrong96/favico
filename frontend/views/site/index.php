@@ -304,7 +304,7 @@ use yii\web\View ;
             <a href="<?= Url::to(['/news/detail','slug' => $post[0]['slug'],'id' => $post[0]['id']]) ?>">
                <img src="/images/page/media1.png" alt="">
                <span><?= $post[0]['title'] ?></span>
-               <p><?= $post[0]['description'] ?></p>
+               <p class="line_2"><?= $post[0]['description'] ?></p>
             </a>
          </div>
          <div class="media_right">

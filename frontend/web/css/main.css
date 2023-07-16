@@ -23,6 +23,24 @@ ul{
 .gap-20{
   gap: 20px;
 }
+.line_3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line_2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line_1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .bg_gray{
   background-color: #F6F5F2;
 }
@@ -93,6 +111,8 @@ ul{
 }
 .thumb_prod img{
   width: 138px;
+  height: 193px;
+  object-fit: cover;
 }
 .more_prod{
   text-align: center;
@@ -186,6 +206,10 @@ ul{
   font-weight: 700;
   line-height: 23px;
   margin-bottom: 0;
+}
+.media_right img{
+  height: 190px;
+  object-fit: cover;
 }
 .map{
   background-image: url(/images/page/bg-map.png) !important;
