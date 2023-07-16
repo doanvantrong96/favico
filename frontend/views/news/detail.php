@@ -36,16 +36,18 @@ use yii\web\View ;
                     <div class="blog-details__content">
                         <?= $new->content ?>
                     </div>
-                    <div class="blog-details__meta">
-                        <div class="blog-details__tags">
-                            <span>Tags:</span>
-                            <a href="https://ninetheme.com/themes/agrikon/tag/envato/" rel="tag">Ngô ngọt</a>, 
-                            <a href="https://ninetheme.com/themes/agrikon/tag/fruit/" rel="tag">chăn nuôi</a>,
-                            <a href="https://ninetheme.com/themes/agrikon/tag/ninetheme/" rel="tag">nông sản</a>, 
+                    <?php if(!empty($tag)){ ?>
+                        <div class="blog-details__meta">
+                            <div class="blog-details__tags">
+                                <span>Tags:</span>
+                                <?php $numItems = count($tag); $i = 0; foreach($tag as $row) { ?>
+                                    <a href="<?= Url::to(['/news/index','slug' => $row['slug']]) ?>" rel="tag"><?= $row['name'] . ((++$i === $numItems) ? '' : ',') ?></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="paginations">
-                        <a class="flex-center" href="https://ninetheme.com/themes/agrikon/work-friendly-lunch-recipes/" rel="prev">Đọc bài trước</a> 
+                        <a class="flex-center" href="/" rel="prev">Đọc bài trước</a> 
                         <a class="btn-disabled flex-center" href="#0">Đọc bài tiếp theo</a>
                     </div>
                 </div>
@@ -54,63 +56,35 @@ use yii\web\View ;
     </div>
 </section>
 
-<section class="new_relate">
-    <div class="rel_title flex-center gap-20">
-        <div class="bd-logo"></div>
-        <img data-lazyloaded="1" src="/images/icon/logo-fa.svg">
-        <div class="bd-logo"></div>
-    </div>
-    <h2>Các bài viết liên quan</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="blog-card">
-                    <div class="blog-card__image">
-                        <img
-                            data-lazyloaded="1"
-                            src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-768x432.jpg"
-                        />
-                        <a href="https://ninetheme.com/themes/agrikon/this-doctor-is-also-a-farmer/"></a>
-                    </div>
-                    <div class="blog-card__content">
-                        <div class="blog-card__date"><a href="https://ninetheme.com/themes/agrikon/2020/02/08/">05/04</a></div>
-                        <h3 class="title"><a href="">Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</a></h3>
-                        <a class="btn_read" href="">Đọc ngay</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="blog-card">
-                    <div class="blog-card__image">
-                        <img
-                            data-lazyloaded="1"
-                            src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-768x432.jpg"
-                        />
-                        <a href="https://ninetheme.com/themes/agrikon/this-doctor-is-also-a-farmer/"></a>
-                    </div>
-                    <div class="blog-card__content">
-                        <div class="blog-card__date"><a href="https://ninetheme.com/themes/agrikon/2020/02/08/">05/04</a></div>
-                        <h3 class="title"><a href="">Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</a></h3>
-                        <a class="btn_read" href="">Đọc ngay</a>
+<?php if(!empty($post_lq)) : ?>
+    <section class="new_relate">
+        <div class="rel_title flex-center gap-20">
+            <div class="bd-logo"></div>
+            <img data-lazyloaded="1" src="/images/icon/logo-fa.svg">
+            <div class="bd-logo"></div>
+        </div>
+        <h2>Các bài viết liên quan</h2>
+        <div class="container">
+            <div class="row">
+                <?php foreach($post_lq as $row) { ?>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="blog-card">
+                        <div class="blog-card__image">
+                            <img
+                                data-lazyloaded="1"
+                                src="<?= $row['image'] ?>"
+                            />
+                            <a href="/"></a>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date"><a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>"><?= date('d/m', strtotime($row['date_publish'])) ?></a></div>
+                            <h3 class="title"><a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>"><?= $row['title'] ?></a></h3>
+                            <a class="btn_read" href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>">Đọc ngay</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="blog-card">
-                    <div class="blog-card__image">
-                        <img
-                            data-lazyloaded="1"
-                            src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/02/organic-news-24-768x432.jpg"
-                        />
-                        <a href="https://ninetheme.com/themes/agrikon/this-doctor-is-also-a-farmer/"></a>
-                    </div>
-                    <div class="blog-card__content">
-                        <div class="blog-card__date"><a href="https://ninetheme.com/themes/agrikon/2020/02/08/">05/04</a></div>
-                        <h3 class="title"><a href="">Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</a></h3>
-                        <a class="btn_read" href="">Đọc ngay</a>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>

@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use yii\helpers\Url;
+use backend\models\Category;
 
 AppAsset::register($this);
 
@@ -200,9 +201,13 @@ $check_menu = $controller .'/'.$action;
                                         <a href="javascript:;"><span class="elementor-icon-list-text">Tin tức</span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <?php 
+                                                $cat = Category::find()->where(['status' => 1,'is_delete' => 0])->all();
+                                                if(!empty($cat)){
+                                                    foreach($cat as $row){
+                                            ?>
+                                            <li><a class="dropdown-item" href="<?= Url::to(['news/index', 'slug' => $row['slug']]); ?>"><?= $row['name'] ?></a></li>
+                                            <?php }} ?>
                                         </ul>
                                     </li>
                                 </ul>
@@ -277,9 +282,13 @@ $check_menu = $controller .'/'.$action;
                                         <a href="javascript:;"><span class="<?= $controller.'/'.$action == 'news/detail' ? 'active' : '' ?> elementor-icon-list-text">Tin tức</span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
-                                            <li><a class="dropdown-item" href="/news/recruitment">Tuyển dụng</a></li>
+                                            <?php 
+                                                $cat = Category::find()->where(['status' => 1,'is_delete' => 0])->all();    
+                                                if(!empty($cat)){
+                                                    foreach($cat as $row){
+                                            ?>
+                                            <li><a class="dropdown-item" href="<?= Url::to(['news/index', 'slug' => $row['slug']]); ?>"><?= $row['name'] ?></a></li>
+                                            <?php }} ?>
                                         </ul>
                                     </li>
                                 </ul>
@@ -435,17 +444,17 @@ $check_menu = $controller .'/'.$action;
                                                                 <div class="elementor-widget-container">
                                                                     <ul class="elementor-icon-list-items">
                                                                         <li class="elementor-icon-list-item">
-                                                                            <a href="">
+                                                                            <a href="<?= Url::to(['site/about']); ?>">
                                                                             <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
                                                                             </a>
                                                                         </li>
                                                                         <li class="elementor-icon-list-item">
-                                                                            <a href="">
+                                                                            <a href="<?= Url::to(['product/index']); ?>">
                                                                             <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
                                                                             </a>
                                                                         </li>
                                                                         <li class="elementor-icon-list-item">
-                                                                            <a href="">
+                                                                            <a href="/">
                                                                             <span class="elementor-icon-list-text link_ft">Tin tức</span>
                                                                             </a>
                                                                         </li>
@@ -473,7 +482,7 @@ $check_menu = $controller .'/'.$action;
                                                                             </a>
                                                                         </li>
                                                                         <li class="elementor-icon-list-item">
-                                                                            <a href="">
+                                                                            <a href="<?= Url::to(['site/contact']); ?>">
                                                                             <span class="elementor-icon-list-text link_ft">Liên hệ</span>
                                                                             </a>
                                                                         </li>

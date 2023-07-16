@@ -1079,6 +1079,7 @@ ul{
 }
 .right_cus{
   position: relative;
+  border-radius: 0 20px 20px 0;
 }
 .not_theme_home span.elementor-icon-list-text{
   color: #777 !important;
@@ -1248,6 +1249,16 @@ li.page-item a {
 }
 .list_product_hot p{
   color: #000;
+}
+.content_comment{
+  display: flex;
+  flex-direction: column;
+}
+.content_comment img{
+  width: 14px;
+}
+.search_pr{
+  cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
   li.page-item a{

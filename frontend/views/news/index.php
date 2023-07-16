@@ -43,8 +43,10 @@ $this->title = $category->name;
                 </div>
             <?php } ?>
         </div>
-        <div class="flex-center w-100">
-            <span cat-id="<?= $category->id ?>" class="see_more_td flex-center">Xem thêm</span>
-        </div>
+        <?php if($post == 9) : ?>
+            <div class="flex-center w-100">
+                <span cat-id="<?= $category->id ?>" class="see_more_td flex-center">Xem thêm</span>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

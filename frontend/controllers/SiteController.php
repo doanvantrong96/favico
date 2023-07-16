@@ -23,6 +23,8 @@ use backend\models\Banner;
 use backend\models\Partner;
 use backend\models\Abouts;
 use backend\models\Technical;
+use backend\models\Product;
+use backend\models\Comment;
 
 
 /**
@@ -177,11 +179,32 @@ class SiteController extends Controller
         ->limit(5)
         ->all();
 
+        //san pham noi bat
+        $product_most = Product::find()
+        ->where(['is_most' => 1])
+        ->limit(3)
+        ->all();
+       
+        //bai viet trang chu
+        $post = News::find()
+        ->where(['status' => 1,'is_delete' => 0])
+        ->andWhere(['is_hot' => 1])
+        ->limit(5)
+        ->all();
+
+        //comment
+        $comment = Comment::find()
+        ->where(['status' => 1, 'type' => 2])
+        ->all();
+      
         return $this->render('index',[
             'result_banner'     => $result_banner,
             'result_partner'    => $result_partner,
             'result_about'      => $result_about,
             'result_technical'  => $result_technical,
+            'product_most'      => $product_most,
+            'post'              => $post,
+            'comment'           => $comment,
         ]);
     }
 
@@ -194,7 +217,15 @@ class SiteController extends Controller
         Yii::$app->view->registerMetaTag([
             'property' => 'image',
         ]);
-        return $this->render('about');
+
+        $result = Abouts::find()
+        ->where(['status' => 1])
+        ->asArray()
+        ->all();
+     
+        return $this->render('about', [
+            'result'    => $result,
+        ]);
     }
 
     /**

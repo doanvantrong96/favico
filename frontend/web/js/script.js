@@ -131,8 +131,8 @@ $(document).ready(function(){
     infinite: true,
     speed: 300,
     slidesToShow: 1,
-    centerMode: true,
-    variableWidth: true,
+    // centerMode: true,
+    // variableWidth: true,
     autoplay: false,
     autoplaySpeed: 3000,
 });

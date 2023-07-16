@@ -273,33 +273,20 @@ use yii\web\View ;
                         </div>
                      </div>
                      <div class="list_product_home container">
-                        <div class="item_product_home text-center">
-                           <div class="thumb_prod">
-                              <img src="/images/page/mockup-13.png" alt="">
+                        <?php 
+                           if(!empty($product_most)) {
+                              foreach($product_most as $row) {
+                        ?>
+                           <div class="item_product_home text-center">
+                              <div class="thumb_prod">
+                                 <img src="<?= $row['image'] ?>" alt="">
+                              </div>
+                              <div class="more_prod">
+                                 <p><?= $row['title'] ?></p>
+                                 <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>" class="flex-center">Xem tiếp</a>
+                              </div>
                            </div>
-                           <div class="more_prod">
-                              <p>Cám Phavico</p>
-                              <a href="" class="flex-center">Xem tiếp</a>
-                           </div>
-                        </div>
-                        <div class="item_product_home text-center">
-                           <div class="thumb_prod">
-                              <img src="/images/page/mockup-13.png" alt="">
-                           </div>
-                           <div class="more_prod">
-                              <p>Cám Phavico</p>
-                              <a href="" class="flex-center">Xem tiếp</a>
-                           </div>
-                        </div>
-                        <div class="item_product_home text-center">
-                           <div class="thumb_prod">
-                              <img src="/images/page/mockup-13.png" alt="">
-                           </div>
-                           <div class="more_prod">
-                              <p>Cám Phavico</p>
-                              <a href="" class="flex-center">Xem tiếp</a>
-                           </div>
-                        </div>
+                        <?php }} ?>
                      </div>
                   </div>
                </div>
@@ -314,29 +301,22 @@ use yii\web\View ;
       <h2>Truyền Thông Phavico</h2>
       <div class="media_grid">
          <div class="media_left">
-            <a href="">
+            <a href="<?= Url::to(['/news/detail','id' => $post[0]['id']]) ?>">
                <img src="/images/page/media1.png" alt="">
-               <span>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</span>
-               <p>Cục Xuất nhập khẩu (Bộ Công Thương) cho biết, tháng 8/2019, giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm giá sâu và khó tiêu thụ.</p>
+               <span><?= $post[0]['title'] ?></span>
+               <p><?= $post[0]['description'] ?></p>
             </a>
          </div>
          <div class="media_right">
-            <a href="">
-               <img src="/images/page/media2.png" alt="">
-               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
-            </a>
-            <a href="">
-               <img src="/images/page/media2.png" alt="">
-               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
-            </a>
-            <a href="">
-               <img src="/images/page/media2.png" alt="">
-               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
-            </a>
-            <a href="">
-               <img src="/images/page/media2.png" alt="">
-               <p>Giá trứng gia cầm bất ngờ tăng trở lại sau một thời gian dài giảm sâu</p>
-            </a>
+            <?php 
+               unset($post[0]);
+               foreach($post as $row) {
+            ?>
+               <a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>">
+                  <img src="<?= $row['image'] ?>" alt="">
+                  <p><?= $row['title'] ?></p>
+               </a>
+            <?php } ?>
          </div>
       </div>
    </div>
@@ -470,36 +450,21 @@ use yii\web\View ;
          <p>Lắng nghe khách hàng của chúng tôi</p>
       </div>
       <div class="list_cus">
-         <div>
-            <div class="item_cus container">
-               <img src="/images/page/cus.png" alt="">
-               <div class="right_cus">
-                  <img src="/images/page/icon-text.png" alt="">
-                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
-                  <span> <i></i>Phạm Khắc Hưng</span>
+         <?php 
+            if(!empty($comment)) {
+               foreach($comment as $row) {
+         ?>
+            <div>
+               <div class="item_cus container">
+                  <img src="<?= $row['avatar'] ?>" alt="">
+                  <div class="right_cus">
+                     <img src="/images/page/icon-text.png" alt="">
+                     <p><?= $row['content'] ?></p>
+                     <span> <i></i><?= $row['author'] ?></span>
+                  </div>
                </div>
             </div>
-         </div>
-         <div>
-            <div class="item_cus container">
-               <img src="/images/page/cus.png" alt="">
-               <div class="right_cus">
-                  <img src="/images/page/icon-text.png" alt="">
-                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
-                  <span> <i></i>Phạm Khắc Hưng</span>
-               </div>
-            </div>
-         </div>
-         <div>
-            <div class="item_cus container">
-               <img src="/images/page/cus.png" alt="">
-               <div class="right_cus">
-                  <img src="/images/page/icon-text.png" alt="">
-                  <p>“Tôi rất tin tưởng sản phẩm của công ty, cám ơn công ty đã mang sản phẩm tốt đến với khách hàng”</p>
-                  <span> <i></i>Phạm Khắc Hưng</span>
-               </div>
-            </div>
-         </div>
+         <?php }} ?>
       </div>
    </div>
 </section>

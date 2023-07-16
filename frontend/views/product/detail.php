@@ -32,7 +32,7 @@ use yii\web\View ;
             <div class="tab_detail">
             <ul class="nav nav-tabs nav_tab">
                 <li><a class="active" data-toggle="tab" href="#description_product">Mô tả sản phẩm</a></li>
-                <li><a data-toggle="tab" href="#review_product">Đánh giá (2)</a></li>
+                <li><a data-toggle="tab" href="#review_product">Đánh giá (<?= count($comment) ?>)</a></li>
             </ul>
 
             <div class="tab-content">
@@ -43,28 +43,30 @@ use yii\web\View ;
                 <div id="review_product" class="tab-pane fade">
                     <h3>Đánh giá</h3>
                     <div class="gr_comment">
-                        <div class="item_comment">
-                            <div class="avatar_comment">
-                                <img src="/images/page/avatar.png" alt="" class="w-100">
+                        <?php 
+                            if(!empty($comment)) {
+                                foreach($comment as $item) {
+                        ?>
+                            <div class="item_comment">
+                                <div class="avatar_comment">
+                                    <img src="<?= $item['avatar'] ?>" alt="" class="w-100">
+                                </div>
+                                <div class="content_comment">
+                                    <a href="javascript:void(0)"><?= $item['author'] ?></a>
+                                    <div style="display: flex;">
+                                        <?php for($i = 1; $i <= 5; $i++) { ?>
+                                            <?php if($i <= $item['rate']) { ?>
+                                                <img src="/images/icon/star-active.svg" alt="">
+                                            <?php }else{ ?>
+                                                <img src="/images/icon/star.svg" alt="">
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </div>
+                                    <span><?= date('d/m/Y', strtotime($item['create_date'])) ?></span>
+                                    <p><?= $item['content'] ?></p>
+                                </div>
                             </div>
-                            <div class="content_comment">
-                                <a href="javascript:void(0)">Nguyễn Thị Thuỷ</a>
-                                <img src="/images/page/star.png" alt="">
-                                <span>15/10/2022</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tristique urna, vel laoreet lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tristique urna, vel laoreet lectus</p>
-                            </div>
-                        </div>
-                        <div class="item_comment">
-                            <div class="avatar_comment">
-                                <img src="/images/page/avatar.png" alt="" class="w-100">
-                            </div>
-                            <div class="content_comment">
-                                <a href="javascript:void(0)">Nguyễn Thị Thuỷ</a>
-                                <img src="/images/page/star.png" alt="">
-                                <span>15/10/2022</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tristique urna, vel laoreet lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tristique urna, vel laoreet lectus</p>
-                            </div>
-                        </div>
+                        <?php }} ?>
                     </div>
                 </div>
             </div>
