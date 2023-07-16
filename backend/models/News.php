@@ -41,7 +41,7 @@ class News extends \yii\db\ActiveRecord
             [['description','seo_description'], 'string', 'max' => 300, 'tooLong' => '{attribute} tối đa {max} ký tự'],
             [['seo_title'], 'string', 'max' => 200, 'tooLong' => '{attribute} tối đa {max} ký tự'],
             [['slug'], 'unique', 'targetAttribute' => ['slug'], 'message' => '{attribute} đã tồn tại.'],
-            [['is_edit_post','date_schedule_publish','reason','tab','seo_title','seo_description','slug','image','description','content','category_id','tag','related_news','source','date_publish','status'],'safe']
+            [['is_hot','is_edit_post','date_schedule_publish','reason','tab','seo_title','seo_description','slug','image','description','content','category_id','tag','related_news','source','date_publish','status'],'safe']
         ];
     }
 
