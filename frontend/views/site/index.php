@@ -283,7 +283,7 @@ use yii\web\View ;
                               </div>
                               <div class="more_prod">
                                  <p><?= $row['title'] ?></p>
-                                 <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>" class="flex-center">Xem tiếp</a>
+                                 <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>" class="flex-center">Xem tiếp</a>
                               </div>
                            </div>
                         <?php }} ?>
@@ -301,7 +301,7 @@ use yii\web\View ;
       <h2>Truyền Thông Phavico</h2>
       <div class="media_grid">
          <div class="media_left">
-            <a href="<?= Url::to(['/news/detail','id' => $post[0]['id']]) ?>">
+            <a href="<?= Url::to(['/news/detail','slug' => $post[0]['slug'],'id' => $post[0]['id']]) ?>">
                <img src="/images/page/media1.png" alt="">
                <span><?= $post[0]['title'] ?></span>
                <p><?= $post[0]['description'] ?></p>
@@ -312,7 +312,7 @@ use yii\web\View ;
                unset($post[0]);
                foreach($post as $row) {
             ?>
-               <a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>">
+               <a href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                   <img src="<?= $row['image'] ?>" alt="">
                   <p><?= $row['title'] ?></p>
                </a>

@@ -68,10 +68,10 @@ use yii\widgets\LinkPager;
                         <div class="list_product_hot">
                             <?php foreach($most as $row) { ?>
                                 <div>
-                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                     </a>
-                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <p><?= $row['title'] ?></p>
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@ use yii\widgets\LinkPager;
                         <div class="list_product">
                             <?php foreach($item_product as $row) { ?>
                                 <div class="item_product">
-                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                         <p><?= $row['title'] ?></p>
                                         <span>Chi tiết</span>

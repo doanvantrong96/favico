@@ -17,6 +17,11 @@ class NewsController extends Controller
 {
     public function actionIndex($slug){
         $category = Category::findOne(['slug' => $slug]);
+        $this->view->title = $category['name'];
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Công ty CP thức ăn chăn nuôi Phavico'
+        ]);
         $limit = 9;
         $post = News::find()
         ->where(['like','category_id',";$category->id;"])

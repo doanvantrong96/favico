@@ -85,6 +85,11 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
+        $this->view->title = 'Sản phẩm - Phavico';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => "Các sản phẩm của công ty CP thức ăn chăn nuôi Phavico"
+        ]);
         //thương hiệu
         $product_cat = ProductCategory::find()
         ->where(['status' => 1])
@@ -107,7 +112,6 @@ class ProductController extends Controller
         $arr_data = [];
         foreach($product_tag as $id => $tag){
             $arr_data[$tag] = Product::find()
-            ->select(['id','image','title','tag_id'])
             ->where(['status' => 1])
             ->where(['like','tag_id',";$id;"])
             ->limit(6)
@@ -119,13 +123,12 @@ class ProductController extends Controller
             $page = $_POST['page'];
             $offset = ($page - 1) * $limit;
             $query = Product::find()
-            ->select(['id','image','title','tag_id','category_id'])
             ->where(['status' => 1]);
 
-            if(isset($_POST['category'])){
+            if(isset($_POST['category']) && empty($_POST['q'])){
                 $query->andWhere(['in','category_id',$_POST['category']]);
             }
-            if(isset($_POST['tag']) && !empty($_POST['tag'])){
+            if(isset($_POST['tag']) && !empty($_POST['tag']) && empty($_POST['q'])){
                 $tag  =$_POST['tag'];
                 $query->andWhere(['like','tag_id',";$tag;"]);
             }
@@ -151,7 +154,7 @@ class ProductController extends Controller
                     $html_product = '';
                     foreach($item_product as $row) { 
                         $html_product .= '<div class="item_product">
-                        <a class="flex-center" href="'. Url::to(['/product/detail','id' => $row['id']]) .'">
+                        <a class="flex-center" href="'. Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) .'">
                             <img src="'. $row['image'] .'" alt="">
                             <p>'. $row['title'] .'</p>
                             <span>Chi tiết</span>
@@ -190,7 +193,11 @@ class ProductController extends Controller
     public function actionDetail($id)
     {
         $result = Product::findOne($id);
-
+        $this->view->title = 'Sản phẩm - '. $result['title'] .'';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $result['description']
+        ]);
         //san pham lien quan
         $product_lq = Product::find()
         ->where(['category_id' => $result->category_id])

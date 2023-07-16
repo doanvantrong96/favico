@@ -748,11 +748,27 @@ ul{
   text-indent: 16px !important;
   padding-left: 0 !important;
 }
-.contact-one__form .thm-btn{
+.thm-btn{
   font-size: 16px !important;
   height: 48px !important;
   width: 185px;
   padding: 0;
+  background-color: #efb443 !important;
+  border: unset !important;
+  border-radius: 5px;
+}
+.thm-btn:hover{
+  opacity: .85;
+  transition: .3s;
+}
+.help-block-error {
+  color: red;
+  position: relative;
+  bottom: 10px;
+}
+.item_product:hover {
+  border: 1px solid #efb443;
+  padding: 31px 11px;
 }
 .see_more_td{
   color: #009247;
@@ -1093,6 +1109,9 @@ ul{
 .theme_home{
   z-index: 111 !important;
 }
+.menu_hidden{
+  opacity: 0;
+}
 .fixed_h{
   position: fixed;
   top: 0 !important;
@@ -1101,6 +1120,7 @@ ul{
   height: 90px !important;
   transition: all .75s ease !important;
   box-shadow: 0px 10px 60px 0px rgba(0,0,0,.1);
+  opacity: 1 !important;
 }
 .home_sticky, .not_home_sticky {
   top: -90px;

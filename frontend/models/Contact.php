@@ -21,9 +21,8 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone'], 'required', 'message' => '{attribute} không được trống'],
-            ['email', 'email'],
-            [['source', 'url','province'], 'string', 'max' => 255],
+            [['name', 'phone', 'email', 'address'], 'required', 'message' => '{attribute} không được trống'],
+            [['note'], 'string', 'max' => 255],
         ];
     }
 
@@ -34,10 +33,11 @@ class Contact extends \yii\db\ActiveRecord
     {
         return [
             'name' => 'Họ và tên',
-            'phone' => 'SĐT',
+            'phone' => 'Số điện thoại',
             'email' => 'Email',
-            'content' => 'Nội dung',
-            'status' => 'Trạng thái',
+            'address' => 'Địa chỉ',
+            'note' => 'Nội dung',
+            'create' => 'Create',
         ];
     }
 }

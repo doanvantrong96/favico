@@ -77,9 +77,9 @@ use yii\web\View ;
                             <a href="/"></a>
                         </div>
                         <div class="blog-card__content">
-                            <div class="blog-card__date"><a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>"><?= date('d/m', strtotime($row['date_publish'])) ?></a></div>
-                            <h3 class="title"><a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>"><?= $row['title'] ?></a></h3>
-                            <a class="btn_read" href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>">Đọc ngay</a>
+                            <div class="blog-card__date"><a href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>"><?= date('d/m', strtotime($row['date_publish'])) ?></a></div>
+                            <h3 class="title"><a href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>"><?= $row['title'] ?></a></h3>
+                            <a class="btn_read" href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">Đọc ngay</a>
                         </div>
                     </div>
                 </div>

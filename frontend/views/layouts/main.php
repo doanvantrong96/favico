@@ -10,6 +10,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use yii\helpers\Url;
 use backend\models\Category;
+use backend\models\Config;
 
 AppAsset::register($this);
 
@@ -32,28 +33,44 @@ $action = Yii::$app->controller->action->id;
 
 $check_menu = $controller .'/'.$action;
 
+$config = Config::find()->where(['status' => 1])->orderBy(['position' => SORT_ASC])->asArray()->all();
+$menu_top_left = [];
+$menu_top_right = [];
+$hotline = '';
+$address = '';
+$work_time = '';
+$email = '';
+
+foreach($config as $row){
+    if($row['type'] == 'menu_top_left')
+        array_push($menu_top_left, $row);
+    if($row['type'] == 'menu_top_right')
+        array_push($menu_top_right, $row);
+    if($row['type'] == 'hotline')
+        $hotline = $row;
+    if($row['type'] == 'address')
+        $address = $row;
+    if($row['type'] == 'email')
+        $email = $row;
+    if($row['type'] == 'work_time')
+        $work_time = $row;
+}
+
+$url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <style class="vjs-styles-defaults">
-            .video-js {
-                width: 300px;
-                height: 150px;
-            }
-            .vjs-fluid {
-                padding-top: 56.25%;
-            }
-        </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="stylesheet" id="wp-bootstrap-starter-fontawesome-cdn-css" href="/css/fontawesome.min.css" type="text/css" media="all" />
         <link rel="stylesheet" href="/css/all.min.css" crossorigin="anonymous" />
         <link data-optimized="2" rel="stylesheet" href="/css/layout.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="icon" type="image/png" href="/images/page/logo.svg" sizes="50x50">
+        <link rel="icon" type="image/png" href="/images/icon/logo-fa.svg" sizes="50x50">
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="website" />
         <link rel="stylesheet" href="/css/azuremediaplayer.min.css" />
@@ -86,17 +103,15 @@ $check_menu = $controller .'/'.$action;
         <meta itemprop="name" content="website abe">
         
         <!-- Facebook Meta Tags -->
-        <!-- <meta property="og:url" content="https://elearning.abe.edu.vn"> -->
         <meta property="og:type" content="article">
         <meta property="og:title" content="<?= Html::encode($this->title) ?>">
         <meta property="og:description" content="">
-        <!-- <meta property="og:image" prefix="og: http://ogp.me/ns#" content="https://elearning.abe.edu.vn/images/page/logo.png" /> -->
         
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="">
         <meta name="twitter:title" content="<?= Html::encode($this->title) ?>">
         <meta name="twitter:description" content="">
-        <meta name="twitter:image" content="https://elearning.abe.edu.vn/images/page/logo.png">
+        <meta name="twitter:image" content="/images/icon/logo-fa.svg">
 
 
         <title><?= Html::encode($this->title) ?></title>
@@ -157,16 +172,16 @@ $check_menu = $controller .'/'.$action;
             <div class="mobile-nav__container">
                 <div class="container">
                     <ul class="main-menu__list">
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="/">TRANG CHỦ</a></li>
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['site/about']); ?>">GIỚI THIỆU</a></li>
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['product/index']); ?>">SẢN PHẨM</a></li>
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['news/detail']); ?>">TIN TỨC</a></li>
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['news/recruitment']); ?>">TUYỂN DỤNG</a></li>
-                        <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= Url::to(['site/contact']); ?>">LIÊN HỆ</a></li>
+                        <?php foreach($menu_top_left as $row) { ?>
+                            <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= $row['value'] ?>"><?= $row['name'] ?></a></li>
+                        <?php } ?>
+                        <?php foreach($menu_top_right as $row) { ?>
+                            <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item"><a href="<?= $row['value'] ?>"><?= $row['name'] ?></a></li>
+                        <?php } ?>
                         <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item">
-                            <a class="hotline_header hotline_mb flex-center" href="/">
+                            <a class="hotline_header hotline_mb flex-center" href="<?= $hotline['value'] ?>">
                                 <span>GỌI NGAY</span>
-                                <p class="mb-0">02213 997 768</p>
+                                <p class="mb-0"><?= $hotline['name'] ?></p>
                             </a>
                         </li>
                     </ul>
@@ -185,18 +200,13 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-element elementor-element-794a64d elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="794a64d" data-element_type="widget" data-widget_type="icon-list.default">
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                        <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
-                                        </a>
-                                        </li>
-                                        <li class="elementor-icon-list-item elementor-inline-item">
-                                        <a href="<?= Url::to(['site/about']); ?>"><span class="elementor-icon-list-text">Giới thiệu</span>
-                                        </a>
-                                        </li>
-                                        <li class="elementor-icon-list-item elementor-inline-item">
-                                        <a href="<?= Url::to(['product/index']); ?>"><span class="elementor-icon-list-text">Sản phẩm</span>
-                                        </a>
-                                        </li>
+                                        <?php foreach($menu_top_left as $row) { ?>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <a href="<?= $row['value'] ?>"><span class=" <?= $url_full == $row['value'] ? 'active' : '' ?> elementor-icon-list-text"><?= $row['name'] ?></span>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                      
                                         <li class="elementor-icon-list-item elementor-inline-item">
                                         <a href="javascript:;"><span class="elementor-icon-list-text">Tin tức</span>
                                         </a>
@@ -235,17 +245,14 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-element elementor-element-23ae00a elementor-icon-list--layout-inline elementor-widget__width-auto elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="23ae00a" data-element_type="widget" data-widget_type="icon-list.default">
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <?php foreach($menu_top_right as $row) { ?>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                            <a href="<?= $row['value'] ?>"><span class=" <?= $url_full == $row['value'] ? 'active' : '' ?> elementor-icon-list-text"><?= $row['name'] ?></span></a>
+                                        </li>
+                                    <?php } ?>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['news/recruitment']); ?>"><span class="elementor-icon-list-text">Tuyển dụng</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['site/contact']); ?>"><span class="elementor-icon-list-text">Liên hệ</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                        <a class="hotline_header flex-center" href="/">
-                                            <span class=" text-center text-white">GỌI NGAY <br> 02213 997 768</span>
+                                        <a class="hotline_header flex-center" href="<?= $hotline['value'] ?>">
+                                            <span class=" text-center text-white">GỌI NGAY <br> <?= $hotline['name'] ?></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -257,7 +264,7 @@ $check_menu = $controller .'/'.$action;
             </div>
             </div>
         </section>
-        <section class=" <?= ($controller == 'site' && $action == 'index') ? 'home_sticky' : 'not_theme_home not_home_sticky' ?> elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <section class=" <?= ($controller == 'site' && $action == 'index') ? 'home_sticky' : 'not_theme_home not_home_sticky' ?> menu_hidden elementor-section elementor-top-section elementor-element elementor-element-6ac7fd0 elementor-section-height-min-height elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="6ac7fd0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-container elementor-column-gap-default">
             <div class="elementor-row align-items-center">
                 <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7d7708f" data-id="7d7708f" data-element_type="column">
@@ -266,18 +273,12 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-element elementor-element-794a64d elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="794a64d" data-element_type="widget" data-widget_type="icon-list.default">
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="/"><span class="elementor-icon-list-text">Trang chủ</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['site/about']); ?>"><span class="<?= $controller.'/'.$action == 'site/about' ? 'active' : '' ?> elementor-icon-list-text">Giới thiệu</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['product/index']); ?>"><span class="<?= $controller.'/'.$action == 'product/index' ? 'active' : '' ?> elementor-icon-list-text">Sản phẩm</span>
-                                    </a>
-                                    </li>
+                                    <?php foreach($menu_top_left as $row) { ?>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                            <a href="<?= $row['value'] ?>"><span class="elementor-icon-list-text <?= $url_full == $row['value'] ? 'active' : '' ?>"><?= $row['name'] ?></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
                                     <li class="elementor-icon-list-item elementor-inline-item">
                                         <a href="javascript:;"><span class="<?= $controller.'/'.$action == 'news/detail' ? 'active' : '' ?> elementor-icon-list-text">Tin tức</span>
                                         </a>
@@ -316,17 +317,15 @@ $check_menu = $controller .'/'.$action;
                         <div class="elementor-element elementor-element-23ae00a elementor-icon-list--layout-inline elementor-widget__width-auto elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="23ae00a" data-element_type="widget" data-widget_type="icon-list.default">
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <?php foreach($menu_top_right as $row) { ?>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                            <a href="<?= $row['value'] ?>"><span class="<?= $url_full == $row['value'] ? 'active' : '' ?> elementor-icon-list-text"><?= $row['name'] ?></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
                                     <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['news/recruitment']); ?>"><span class="<?= $controller.'/'.$action == 'news/recruitment' ? 'active' : '' ?> elementor-icon-list-text">Tuyển dụng</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="<?= Url::to(['site/contact']); ?>"><span class="<?= $controller.'/'.$action == 'site/contact' ? 'active' : '' ?> elementor-icon-list-text">Liên hệ</span>
-                                    </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item elementor-inline-item">
-                                        <a class="hotline_header flex-center" href="/">
-                                            <span class=" text-center text-white">GỌI NGAY <br> 02213 997 768</span>
+                                        <a class="hotline_header flex-center" href="<?= $hotline['value'] ?>">
+                                            <span class=" text-center text-white">GỌI NGAY <br> <?= $hotline['name'] ?></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -443,21 +442,13 @@ $check_menu = $controller .'/'.$action;
                                                                 <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
                                                                 <div class="elementor-widget-container">
                                                                     <ul class="elementor-icon-list-items">
+                                                                    <?php foreach($menu_top_left as $row) { ?>
                                                                         <li class="elementor-icon-list-item">
-                                                                            <a href="<?= Url::to(['site/about']); ?>">
-                                                                            <span class="elementor-icon-list-text link_ft">Giới thiệu</span>
+                                                                            <a href="<?= $row['value'] ?>">
+                                                                            <span class="elementor-icon-list-text link_ft"><?= $row['name'] ?></span>
                                                                             </a>
                                                                         </li>
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <a href="<?= Url::to(['product/index']); ?>">
-                                                                            <span class="elementor-icon-list-text link_ft">Sản phẩm</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <a href="/">
-                                                                            <span class="elementor-icon-list-text link_ft">Tin tức</span>
-                                                                            </a>
-                                                                        </li>
+                                                                    <?php } ?>
                                                                     </ul>
                                                                 </div>
                                                                 </div>
@@ -476,16 +467,13 @@ $check_menu = $controller .'/'.$action;
                                                                 <div class="elementor-element elementor-element-6ed4eec elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6ed4eec" data-element_type="widget" data-widget_type="icon-list.default">
                                                                 <div class="elementor-widget-container">
                                                                     <ul class="elementor-icon-list-items">
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <a href="">
-                                                                            <span class="elementor-icon-list-text link_ft">Tuyển dụng</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <a href="<?= Url::to(['site/contact']); ?>">
-                                                                            <span class="elementor-icon-list-text link_ft">Liên hệ</span>
-                                                                            </a>
-                                                                        </li>
+                                                                        <?php foreach($menu_top_right as $row) { ?>
+                                                                            <li class="elementor-icon-list-item">
+                                                                                <a href="<?= $row['value'] ?>">
+                                                                                <span class="elementor-icon-list-text link_ft"><?= $row['name'] ?></span>
+                                                                                </a>
+                                                                            </li>
+                                                                        <?php } ?>
                                                                     </ul>
                                                                 </div>
                                                                 </div>
@@ -508,21 +496,20 @@ $check_menu = $controller .'/'.$action;
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f1.svg" alt="">
                                                                         <div>
-                                                                        <p class="text-white">Nhà máy 1: An Lạc, Trưng Trắc, Văn Lâm, Hưng Yên</p>
-                                                                        <p class="text-white">Nhà máy 2: Km7, Quốc lộ 39, thị trấn Yên Mỹ, H. Yên Mỹ, Hưng Yên</p>
+                                                                        <p class="text-white"><?= $address['name'] ?></p>
                                                                         </div>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f2.svg" alt="">
-                                                                        <p class="text-white">02213 997 768</p>
+                                                                        <p class="text-white"><?= $hotline['name'] ?></p>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f3.svg" alt="">
-                                                                        <p class="text-white">Thời gian làm việc: T.2 - T.7: 7h00 - 17h00</p>
+                                                                        <p class="text-white">Thời gian làm việc: <?= $work_time['name'] ?></p>
                                                                     </li>
                                                                     <li class="elementor-icon-list-item">
                                                                         <img src="/images/icon/f4.svg" alt="">
-                                                                        <p class="text-white">cskh@phavico.com</p>
+                                                                        <p class="text-white"><?= $email['name'] ?></p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -552,7 +539,7 @@ $check_menu = $controller .'/'.$action;
                                                         <div class="elementor-widget-wrap">
                                                             <div class="elementor-element elementor-element-4fa1fa37 elementor-icon-list--layout-inline elementor-align-right elementor-tablet-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4fa1fa37" data-element_type="widget" data-widget_type="icon-list.default">
                                                             <div class="elementor-widget-container gr_frs">
-                                                                <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi 02213 997 768</p>
+                                                                <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi <?= $hotline['name'] ?></p>
                                                                 <div>
                                                                     <a href=""><img src="/images/icon/s1.svg" alt=""></a>
                                                                     <a href=""><img src="/images/icon/s2.svg" alt=""></a>

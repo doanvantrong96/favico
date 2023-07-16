@@ -67,104 +67,28 @@ $this->title = 'Liên hệ';
                                                     <p role="status" aria-live="polite" aria-atomic="true"></p>
                                                     <ul></ul>
                                                 </div>
-                                                <form action="/" method="post" class="form_ct" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                                                    <div style="display: none;">
-                                                        <input type="hidden" name="_wpcf7" value="1338" />
-                                                        <input type="hidden" name="_wpcf7_version" value="5.7.7" />
-                                                        <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1338-p1303-o1" />
-                                                        <input type="hidden" name="_wpcf7_container_post" value="1303" />
-                                                        <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                                                    </div>
-
+                                                <?php $form = ActiveForm::begin(); ?>
                                                     <div class="contact-one__form">
                                                         <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <p>
-                                                                    <span class="" data-name="name-2">
-                                                                        <input
-                                                                            size="40"
-                                                                            class="-control wpcf7-text wpcf7-validates-as-required"
-                                                                            aria-required="true"
-                                                                            aria-invalid="false"
-                                                                            placeholder="Họ và tên"
-                                                                            value=""
-                                                                            type="text"
-                                                                            name="name-2"
-                                                                        />
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <p>
-                                                                    <span class="" data-name="tel-2">
-                                                                        <input
-                                                                            size="40"
-                                                                            class="-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
-                                                                            aria-required="true"
-                                                                            aria-invalid="false"
-                                                                            placeholder="Số điện thoại"
-                                                                            value=""
-                                                                            type="tel"
-                                                                            name="tel-2"
-                                                                        />
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <p>
-                                                                    <span class="" data-name="email-2">
-                                                                        <input
-                                                                            size="40"
-                                                                            class="-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                            aria-required="true"
-                                                                            aria-invalid="false"
-                                                                            placeholder="Email"
-                                                                            value=""
-                                                                            type="email"
-                                                                            name="email-2"
-                                                                        />
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <p>
-                                                                    <span class="" data-name="subject-2">
-                                                                        <input
-                                                                            size="40"
-                                                                            class="-control wpcf7-text wpcf7-validates-as-required"
-                                                                            aria-required="true"
-                                                                            aria-invalid="false"
-                                                                            placeholder="Địa chỉ"
-                                                                            value=""
-                                                                            type="text"
-                                                                            name="subject-2"
-                                                                        />
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <p>
-                                                                    <span class="" data-name="textarea-2">
-                                                                        <textarea
-                                                                            cols="10"
-                                                                            rows="5"
-                                                                            class="-control wpcf7-textarea wpcf7-validates-as-required"
-                                                                            aria-required="true"
-                                                                            aria-invalid="false"
-                                                                            placeholder="Nội dung"
-                                                                            name="textarea-2"
-                                                                        ></textarea>
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <p><button type="submit" class="wpcf7-submit thm-btn">Gửi tin nhắn</button></p>
-                                                            </div>
+
+                                                            <?= $form->field($model, 'name', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Họ và tên *'])->label(false) ?>
+                                                            
+                                                            <?= $form->field($model, 'phone', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Số điện thoại *'])->label(false) ?>
+                                                            
+                                                            <?= $form->field($model, 'email', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Email *'])->label(false) ?>
+
+                                                            <?= $form->field($model, 'address', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Địa chỉ *'])->label(false) ?>
+                                                            
+                                                            <?= $form->field($model, 'note', ['options' => ['class' => 'col-lg-12 form_ct']])->textarea(['class' => 'aaa', 'placeholder' => 'Nội dung'])->label(false) ?>
+                                                        
                                                         </div>
                                                     </div>
-                                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                                </form>
+
+                                                    <div class="form-group">
+                                                        <?= Html::submitButton('Gửi tin nhắn', ['class' => 'btn btn-primary thm-btn']) ?>
+                                                    </div>
+
+                                                <?php ActiveForm::end(); ?>
                                             </div>
                                         </div>
                                     </div>
