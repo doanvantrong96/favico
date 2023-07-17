@@ -307,7 +307,7 @@ h6 small,
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none; }
-
+.page-logo img {width:45px}
 /* looking for font size? Check _helpers.scss */
 /* PLACEHOLDER 
 ============================================= 

@@ -844,7 +844,7 @@ html body {
   min-height: 1px;
   padding: 0 2rem; }
   .page-logo img {
-    width: auto;
+    width: 45px;
     height: auto; }
   .page-logo .page-logo-link {
     -webkit-box-flex: 1;
