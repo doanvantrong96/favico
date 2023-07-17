@@ -1267,6 +1267,7 @@ ul{
 .partner_group img {
   max-width: 100%;
   height: 80px;
+  object-fit: cover;
 }
 ul.pagination {
   border-radius: 10px;
@@ -1307,6 +1308,14 @@ li.page-item a {
   cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
+  .partner_group img {
+    height: 60px;
+    object-fit: fill;
+}
+.partner_group {
+  grid-template-columns: repeat(3,1fr);
+  object-fit: cover;
+}
   li.page-item a{
     width: 38px;
     height: 38px;
