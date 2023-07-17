@@ -15,7 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ForgotPassword;
-use frontend\models\ContactForm;
+use frontend\models\Contact;
 use backend\models\News;
 
 use backend\models\UserLogin;
@@ -23,6 +23,9 @@ use backend\models\Banner;
 use backend\models\Partner;
 use backend\models\Abouts;
 use backend\models\Technical;
+use backend\models\Product;
+use backend\models\Comment;
+use backend\models\Config;
 
 
 /**
@@ -136,15 +139,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->view->title = 'favico';
+        $this->view->title = 'CÔNG TY CỔ PHẦN THỨC ĂN CHĂN NUÔI PHAVICO';
         Yii::$app->view->registerMetaTag([
             'name' => 'description',
-            'content' => 'content'
+            'content' => "Công ty CP thức ăn chăn nuôi PHAVICO là một trong những nhà sản xuất thức ăn chăn nuôi uy tín hàng đầu tại Việt Nam"
         ]);
         Yii::$app->view->registerMetaTag([
             'property' => 'og:image',
             'prefix' => 'og: http://ogp.me/ns#',
-            'content' => '/images/page/logo.png'
+            'content' => '/images/icon/logo-fa.svg'
         ]);
        Yii::$app->view->registerMetaTag([
             'property' => 'og:url',
@@ -177,11 +180,32 @@ class SiteController extends Controller
         ->limit(5)
         ->all();
 
+        //san pham noi bat
+        $product_most = Product::find()
+        ->where(['is_most' => 1])
+        ->limit(3)
+        ->all();
+       
+        //bai viet trang chu
+        $post = News::find()
+        ->where(['status' => 1,'is_delete' => 0])
+        ->andWhere(['is_hot' => 1])
+        ->limit(5)
+        ->all();
+
+        //comment
+        $comment = Comment::find()
+        ->where(['status' => 1, 'type' => 2])
+        ->all();
+      
         return $this->render('index',[
             'result_banner'     => $result_banner,
             'result_partner'    => $result_partner,
             'result_about'      => $result_about,
             'result_technical'  => $result_technical,
+            'product_most'      => $product_most,
+            'post'              => $post,
+            'comment'           => $comment,
         ]);
     }
 
@@ -194,7 +218,15 @@ class SiteController extends Controller
         Yii::$app->view->registerMetaTag([
             'property' => 'image',
         ]);
-        return $this->render('about');
+
+        $result = Abouts::find()
+        ->where(['status' => 1])
+        ->asArray()
+        ->all();
+     
+        return $this->render('about', [
+            'result'    => $result,
+        ]);
     }
 
     /**
@@ -204,14 +236,26 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-            }
+        $address = Config::find()->where(['status' => 1,'type' => 'address'])->orderBy(['position' => SORT_ASC])->asArray()->one();
+        $hotline = Config::find()->where(['status' => 1,'type' => 'hotline'])->orderBy(['position' => SORT_ASC])->asArray()->one();
 
+        $this->view->title = 'Liên hệ - Phavico';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Công ty CP thức ăn chăn nuôi Phavico, Hotline: ' . $hotline['name'] . ', địa chỉ: ' . $address['name']
+        ]);
+        $model = new Contact();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $post = Yii::$app->request->post('Contact');
+            $model->name = $post['name'];
+            $model->phone = $post['phone'];
+            $model->email = $post['email'];
+            $model->address = $post['address'];
+            $model->note = $post['note'];
+            $model->create = date('Y-m-d h:i:s');
+            $model->save(false);
+            Yii::$app->session->setFlash('success', 'Đăng ký thành công!');
+            
             return $this->refresh();
         } else {
             return $this->render('contact', [

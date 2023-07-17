@@ -17,14 +17,17 @@ class NewsController extends Controller
 {
     public function actionIndex($slug){
         $category = Category::findOne(['slug' => $slug]);
-        $limit = 2;
+        $this->view->title = $category['name'];
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Công ty CP thức ăn chăn nuôi Phavico'
+        ]);
+        $limit = 9;
         $post = News::find()
         ->where(['like','category_id',";$category->id;"])
         ->andWhere(['status' => 1,'is_delete' => 0])
         ->limit($limit)
         ->all();
-
-       
 
         return $this->render('index',[
             'category'      => $category,
@@ -35,7 +38,7 @@ class NewsController extends Controller
     public function actionMoreNew(){
         if(isset($_POST['page']) && isset($_POST['category_id'])){
             $category_id = $_POST['category_id'];
-            $limit = 2;
+            $limit = 9;
             $page = $_POST['page'];
             $offset = $page * $limit;
 
@@ -82,15 +85,16 @@ class NewsController extends Controller
         }
     }
     public function actionDetail($id){
-        // $this->layout = 'news';
-        // $model = new News();
-        // $new = $model->find()->where(['slug'=>$slug])->one();
-        // $new_more =  $model->find()->where(['<>','id',$new['id']])->orderBy(['id'=>SORT_DESC])->limit(5)->all();
-
         $post = News::find()
         ->where(['id' => $id,'status' => 1,'is_delete' => 0])
         ->one();
-      
+        $arr_tag = array_filter(explode(';', $post->category_id));
+        //get tag
+        $tag = Category::find()
+        ->where(['in','id',$arr_tag])
+        // ->asArray()
+        ->all();
+       
         //bai viet lien quan
         $post_lq = News::find()
         ->where(['like','category_id',"$post->category_id"])
@@ -102,6 +106,7 @@ class NewsController extends Controller
         return $this->render('detail',[
             'new'=>$post,
             'post_lq'   => $post_lq,
+            'tag'       => $tag,
             // 'news_more'=>$new_more
             // 'Sections'=>$Sections,
             // 'Lessions'=>$Lessions

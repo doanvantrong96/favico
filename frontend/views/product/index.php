@@ -20,10 +20,10 @@ use yii\widgets\LinkPager;
         <div class="grid_product">
             <div class="filter_product">
                 <div class="search_product position-relative d-inline-block w-100">
-                    <input type="text" placeholder="Tìm kiếm">
-                    <a href="">
-                        <img src="/images/icon/search.svg" alt="">
-                    </a>
+                    <input type="text" placeholder="Tìm kiếm" id="ip_search">
+                    <span>
+                        <img class="search_pr" src="/images/icon/search.svg" alt="">
+                    </span>
                 </div>
                 <div class="filter_cat">
                     <h4>Danh Mục Sản Phẩm</h4>
@@ -68,10 +68,10 @@ use yii\widgets\LinkPager;
                         <div class="list_product_hot">
                             <?php foreach($most as $row) { ?>
                                 <div>
-                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                     </a>
-                                    <a href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <p><?= $row['title'] ?></p>
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@ use yii\widgets\LinkPager;
                         <div class="list_product">
                             <?php foreach($item_product as $row) { ?>
                                 <div class="item_product">
-                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                         <p><?= $row['title'] ?></p>
                                         <span>Chi tiết</span>
@@ -128,7 +128,9 @@ use yii\widgets\LinkPager;
     $(document).ready(function(){
         $(document).on('change','.product_cat,.product_tag', function(){
             getDataSearch();
-            // let totalPage = $('#total_page').val();
+        });
+        $(document).on('click','.search_pr', function(){
+            getDataSearch();
         });
 
 
@@ -162,10 +164,11 @@ use yii\widgets\LinkPager;
             if (selected.length > 0) {
                 tag = selected.val();
             }
+            let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
             url: '/product/index',
-            data: {category: arr_cat, tag: tag, page:page},
+            data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);
                 $('.result_product').html(data.res);
@@ -184,10 +187,12 @@ use yii\widgets\LinkPager;
             if (selected.length > 0) {
                 tag = selected.val();
             }
+
+            let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
             url: '/product/index',
-            data: {category: arr_cat, tag: tag, page:page},
+            data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);
                 $('.result_product').html(data.res);

@@ -36,15 +36,17 @@ $this->title = $category->name;
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__date"><a href="/"> <?= date('d/m', strtotime($row['date_publish'])) ?></a></div>
-                            <h3 class="title"><a href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>"><?= $row['title'] ?></a></h3>
-                            <a class="btn_read" href="<?= Url::to(['/news/detail','id' => $row['id']]) ?>">Đọc ngay</a>
+                            <h3 class="title"><a href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>"><?= $row['title'] ?></a></h3>
+                            <a class="btn_read" href="<?= Url::to(['/news/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">Đọc ngay</a>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
-        <div class="flex-center w-100">
-            <span cat-id="<?= $category->id ?>" class="see_more_td flex-center">Xem thêm</span>
-        </div>
+        <?php if($post == 9) : ?>
+            <div class="flex-center w-100">
+                <span cat-id="<?= $category->id ?>" class="see_more_td flex-center">Xem thêm</span>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

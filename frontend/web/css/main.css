@@ -23,6 +23,24 @@ ul{
 .gap-20{
   gap: 20px;
 }
+.line_3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line_2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line_1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .bg_gray{
   background-color: #F6F5F2;
 }
@@ -93,6 +111,8 @@ ul{
 }
 .thumb_prod img{
   width: 138px;
+  height: 193px;
+  object-fit: cover;
 }
 .more_prod{
   text-align: center;
@@ -186,6 +206,10 @@ ul{
   font-weight: 700;
   line-height: 23px;
   margin-bottom: 0;
+}
+.media_right img{
+  height: 190px;
+  object-fit: cover;
 }
 .map{
   background-image: url(/images/page/bg-map.png) !important;
@@ -748,11 +772,27 @@ ul{
   text-indent: 16px !important;
   padding-left: 0 !important;
 }
-.contact-one__form .thm-btn{
+.thm-btn{
   font-size: 16px !important;
   height: 48px !important;
   width: 185px;
   padding: 0;
+  background-color: #efb443 !important;
+  border: unset !important;
+  border-radius: 5px;
+}
+.thm-btn:hover{
+  opacity: .85;
+  transition: .3s;
+}
+.help-block-error {
+  color: red;
+  position: relative;
+  bottom: 10px;
+}
+.item_product:hover {
+  border: 1px solid #efb443;
+  padding: 31px 11px;
 }
 .see_more_td{
   color: #009247;
@@ -1079,6 +1119,7 @@ ul{
 }
 .right_cus{
   position: relative;
+  border-radius: 0 20px 20px 0;
 }
 .not_theme_home span.elementor-icon-list-text{
   color: #777 !important;
@@ -1092,6 +1133,9 @@ ul{
 .theme_home{
   z-index: 111 !important;
 }
+.menu_hidden{
+  opacity: 0;
+}
 .fixed_h{
   position: fixed;
   top: 0 !important;
@@ -1100,6 +1144,7 @@ ul{
   height: 90px !important;
   transition: all .75s ease !important;
   box-shadow: 0px 10px 60px 0px rgba(0,0,0,.1);
+  opacity: 1 !important;
 }
 .home_sticky, .not_home_sticky {
   top: -90px;
@@ -1248,6 +1293,16 @@ li.page-item a {
 }
 .list_product_hot p{
   color: #000;
+}
+.content_comment{
+  display: flex;
+  flex-direction: column;
+}
+.content_comment img{
+  width: 14px;
+}
+.search_pr{
+  cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
   li.page-item a{

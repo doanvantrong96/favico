@@ -11,6 +11,7 @@ use yii\helpers\Url;
 use backend\models\Product;
 use backend\models\ProductCategory;
 use backend\models\ProductTag;
+use backend\models\Comment;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -84,6 +85,11 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
+        $this->view->title = 'Sản phẩm - Phavico';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => "Các sản phẩm của công ty CP thức ăn chăn nuôi Phavico"
+        ]);
         //thương hiệu
         $product_cat = ProductCategory::find()
         ->where(['status' => 1])
@@ -106,7 +112,6 @@ class ProductController extends Controller
         $arr_data = [];
         foreach($product_tag as $id => $tag){
             $arr_data[$tag] = Product::find()
-            ->select(['id','image','title','tag_id'])
             ->where(['status' => 1])
             ->where(['like','tag_id',";$id;"])
             ->limit(6)
@@ -118,15 +123,18 @@ class ProductController extends Controller
             $page = $_POST['page'];
             $offset = ($page - 1) * $limit;
             $query = Product::find()
-            ->select(['id','image','title','tag_id','category_id'])
             ->where(['status' => 1]);
 
-            if(isset($_POST['category'])){
+            if(isset($_POST['category']) && empty($_POST['q'])){
                 $query->andWhere(['in','category_id',$_POST['category']]);
             }
-            if(isset($_POST['tag']) && !empty($_POST['tag'])){
+            if(isset($_POST['tag']) && !empty($_POST['tag']) && empty($_POST['q'])){
                 $tag  =$_POST['tag'];
                 $query->andWhere(['like','tag_id',";$tag;"]);
+            }
+            if(isset($_POST['q']) && !empty($_POST['q'])){
+                $q  =$_POST['q'];
+                $query->andWhere(['like','title',"$q"]);
             }
             
             foreach($product_tag as $id => $tag){
@@ -146,7 +154,7 @@ class ProductController extends Controller
                     $html_product = '';
                     foreach($item_product as $row) { 
                         $html_product .= '<div class="item_product">
-                        <a class="flex-center" href="'. Url::to(['/product/detail','id' => $row['id']]) .'">
+                        <a class="flex-center" href="'. Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) .'">
                             <img src="'. $row['image'] .'" alt="">
                             <p>'. $row['title'] .'</p>
                             <span>Chi tiết</span>
@@ -185,124 +193,27 @@ class ProductController extends Controller
     public function actionDetail($id)
     {
         $result = Product::findOne($id);
-
+        $this->view->title = 'Sản phẩm - '. $result['title'] .'';
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $result['description']
+        ]);
         //san pham lien quan
         $product_lq = Product::find()
         ->where(['category_id' => $result->category_id])
         ->andWhere(['<>', 'id', $result->id])
         ->limit(6)
         ->all();
-     
+
+        //comment
+        $comment = Comment::find()
+        ->where(['status' => 1, 'type' => 1, 'product_id' => $id])
+        ->all();
         return $this->render('detail',[
             'result'    => $result,
-            'product_lq'    => $product_lq
+            'product_lq'    => $product_lq,
+            'comment'       => $comment,
         ]);
     }
     
-
-    public function actionSearch(){
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $query  = strip_tags(Yii::$app->request->get('q'));
-        $type   = Yii::$app->request->get('type');
-        $arr_data = [];
-        if( $type == 'all' ){ //tên giáo viên, khoá học, bài học
-            $course  = Course::find()
-            ->where(['status'=>1,'is_delete' => 0])
-            ->andWhere(['like','name',$query])
-            ->orderBy(['create_date'=>SORT_DESC])
-            ->asArray()
-            ->all();
-
-            $lecturer = Lecturer::find()
-            ->where(['status'=>1,'is_delete' => 0])   
-            ->andWhere(['like','name',$query])
-            ->asArray()
-            ->all();
-
-            $course_lesson = CourseLesson::find()
-            ->select(['A.id','A.name','A.avatar','A.course_id','A.description','A.duration','A.link_video','B.slug AS slug_course'])
-            ->from(CourseLesson::tableName() . ' A')
-            ->innerJoin(Course::tableName() . ' B', 'B.id = A.course_id')
-            ->where(['like','A.name',$query])
-            ->asArray()
-            ->orderBy(['id' => SORT_DESC])
-            ->all();
-
-            if(!empty($course)){
-                foreach($course as $item){
-                    $arr_data[] = [
-                        'link'  => Url::to(['/course/course-overview','slug_course' => $item['slug']]),
-                        'avatar' => 'https://elearning.abe.edu.vn' . $item['avatar'],
-                        'name'  => $item['name'],
-                        'description' => $item['description'],
-                    ];
-                }
-            }
-            if(!empty($lecturer)){
-                foreach($lecturer as $item){
-                    $arr_data[] = [
-                        'link'  => Url::to(['/lecturers/detail','slug' => $item['slug']]),
-                        'avatar' => 'https://elearning.abe.edu.vn' . $item['avatar'],
-                        'name'  => $item['name'],
-                        'description' => $item['level'],
-                    ];
-                }
-            }
-            if(!empty($course_lesson)){
-                foreach($course_lesson as $item){
-                    $arr_data[] = [
-                        'link'  => Url::to(['/course/index','slug_detail' => $item['slug_course']]),
-                        'avatar' => 'https://elearning.abe.edu.vn' . $item['avatar'],
-                        'name'  => $item['name'],
-                        'description' => $item['description'],
-                    ];
-                }
-            }
-        }
-        return [
-            'status' => 1,
-            'data' => $arr_data
-        ];
-    }
-    public function actionRating(){
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $id     = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
-        $star   = isset($_REQUEST['star']) ? (int)$_REQUEST['star'] : 0;
-        $data   = [
-            'status' => 0,
-            'star'   => 0,
-            'msg'    => ''
-        ];
-        if( !Yii::$app->user->isGuest ){
-            if( $id > 0 && $star > 0 ){
-                $model_lession      = CourseLesson::findOne($id);
-                if( !empty($model_lession) ){
-                    $user_id            = Yii::$app->user->id;
-                    $check_isset        = UserCourse::findOne(['course_id'=>$model_lession->course_id,'user_id'=>$user_id]);
-                    if( $model_lession->is_prevew == 1 || $check_isset ){
-                        //10/50/5
-                        $dataRating     = explode('/',$model_lession->rating);
-                        $dataRating[0]  = $dataRating[0] + 1;
-                        $dataRating[1]  = $dataRating[1] + $star;
-                        $dataRating[2]  = round($dataRating[1]/$dataRating[0]);
-
-                        $model_lession->rating = implode('/', $dataRating);
-                        $model_lession->save(false);
-
-                        $data['status'] = 1;
-                        $data['star']   = $dataRating[2];
-                        $data['msg']    = "Đánh giá thành công";
-                    }
-                }else{
-                    $data['msg']    = "Thông tin không hợp lệ";
-                }
-            }else{
-                $data['msg']    = "Thông tin không hợp lệ";
-            }
-        }else{
-            $url_login      = Url::to(['site/login']);
-            $data['msg']    = "Vui lòng đăng nhập để đánh giá. <a style='text-decoration: underline;color:#fff' href='$url_login'>Đăng nhập ngay</a>";
-        }
-        return $data;
-    }
 }

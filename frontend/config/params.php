@@ -5,9 +5,9 @@ return [
     'hotline' => '0999999999',
     'email'   => 'favico@gmail.com',
     'address' => ' Hà Nội',
-    'domain' =>'https://favico.com/',
-    'og_title' => ['property' => 'og:title', 'content' => 'favico.com'],
-    'og_description' => ['property' => 'og:description', 'content' => 'favico.com/'],
-    'og_image' => ['property' => 'og:image', 'content' => '/images/page/logo.svg'],
+    'domain' =>'https://phavico.com/',
+    'og_title' => ['property' => 'og:title', 'content' => 'phaavico.com'],
+    'og_description' => ['property' => 'og:description', 'content' => 'phaavico.com/'],
+    'og_image' => ['property' => 'og:image', 'content' => '/images/icon/logo-fa.svg'],
     'og_fb' => ['property' => 'article:publisher', 'content' => 'https://www.facebook.com'],
 ];

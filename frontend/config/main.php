@@ -96,10 +96,14 @@ return [
                 'dang-xuat' => '/site/logout',
                 // 'danh-muc-khoa-hoc/<slug>' => '/category/index',
                 // 'danh-muc-khoa-hoc' => '/category/index',   
-                'about'=>'/site/about',
+                'gioi-thieu'=>'/site/about',
                 // '<slug>-<id>' => '/category/index-news',
-                'contact' => '/site/contact',
-                'tuyen-dung' => '/site/recruitment',
+                'lien-he' => '/site/contact',
+                'san-pham' => '/product/index',
+                'chi-tiet-san-pham/<slug>-<id>' => '/product/detail',
+                'chuyen-muc/<slug>' => '/news/index',
+                '/<slug>-<id>' => '/news/detail',
+                // 'chi-tiet-san-pham-<id>' => '/product/detail',
 
 
 
