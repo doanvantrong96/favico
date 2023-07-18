@@ -40,7 +40,8 @@ $hotline = '';
 $address = '';
 $work_time = '';
 $email = '';
-
+$facebook = '';
+$youtube = '';
 foreach($config as $row){
     if($row['type'] == 'menu_top_left')
         array_push($menu_top_left, $row);
@@ -54,6 +55,10 @@ foreach($config as $row){
         $email = $row;
     if($row['type'] == 'work_time')
         $work_time = $row;
+    if($row['type'] == 'facebook')
+        $facebook = $row;
+    if($row['type'] == 'youtube')
+        $youtube = $row;
 }
 
 $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -157,11 +162,8 @@ $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HO
     </head>
     <?php $this->beginBody() ?>
     <div class="logo-box">
-        <a href="https://ninetheme.com/themes/agrikon/" aria-label="logo image" class="nt-logo header-logo logo-type-img has-mobile-logo">
+        <a href="/" aria-label="logo image" class="nt-logo header-logo logo-type-img has-mobile-logo">
             <img class="main-logo" src="/images/page/logo.png" alt="Agrikon" />
-            <img class="main-logo sticky-logo" src="" alt="Agrikon" />
-
-            <img class="main-logo mobile-logo" src="https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/logo-light-1.png" alt="Agrikon" />
         </a>
         <span class="fa fa-bars mobile-nav__toggler"></span>
     </div>
@@ -541,9 +543,9 @@ $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HO
                                                             <div class="elementor-widget-container gr_frs">
                                                                 <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi <?= $hotline['name'] ?></p>
                                                                 <div>
-                                                                    <a href=""><img src="/images/icon/s1.svg" alt=""></a>
+                                                                    <a href="<?= isset($facebook['name']) ? $facebook['name'] : '' ?>"><img src="/images/icon/s1.svg" alt=""></a>
                                                                     <a href=""><img src="/images/icon/s2.svg" alt=""></a>
-                                                                    <a href=""><img src="/images/icon/s3.svg" alt=""></a>
+                                                                    <a href="<?= isset($youtube['name']) ? $youtube['name'] : '' ?>"><img src="/images/icon/s3.svg" alt=""></a>
                                                                 </div>
                                                             </div>
                                                             </div>
