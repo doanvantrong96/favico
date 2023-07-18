@@ -127,9 +127,7 @@ use yii\widgets\LinkPager;
 <script>
     $(document).ready(function(){
         var width = $(window).width();
-        var scroll_top = 480;
-        if(width < 768)
-            scroll_top = 50;
+
         $(document).on('change','.product_cat,.product_tag', function(){
             getDataSearch();
         });
@@ -149,6 +147,9 @@ use yii\widgets\LinkPager;
                 last: '',
                 first: '',
                 onPageClick: function (event, page) {
+                var scroll_top = 480;
+                if(width < 768)
+                    scroll_top = 50;
                 jQuery("html,body").animate({scrollTop: scroll_top}, 500);
                 getDataSearchPage(page);
                 // getDataSearch(page);
