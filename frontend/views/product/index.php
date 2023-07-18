@@ -68,10 +68,10 @@ use yii\widgets\LinkPager;
                         <div class="list_product_hot">
                             <?php foreach($most as $row) { ?>
                                 <div>
-                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                     </a>
-                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <p><?= $row['title'] ?></p>
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@ use yii\widgets\LinkPager;
                         <div class="list_product">
                             <?php foreach($item_product as $row) { ?>
                                 <div class="item_product">
-                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a class="flex-center" href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                         <p><?= $row['title'] ?></p>
                                         <span>Chi tiết</span>
@@ -126,6 +126,10 @@ use yii\widgets\LinkPager;
 
 <script>
     $(document).ready(function(){
+        var width = $(window).width();
+        var scroll_top = 480;
+        if(width < 768)
+            scroll_top = 50;
         $(document).on('change','.product_cat,.product_tag', function(){
             getDataSearch();
         });
@@ -145,7 +149,7 @@ use yii\widgets\LinkPager;
                 last: '',
                 first: '',
                 onPageClick: function (event, page) {
-                jQuery("html,body").animate({scrollTop: 480}, 500);
+                jQuery("html,body").animate({scrollTop: scroll_top}, 500);
                 getDataSearchPage(page);
                 // getDataSearch(page);
                 console.log('getDataSearchs');

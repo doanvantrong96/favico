@@ -75,9 +75,9 @@ $this->title = 'Liên hệ';
                                                             
                                                             <?= $form->field($model, 'phone', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Số điện thoại *'])->label(false) ?>
                                                             
-                                                            <?= $form->field($model, 'email', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Email *'])->label(false) ?>
+                                                            <?= $form->field($model, 'email', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Email'])->label(false) ?>
 
-                                                            <?= $form->field($model, 'address', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Địa chỉ *'])->label(false) ?>
+                                                            <?= $form->field($model, 'address', ['options' => ['class' => 'col-lg-6 form_ct']])->textInput(['class' => 'aaa', 'placeholder' => 'Địa chỉ'])->label(false) ?>
                                                             
                                                             <?= $form->field($model, 'note', ['options' => ['class' => 'col-lg-12 form_ct']])->textarea(['class' => 'aaa', 'placeholder' => 'Nội dung'])->label(false) ?>
                                                         
