@@ -1307,7 +1307,12 @@ li.page-item a {
 .search_pr{
   cursor: pointer;
 }
+
+
 @media screen and (max-width: 1024px) {
+  .agrikon-parallax {
+    background-attachment: unset;
+  }
   .partner_group img {
     height: 60px;
     object-fit: fill;
