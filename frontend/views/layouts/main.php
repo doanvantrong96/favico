@@ -538,9 +538,9 @@ $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HO
                                                             <div class="elementor-widget-container gr_frs">
                                                                 <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi <?= $hotline['name'] ?></p>
                                                                 <div>
-                                                                    <a href="<?= isset($facebook['name']) ? $facebook['name'] : '' ?>"><img src="/images/icon/s1.svg" alt=""></a>
+                                                                    <a href="<?= isset($facebook['value']) ? $facebook['value'] : '' ?>"><img src="/images/icon/s1.svg" alt=""></a>
                                                                     <a href="mailto:<?= isset($email['name']) ? $email['name'] : '' ?>"><img src="/images/icon/s2.svg" alt=""></a>
-                                                                    <a href="<?= isset($youtube['name']) ? $youtube['name'] : '' ?>"><img src="/images/icon/s3.svg" alt=""></a>
+                                                                    <a href="<?= isset($youtube['value']) ? $youtube['value'] : '' ?>"><img src="/images/icon/s3.svg" alt=""></a>
                                                                 </div>
                                                             </div>
                                                             </div>

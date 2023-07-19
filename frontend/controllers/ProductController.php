@@ -156,7 +156,9 @@ class ProductController extends Controller
                 $query->andWhere(['like','title',"$q"]);
             }
 
-             if(empty($_POST['category']) && empty($_POST['tag']) && empty($_POST['q'])){ // khong loc
+             if(empty($_POST['category']) && empty($_POST['tag']) && empty($_POST['q'])){ // mac dinh
+                $total_product = $query->count();
+                $total_page = ceil($total_product / $limit);
                 foreach($product_tag as $id => $tags){
                     $arr_data[$tags] = $query
                     ->where(['like','tag_id',";$id;"])
@@ -168,8 +170,6 @@ class ProductController extends Controller
                 }
                 if(!empty($arr_data)){
                     $res = '';
-                    $total_product = $query->count();
-                    $total_page = ceil($total_product / $limit);
                     foreach($arr_data as $name_tag => $item_product){
                         $html_product = '';
                         foreach($item_product as $row) { 
@@ -233,8 +233,8 @@ class ProductController extends Controller
                 }
             }
             
-            $total_product = $query->count();
-            $total_page = ceil($total_product / $limit);
+            // $total_product = $query->count();
+            // $total_page = ceil($total_product / $limit);
           
     
         }
