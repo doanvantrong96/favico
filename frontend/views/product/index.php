@@ -35,9 +35,12 @@ use yii\widgets\LinkPager;
                         <div class="checkbox_option">
                             <?php 
                                 foreach($product_cat as $id => $name){ 
+                                    $checked = '';
+                                    if(isset($_GET['cat']) && $_GET['cat'] == $id)
+                                        $checked = 'checked';
                             ?>
                                 <div class="form_group d-flex gap-16">
-                                    <input class="trigger product_cat" name="product_cat" type="checkbox" value="<?= $id ?>">
+                                    <input class="trigger product_cat" name="product_cat" type="checkbox" <?= $checked ?> value="<?= $id ?>">
                                     <label for="trigger" class="checker"></label>
                                     <label for=""><?= $name ?></label>
                                 </div>
@@ -126,11 +129,26 @@ use yii\widgets\LinkPager;
 
 <script>
     $(document).ready(function(){
+        var inputs = $('.product_tag');
+        var checked = inputs.filter(':checked').val();
+        inputs.on('click', function(){
+            if($(this).val() === checked) {
+                $(this).prop('checked', false);
+                checked = '';
+                
+            } else {
+                $(this).prop('checked', true);
+                checked = $(this).val();
+            }
+        });
+
+
         var width = $(window).width();
         var scroll_top = 480;
         if(width < 768)
             scroll_top = 50;
-        $(document).on('change','.product_cat,.product_tag', function(){
+
+        $(document).on('click','.product_cat,.product_tag', function(){
             jQuery("html,body").animate({scrollTop: scroll_top}, 500);
             getDataSearch();
         });
@@ -140,6 +158,9 @@ use yii\widgets\LinkPager;
 
 
         var totalPage = $('#total_page').val();
+        if(totalPage <= 1)
+            getDataSearch();
+        console.log('totalPage', totalPage);
         renderPagination(totalPage);
         function renderPagination(totalPage){
             $('#demo').twbsPagination({
@@ -150,11 +171,9 @@ use yii\widgets\LinkPager;
                 last: '',
                 first: '',
                 onPageClick: function (event, page) {
-                    console.log('scroll_top::', scroll_top);
-                jQuery("html,body").animate({scrollTop: scroll_top}, 500);
-                getDataSearchPage(page);
-                // getDataSearch(page);
-                console.log('getDataSearchs');
+                    jQuery("html,body").animate({scrollTop: scroll_top}, 500);
+                    getDataSearchPage(page);
+                    // getDataSearch(page);
                 }
             });
         }
@@ -173,7 +192,7 @@ use yii\widgets\LinkPager;
             let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
-            url: '/product/index',
+            url: window.location.href,
             data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);
@@ -197,7 +216,7 @@ use yii\widgets\LinkPager;
             let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
-            url: '/product/index',
+            url: window.location.href,
             data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);

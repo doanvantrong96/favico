@@ -1270,10 +1270,13 @@ ul{
   justify-content: center;
 }
 .partner_group img {
-  height: 80px;
-  object-fit: cover;
+  height: 155px;
+  object-fit: contain;
   margin: 5px;
   width: calc(100% * (1/6));
+}
+.service-two__card-content .title{
+  max-width: unset !important;
 }
 ul.pagination {
   border-radius: 10px;
@@ -1312,6 +1315,11 @@ li.page-item a {
 }
 .search_pr{
   cursor: pointer;
+}
+.content_about_home ul {
+  list-style: disc;
+  text-align: left;
+  padding-left: 20px;
 }
 
 

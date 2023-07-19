@@ -99,24 +99,38 @@ class ProductController extends Controller
         $product_tag = ProductTag::find()
         ->where(['status' => 1])
         ->all();
-
         //san pham noi bat
         $most = Product::find()
         ->where(['is_most' => 1])
         ->all();
 
         $limit = 6;
-        $total_product = Product::find()->count();
+        if(isset($_GET['cat'])){
+            $total_product = Product::find()->where(['category_id' => $_GET['cat'], 'status' => 1])->count();
+        }else{
+            $total_product = Product::find()->where(['status' => 1])->count();
+
+        }
         $total_page = ceil($total_product / $limit);
         $product_tag = ArrayHelper::map($product_tag, 'id','name');
         $arr_data = [];
         foreach($product_tag as $id => $tag){
-            $arr_data[$tag] = Product::find()
-            ->where(['status' => 1])
-            ->where(['like','tag_id',";$id;"])
-            ->limit(6)
-            ->asArray()
-            ->all();
+            if(isset($_GET['cat'])){
+                $arr_data[$tag] = Product::find()
+                ->where(['status' => 1,'category_id' => $_GET['cat']])
+                ->where(['like','tag_id',";$id;"])
+                ->limit(6)
+                ->asArray()
+                ->all();
+            }else{
+                $arr_data[$tag] = Product::find()
+                ->where(['status' => 1])
+                ->where(['like','tag_id',";$id;"])
+                ->limit(6)
+                ->asArray()
+                ->all();
+            }
+
         }
 
         if(!empty($_POST)){
@@ -124,6 +138,10 @@ class ProductController extends Controller
             $offset = ($page - 1) * $limit;
             $query = Product::find()
             ->where(['status' => 1]);
+
+            if(isset($_GET['cat']) && !isset($_POST['category'])){
+                $query->andWhere(['in','category_id',$_GET['cat']]);
+            }
 
             if(isset($_POST['category']) && empty($_POST['q'])){
                 $query->andWhere(['in','category_id',$_POST['category']]);
@@ -146,6 +164,7 @@ class ProductController extends Controller
             }
 
             $total_product = $query->count();
+        
             $total_page = ceil($total_product / $limit);
           
             if(!empty($arr_data)){
@@ -207,7 +226,7 @@ class ProductController extends Controller
 
         //comment
         $comment = Comment::find()
-        ->where(['status' => 1, 'type' => 1, 'product_id' => $id])
+        ->where(['status' => 1, 'type' => 0, 'product_id' => $id])
         ->all();
         return $this->render('detail',[
             'result'    => $result,

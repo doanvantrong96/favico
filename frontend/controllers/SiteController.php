@@ -26,6 +26,7 @@ use backend\models\Technical;
 use backend\models\Product;
 use backend\models\Comment;
 use backend\models\Config;
+use backend\models\ProductCategory;
 
 
 /**
@@ -181,11 +182,10 @@ class SiteController extends Controller
         ->all();
 
         //san pham noi bat
-        $product_most = Product::find()
-        ->where(['is_most' => 1])
-        ->limit(3)
+        $product_most = ProductCategory::find()
+        ->where(['status' => 1])
         ->all();
-       
+     
         //bai viet trang chu
         $post = News::find()
         ->where(['status' => 1,'is_delete' => 0])
@@ -195,7 +195,7 @@ class SiteController extends Controller
 
         //comment
         $comment = Comment::find()
-        ->where(['status' => 1, 'type' => 2])
+        ->where(['status' => 1, 'type' => 1])
         ->all();
       
         return $this->render('index',[

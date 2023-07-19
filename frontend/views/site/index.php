@@ -234,6 +234,7 @@ use yii\web\View ;
    </div>
 </section>
 
+
 <section class="introduce">
    <div class="elementor-section prod_gr elementor-top-section elementor-element elementor-element-15e41dd6 elementor-section-full_width nt-section section-padding elementor-section-height-default elementor-section-height-default nt-section-ripped-top ripped-top-no nt-section-ripped-bottom ripped-bottom-no" data-id="15e41dd6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
       <div class="elementor-container elementor-column-gap-no">
@@ -282,8 +283,8 @@ use yii\web\View ;
                                  <img src="<?= $row['image'] ?>" alt="">
                               </div>
                               <div class="more_prod">
-                                 <p><?= $row['title'] ?></p>
-                                 <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>" class="flex-center">Xem tiếp</a>
+                                 <p><?= $row['name'] ?></p>
+                                 <a href="<?= Url::to(['/product/index','cat' => $row['id']]) ?>" class="flex-center">Xem tiếp</a>
                               </div>
                            </div>
                         <?php }} ?>
