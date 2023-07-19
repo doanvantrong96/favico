@@ -27,6 +27,7 @@ use backend\models\Product;
 use backend\models\Comment;
 use backend\models\Config;
 use backend\models\ProductCategory;
+use backend\models\UserRegisterEmail;
 
 
 /**
@@ -227,6 +228,20 @@ class SiteController extends Controller
         return $this->render('about', [
             'result'    => $result,
         ]);
+    }
+
+    public function actionSaveEmailOffer(){
+        if(isset($_POST['email'])){
+            $check_isset = UserRegisterEmail::findOne(['email' => $_POST['email']]);
+            if(!$check_isset){
+                $model = new UserRegisterEmail();
+                $model->email = $_POST['email'];
+                if($model->save(false));
+                return 1;
+            }else{
+                return 2;
+            }
+        }
     }
 
     /**
@@ -678,50 +693,4 @@ class SiteController extends Controller
         exit();
     }
 
-    private function validateParamsLog($arrData){
-        $ip_address        = \backend\controllers\CommonController::getAgentIp();
-        $ipBlackList       = Yii::$app->params['ip_blacklist'];
-        if( !in_array($_SERVER['REMOTE_ADDR'], $ipBlackList) && Yii::$app->getRequest()->validateCsrfToken() && isset($arrData['url']) && !empty($arrData['url']) && isset($arrData['data']) && !empty($arrData['data']) ){
-            $str_params = \backend\controllers\CommonController::encryptDecrypt($arrData['data'], 'decrypt');
-            if( strpos($str_params, '#_#') !== false ){
-                $arrParams = explode('#_#', $str_params);
-                $params    = ['url' => $arrData['url'], 'ip_address' => $ip_address];
-                $time_expire = 0;
-                if( count($arrParams) >= 6 ){
-                    foreach($arrParams as $key=>$value){
-                        switch($key){
-                            case 0:
-                                $params['session'] = $value;
-                                break;
-                            case 1:
-                                $params['tracking_id'] = (int)$value;
-                                break;
-                            case 2:
-                                $params['tracking_type'] = (int)$value;
-                                break;
-                            case 3:
-                                if( !empty($value) && $value != 'NA' )
-                                    $params['cate_id'] = $value;
-                                break;
-                            case 4:
-                                $params['user_agent'] = $value;
-                                break;
-                            case 5:
-                                $time_expire = (int)$value;
-                                break;
-                        }
-                    }
-                }
-                $session_check = Yii::$app->session->getId();
-                $time_current  = time();
-                $listTypeValid = [ProcessLogView::TYPE_NEWS, ProcessLogView::TYPE_COURSE];
-                $user_agent_check = $_SERVER['HTTP_USER_AGENT'];
-                
-                if( $time_expire >= $time_current && isset($params['tracking_id']) && !empty($params['tracking_id']) && isset($params['tracking_type']) && in_array($params['tracking_type'], $listTypeValid) && isset($params['user_agent']) && $params['user_agent'] == $user_agent_check && isset($params['session']) && $params['session'] == $session_check ){
-                    return $params;
-                }
-            }
-        }
-        return false;
-    }
 }

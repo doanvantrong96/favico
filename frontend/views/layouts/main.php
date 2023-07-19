@@ -42,6 +42,7 @@ $work_time = '';
 $email = '';
 $facebook = '';
 $youtube = '';
+$email = '';
 foreach($config as $row){
     if($row['type'] == 'menu_top_left')
         array_push($menu_top_left, $row);
@@ -59,6 +60,8 @@ foreach($config as $row){
         $facebook = $row;
     if($row['type'] == 'youtube')
         $youtube = $row;
+    if($row['type'] == 'email')
+        $email = $row;
 }
 
 $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -405,20 +408,12 @@ $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HO
                                                                         <p role="status" aria-live="polite" aria-atomic="true"></p>
                                                                         <ul></ul>
                                                                         </div>
-                                                                        <form action="" method="post" class="wpcf7-form init demo" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                                                                        <div style="display: none;">
-                                                                            <input type="hidden" name="_wpcf7" value="560">
-                                                                            <input type="hidden" name="_wpcf7_version" value="5.7.7">
-                                                                            <input type="hidden" name="_wpcf7_locale" value="en_US">
-                                                                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f560-o1">
-                                                                            <input type="hidden" name="_wpcf7_container_post" value="0">
-                                                                            <input type="hidden" name="_wpcf7_posted_data_hash" value="">
-                                                                        </div>
+                                                                        <form>
                                                                         <div class="footer-widget">
                                                                             <p class="text-white mt-4">Đăng ký để nhận tin tức mới nhất</p>
                                                                             <div class="mc-form d-flex">
-                                                                                <p class="mb-0"><span class="wpcf7-form-control-wrap" data-name="email-434"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email của bạn" value="" type="email" name="email-434"></span><br>
-                                                                                    <button type="submit" class="wpcf7-submit"><img src="/images/icon/rignt.svg" alt=""></button>
+                                                                                <p class="mb-0"><span class="wpcf7-form-control-wrap" data-name="email-434"><input size="40" class="email_offer wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email của bạn" value="" type="email" name="email-434"></span><br>
+                                                                                    <button id="send_mail" type="button" class="wpcf7-submit"><img src="/images/icon/rignt.svg" alt=""></button>
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -544,7 +539,7 @@ $url_full = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HO
                                                                 <p class="mb-0 fz-14 text-gr">Gọi cho chúng tôi <?= $hotline['name'] ?></p>
                                                                 <div>
                                                                     <a href="<?= isset($facebook['name']) ? $facebook['name'] : '' ?>"><img src="/images/icon/s1.svg" alt=""></a>
-                                                                    <a href=""><img src="/images/icon/s2.svg" alt=""></a>
+                                                                    <a href="mailto:<?= isset($email['name']) ? $email['name'] : '' ?>"><img src="/images/icon/s2.svg" alt=""></a>
                                                                     <a href="<?= isset($youtube['name']) ? $youtube['name'] : '' ?>"><img src="/images/icon/s3.svg" alt=""></a>
                                                                 </div>
                                                             </div>

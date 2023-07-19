@@ -466,7 +466,11 @@ ul{
   background-image: url(/images/page/bg-ab.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: 145px 0;
+  height: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .breadcrumbs {
   display: flex;
@@ -1648,6 +1652,7 @@ li.page-item a {
   }
   .banner_bread { 
     background-image: url(/images/page/bc-bg-mb.png);
+    height: 266px;
   }
   .banner_bread h6{
     font-size: 40px;
