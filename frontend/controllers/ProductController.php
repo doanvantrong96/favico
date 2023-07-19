@@ -115,24 +115,24 @@ class ProductController extends Controller
         $total_page = ceil($total_product / ($limit * 3));
         $product_tag = ArrayHelper::map($product_tag, 'id','name');
         $arr_data = [];
-        foreach($product_tag as $id => $tag){
-            // if(isset($_GET['cat'])){
-            //     $arr_data[$tag] = Product::find()
-            //     ->where(['status' => 1,'category_id' => $_GET['cat']])
-            //     ->andWhere(['like','tag_id',";$id;"])
-            //     ->limit(6)
-            //     ->asArray()
-            //     ->all();
-            // }else{
-                // $arr_data[$tag] = Product::find()
-                // ->where(['status' => 1])
-                // ->andWhere(['like','tag_id', ";$id;"])
-                // ->limit(6)
-                // ->asArray()
-                // ->all();
-            // }
+        // foreach($product_tag as $id => $tag){
+        //     // if(isset($_GET['cat'])){
+        //     //     $arr_data[$tag] = Product::find()
+        //     //     ->where(['status' => 1,'category_id' => $_GET['cat']])
+        //     //     ->andWhere(['like','tag_id',";$id;"])
+        //     //     ->limit(6)
+        //     //     ->asArray()
+        //     //     ->all();
+        //     // }else{
+        //         // $arr_data[$tag] = Product::find()
+        //         // ->where(['status' => 1])
+        //         // ->andWhere(['like','tag_id', ";$id;"])
+        //         // ->limit(6)
+        //         // ->asArray()
+        //         // ->all();
+        //     // }
 
-        }
+        // }
         if(!empty($_POST)){
             $tag = '';
             $page = $_POST['page'];
@@ -158,8 +158,9 @@ class ProductController extends Controller
             }
 
              if(empty($_POST['category']) && empty($_POST['tag']) && empty($_POST['q'])){ // mac dinh
+               
                 $total_product = $query->count();
-                $total_page = ceil($total_product / $limit);
+                $total_page = ceil($total_product / ($limit * 3));
                 foreach($product_tag as $id => $tags){
                     $arr_data[$tags] = $query
                     ->where(['like','tag_id',";$id;"])
@@ -234,12 +235,10 @@ class ProductController extends Controller
                 }
             }
             
-            // $total_product = $query->count();
-            // $total_page = ceil($total_product / $limit);
-          
-    
         }
-      
+        // echo '<pre>';
+        // print_r($total_page);
+        // echo '</pre>';die;
         return $this->render('index',[
             'arr_data'    => $arr_data,
             'product_cat' => $product_cat,
