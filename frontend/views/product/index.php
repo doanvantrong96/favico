@@ -120,7 +120,7 @@ use yii\widgets\LinkPager;
                     </div>
                     <?php }} ?>
                 </div>
-                <div id="demo"></div>
+                <div id="page_product"></div>
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@ use yii\widgets\LinkPager;
         console.log('totalPage', totalPage);
         renderPagination(totalPage);
         function renderPagination(totalPage){
-            $('#demo').twbsPagination({
+            $('#page_product').twbsPagination({
                 totalPages: totalPage,
                 visiblePages: 10,
                 next: '<img src="/images/icon/next.svg">',
@@ -222,7 +222,7 @@ use yii\widgets\LinkPager;
                 var data = $.parseJSON(res);
                 $('.result_product').html(data.res);
                 $('#total_page').val(data.total_page);
-                var $pagination = $('#demo');
+                var $pagination = $('#page_product');
                 $pagination.twbsPagination('destroy');
                 renderPagination(data.total_page);
                 console.log(1121212);

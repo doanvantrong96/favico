@@ -111,7 +111,8 @@ class ProductController extends Controller
             $total_product = Product::find()->where(['status' => 1])->count();
 
         }
-        $total_page = ceil($total_product / $limit);
+        
+        $total_page = ceil($total_product / ($limit * 3));
         $product_tag = ArrayHelper::map($product_tag, 'id','name');
         $arr_data = [];
         foreach($product_tag as $id => $tag){
@@ -199,6 +200,7 @@ class ProductController extends Controller
                     }
                 }
             }else{
+                echo 222;die;
                 $result_all = $query
                 ->limit($limit)
                 ->offset($offset)
@@ -238,7 +240,7 @@ class ProductController extends Controller
           
     
         }
-
+      
         return $this->render('index',[
             'arr_data'    => $arr_data,
             'product_cat' => $product_cat,
