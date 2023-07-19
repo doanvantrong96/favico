@@ -200,7 +200,6 @@ class ProductController extends Controller
                     }
                 }
             }else{
-                echo 222;die;
                 $result_all = $query
                 ->limit($limit)
                 ->offset($offset)
