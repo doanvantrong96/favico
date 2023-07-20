@@ -26,7 +26,7 @@ class ProductCategory extends \yii\db\ActiveRecord
         return [
             [['name'],'required','message'=>'Nhập {attribute}'],
             [['image'], 'required', 'message' => '{attribute} không được trống'],
-            [['image','name','status','position'],'safe']
+            [['image','name','status','position','type'],'safe']
         ];
     }
 
@@ -41,7 +41,8 @@ class ProductCategory extends \yii\db\ActiveRecord
             'name'     => 'Tên danh mục',
             'status'    => 'Trạng thái',
             'create_date' => 'Ngày đăng',
-            'position'  => 'Vị trí trên bộ lọc'
+            'position'  => 'Vị trí trên bộ lọc',
+            'type'      => 'Trang sử dụng'
         ];
     }
 }

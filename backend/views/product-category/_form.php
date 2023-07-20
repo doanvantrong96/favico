@@ -20,11 +20,15 @@ use yii\widgets\ActiveForm;
                 </div>
                 <div class="panel-container show">
                     <div class="panel-content row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['statusList']) ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <?= $form->field($model, 'type')->dropDownList([1 => 'Trang danh mục sản phẩm', 2 => 'Trang chủ'])->label('Hiển thị trên trang') ?>
+                        </div>
+
+                        <div class="col-md-4">
                             <?= $form->field($model, 'position')->textInput(['maxlength' => 5])->label('Ví trí hiển thị') ?>
                         </div>
                         
