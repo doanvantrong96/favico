@@ -796,7 +796,7 @@ ul{
   color: red;
   position: relative;
   bottom: 10px;
-}
+} 
 .item_product:hover {
   /* border: 1px solid #efb443; */
   padding: 31px 11px;
