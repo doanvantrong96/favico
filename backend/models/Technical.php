@@ -26,7 +26,7 @@ class Technical extends \yii\db\ActiveRecord
         return [
             [['title','content'],'required','message'=>'Nhập {attribute}'],
             [['image'], 'required', 'message' => '{attribute} không được trống'],
-            [['title','status','content','image','position'],'safe']
+            [['title','status','content','image','position','is_delete'],'safe']
         ];
     }
 

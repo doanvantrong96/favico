@@ -26,7 +26,7 @@ class Abouts extends \yii\db\ActiveRecord
         return [
             [['title'],'required','message'=>'Nhập {attribute}'],
             [['image','avatar'], 'required', 'message' => '{attribute} không được trống'],
-            [['status','content','image','avatar','position'],'safe']
+            [['status','content','image','avatar','position','is_delete'],'safe']
         ];
     }
 

@@ -63,6 +63,7 @@ class ProductSearch extends Product
             'status' => $this->status,
             'category_id' => $this->category_id,
             'is_most' => $this->is_most,
+            'is_delete' => 0
         ]);
 
         if( trim($this->title) )

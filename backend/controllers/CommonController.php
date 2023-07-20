@@ -541,7 +541,7 @@ class CommonController extends Controller
        
         header('Content-type: application/vnd.ms-excel');
         header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
-        PHPExcel_IOFactory::createWriter($excel, 'Excel2007')->save('php://output');
+        PHPExcel_IOFactory::createWriter($excel, 'Excel5')->save('php://output');
         exit;
     }
     

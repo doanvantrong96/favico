@@ -60,6 +60,7 @@ class TechnicalSearch extends Technical
             'id' => $this->id,
             'create_date' => $this->create_date,
             'status' => $this->status,
+            'is_delete' => 0
         ]);
         
         $query->orderBy(['id' => SORT_DESC]);

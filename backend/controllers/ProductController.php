@@ -149,9 +149,9 @@ class ProductController extends Controller
         $model = Product::findOne($id);
         if( $model ){
             $modelOld   = $model->getAttributes();
-            $model->status = 0;
+            $model->is_delete = 1;
             $model->save(false);
-            Yii::$app->session->setFlash('success', "Ẩn thành công");
+            Yii::$app->session->setFlash('success', "Xóa thành công");
         }
         return $this->redirect(Yii::$app->request->referrer ?: ['index']);
     }

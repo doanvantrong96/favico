@@ -108,9 +108,9 @@ class AboutsController extends Controller
         $model = Abouts::findOne($id);
         if( $model ){
             $modelOld   = $model->getAttributes();
-            $model->status = 0;
+            $model->is_delete = 1;
             $model->save(false);
-            Yii::$app->session->setFlash('success', "Ẩn banner thành công");
+            Yii::$app->session->setFlash('success', "Xóa banner thành công");
         }
         return $this->redirect(Yii::$app->request->referrer ?: ['index']);
     }
