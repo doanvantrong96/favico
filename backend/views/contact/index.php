@@ -4,17 +4,20 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\RegisterPracticeTrySearch */
+/* @var $searchModel backend\models\CoachSectionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Khách hàng để lại thông tin';
+$this->title = 'Khách hàng liên hệ';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['breadcrumbs']['description_page'] = 'Quản lý danh sách khách hàng để lại thông tin';
+$this->params['breadcrumbs']['description_page'] = 'Quản lý danh sách khách hàng liên hệ';
 $controller = Yii::$app->controller->id;
+$this->params['breadcrumbs']['icon_page'] = 'fa-users';
 ?>
-<div class="register-practice-try-index">
+
+<div class="course-index">
 
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+
     <div class="card mb-g">
         <div class="card-body table-responsive">
             <?= GridView::widget([
@@ -25,21 +28,16 @@ $controller = Yii::$app->controller->id;
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     [
-                        'label'=>'Email',
+                        'label'=>'Tên KH',
                         'format' => 'raw',
                         'value' => function ($model) {
-                            $html = '<p style="margin-bottom: 0;"><b>' . $model['email'] . '</b></p>';
-                            return $html;
+                            return Html::a($model['name'],['/contact/view?id='.$model['id']]);
+                            
                         },
                     ],
-                    [
-                        'label'=>'Phone',
-                        'format' => 'raw',
-                        'value' => function ($model) {
-                            $html = '<p style="margin-bottom: 0;"><b>' . $model['phone'] . '</b></p>';
-                            return $html;
-                        },
-                    ],
+                    'phone',
+                    'email',
+                    'note',
                     [
                         'label'=>'Ngày đăng ký',
                         'format' => 'raw',
@@ -48,11 +46,10 @@ $controller = Yii::$app->controller->id;
                         },
                     ],
                     ['class' => 'yii\grid\ActionColumn',
-                    'template' => '{delete}',
-                    'contentOptions' => ['class'=>'text-center'],
+                    'template' => '{view}{update}{delete}',
                     'buttons' => [
-                        'delete' => function ($model, $url) use ( $controller){
-                            return '<a title="Xoá" onclick="return confirm(\'Bạn có chắc chắn muốn xoá email khách hàng này?\')" href="/' . $controller . '/delete?id=' . $url->id . '"><i class="fal fa-trash"></i></a>';
+                        'view' => function ($model, $url) use ($controller)  {
+                            return '<a title="Xem chi tiết" href="/' . $controller . '/view?id=' . $url->id . '"><i class="fal fa-search"></i></a>';
                         }
                     ],
                     ],
@@ -61,3 +58,9 @@ $controller = Yii::$app->controller->id;
         </div>
     </div>
 </div>
+<style>
+.date-create{color:gray}
+table.table.table-striped.table-bordered td {
+    vertical-align: middle;
+}
+</style>

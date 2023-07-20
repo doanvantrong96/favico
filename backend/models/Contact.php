@@ -31,11 +31,7 @@ class Contact extends \yii\db\ActiveRecord
             'name' => 'Họ và tên',
             'email' => 'Email',
             'phone' => 'Số điện thoại',
-            'content' => 'Nội dung',
-            'source' => 'Nguồn',
-            'province' => 'Tỉnh',
-            'time' => 'Thời gian',
-            'status' => 'Trạng thái'
+            'content' => 'Nội dung'
         ];
     }
     public function search($params)
@@ -64,7 +60,7 @@ class Contact extends \yii\db\ActiveRecord
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email,
-            'status' => $this->status
+            // 'status' => $this->status
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

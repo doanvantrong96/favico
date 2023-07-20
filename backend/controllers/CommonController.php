@@ -14,13 +14,13 @@ use backend\components\EncodeVideo;
 use mdm\admin\components\AccessControl;
 use yii\helpers\Url;
 
-// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php');
-// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php');
-// require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/Cell.php');
+require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php');
+require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php');
+require_once realpath(dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/Cell.php');
 
-// use PHPExcel;
-// use PHPExcel_IOFactory;
-// use PHPExcel_Cell;
+use PHPExcel;
+use PHPExcel_IOFactory;
+use PHPExcel_Cell;
 
 class CommonController extends Controller
 {
@@ -508,38 +508,41 @@ class CommonController extends Controller
         return $output;
     }
 
-    // public static function exportDataExcel($header, $data, $file_name)
-    // {
-    //     if (empty($data)) {
-    //         exit();
-    //     }
-    //     $excel = new PHPExcel();
-    //     $excel->setActiveSheetIndex(0);
-    //     $excel->getActiveSheet()->setTitle('Danh sách');
-    //     $lastColumn = '';
-    //     for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
-    //         $excel->getActiveSheet()->getColumnDimension($j)->setAutoSize(true);
-    //         $lastColumn = $j;
-    //     }
-    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFont()->setBold(true);
-    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
-    //     $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('FFE8E5E5');
-    //     for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
-    //         $excel->getActiveSheet()->setCellValue($j .'1', $header[$i - 1]);
-    //     }
-    //     $numRow = 2;
-    //     foreach ($data as $key => $row) {
-    //         for($i=1 ,$j='A'; $i <= count($row);$i++,$j++) {
-    //             $excel->getActiveSheet()->setCellValue($j . $numRow, $row[$i - 1]);
-    //         }
-            
-    //         $numRow++;
-    //     }
+    public static function exportDataExcel($header, $data, $file_name)
+    {
+        if (empty($data)) {
+            exit();
+        }
         
-    //     header('Content-type: application/vnd.ms-excel');
-    //     header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
-    //     PHPExcel_IOFactory::createWriter($excel, 'Excel5')->save('php://output');
-    //     exit;
-    // }
+        $excel = new PHPExcel();
+        $excel->setActiveSheetIndex(0);
+        $excel->getActiveSheet()->setTitle('Danh sách');
+        $lastColumn = '';
+        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+            $excel->getActiveSheet()->getColumnDimension($j)->setAutoSize(true);
+            $lastColumn = $j;
+        }
+       
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFont()->setBold(true);
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('FFE8E5E5');
+        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+            $excel->getActiveSheet()->setCellValue($j .'1', $header[$i - 1]);
+        }
+        $numRow = 2;
+       
+        foreach ($data as $key => $row) {
+            for($i=1 ,$j='A'; $i <= count($row);$i++,$j++) {
+                $excel->getActiveSheet()->setCellValue($j . $numRow, $row[$i - 1]);
+            }
+            
+            $numRow++;
+        }
+       
+        header('Content-type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
+        PHPExcel_IOFactory::createWriter($excel, 'Excel2007')->save('php://output');
+        exit;
+    }
     
 }

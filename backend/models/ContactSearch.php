@@ -18,8 +18,8 @@ class ContactSearch extends Contact
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['name', 'phone', 'email', 'province', 'source', 'url','status'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'phone', 'email'], 'safe'],
         ];
     }
 

@@ -93,6 +93,13 @@ $group_comment = [
         'url' => '/comment/index'
     ]
 ];
+$group_customer     = [
+    [
+        'label' => 'Quản lý khách hàng',
+        'icon' => 'fal fa-envelope',
+        'url' => '/user-register-email/index'
+    ]
+];
 
 $group_product = [
     [
@@ -146,7 +153,14 @@ $menu_group_controller = [
         'icon'  => 'fal fa-map',
         'controller' => 'branch',
         'child_action' => $group_branch
-    ],[
+    ],
+    [
+        'label' => 'Quản lý khách hàng',
+        'icon'  => 'fal fa-envelope',
+        'controller' => 'user-register-email',
+        'child_action' => $group_customer
+    ],
+    [
         'label' => 'Quản lý hệ thống',
         'icon'  => 'fal fa-cog',
         'controller' => 'assignment,role,permission',

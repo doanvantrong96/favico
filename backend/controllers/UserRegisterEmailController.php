@@ -52,16 +52,20 @@ class UserRegisterEmailController extends Controller
         if( !empty($dataProvider->getModels()) ){
             $header = [
                 'Email',
+                'Phone',
+                'Nội dung',
                 'Ngày đăng ký'
             ];
             $data       = [];
             foreach($dataProvider->getModels() as $row){
                 $data[] = [
                     trim($row->email),
-                    date('H:i:s d/m/Y', strtotime($row->create_date))
+                    trim($row->phone),
+                    trim($row->note),
+                    date('H:i:s d/m/Y', strtotime($row->create))
                 ];
             }
-            $file_name  = 'Khach_hang_dang_ky_nhan_uu_dai_' . date('his') . '_' . date('dmY');
+            $file_name  = 'Khach_hang_de_lai_thong_tin_' . date('his') . '_' . date('dmY');
             CommonController::exportDataExcel($header, $data, $file_name);
         }
     }

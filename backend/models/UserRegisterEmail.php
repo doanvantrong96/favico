@@ -17,7 +17,7 @@ class UserRegisterEmail extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'user_register_email';
+        return 'contact';
     }
 
     /**
@@ -27,7 +27,6 @@ class UserRegisterEmail extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'integer'],
-            [['code'], 'unique','message'=>'{attribute} đã tồn tại'],
             [['email'], 'string', 'max' => 255],
         ];
     }
