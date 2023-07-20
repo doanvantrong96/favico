@@ -462,7 +462,7 @@ class CommonController extends Controller
         return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
     }
     
-    public static function getPositionName($status_id){
+    public static function getPositionName($status_id){ 
         $statusList = Yii::$app->params['positionList'];
         return isset($statusList[$status_id]) ? $statusList[$status_id] : 'N/A';
     }
