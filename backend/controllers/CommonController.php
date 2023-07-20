@@ -14,9 +14,9 @@ use backend\components\EncodeVideo;
 use mdm\admin\components\AccessControl;
 use yii\helpers\Url;
 
-require dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
-require dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel.php';
-require dirname(__FILE__) . '/../../vendor/PHPExcel/Classes/PHPExcel/Cell.php';
+require_once YII_APP_BASE_PATH . '/vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
+require_once YII_APP_BASE_PATH . '/vendor/PHPExcel/Classes/PHPExcel.php';
+require_once YII_APP_BASE_PATH . '/vendor/PHPExcel/Classes/PHPExcel/Cell.php';
 
 use PHPExcel;
 use PHPExcel_IOFactory;
