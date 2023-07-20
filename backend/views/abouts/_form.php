@@ -23,6 +23,9 @@ use yii\widgets\ActiveForm;
                         <div class="col-md-6">
                             <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['statusList']) ?>
                         </div>
+                        <div class="col-md-6">
+                            <?= $form->field($model, 'type')->dropDownList([1 => 'Trang chủ', 2 => 'Trang giới thiệu'])->label('Vị trí hiển thị') ?>
+                        </div>
                         
                         <div class="col-lg-12">
                             <div class="form-group mb-0">

@@ -53,6 +53,7 @@ $this->params['breadcrumbs']['icon_page'] = 'fa-tag';
 
                     [
                         'label' => 'Tiêu đề',
+                        'format' => 'html',
                         'value' => function ($data) {
                             if(!empty($data->title)){
                                 return $data->title;
