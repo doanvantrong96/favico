@@ -47,6 +47,23 @@ $this->params['breadcrumbs']['icon_page'] = 'fa-tag';
                             return '';
                         },
                     ],
+                    
+
+                    [
+                        'label' => 'Trang hiển thị',
+                        'value' => function ($data) {
+                            if(!empty($data->type)){
+                                if($data->type == 1)
+                                    $type   = 'Trang sanh mục sản phẩm';
+                                else if($data->type == 2)
+                                    $type   = 'Trang chủ';
+                                else
+                                    $type   = 'N/A';
+                                return $type;
+                            }
+                            return '';
+                        },
+                    ],
                     [
                         'label' => 'Vị trí hiển thị',
                         'value' => function ($data) {
