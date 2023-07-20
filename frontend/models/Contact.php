@@ -21,7 +21,7 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'email', 'address'], 'required', 'message' => '{attribute} không được trống'],
+            [['name', 'phone'], 'required', 'message' => '{attribute} không được trống'],
             [['note'], 'string', 'max' => 255],
         ];
     }

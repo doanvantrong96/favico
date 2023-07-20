@@ -18,7 +18,7 @@ use yii\web\View ;
             <div class="gr_top_about">
                 <img src="<?= $result[0]['image'] ?>" alt="">
                 <div>
-                    <p><?= $result[0]['title'] ?></p>
+                    <p class="title_ab"><?= $result[0]['title'] ?></p>
                     <span><?= $result[0]['content'] ?></span>
                     <img src="<?= $result[0]['avatar'] ?>" alt="">
                 </div>

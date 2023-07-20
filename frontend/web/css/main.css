@@ -60,7 +60,7 @@ ul{
   border-radius: 5px;
 }
 .partner{
-  margin: 30px 0
+  margin: 65px 0
 }
 .service-two__card-image img{
   height: 230px;
@@ -374,9 +374,9 @@ ul{
 .slideshow * {
   outline: none;
 }
-.slideshow .slider {
+/* .slideshow .slider {
   box-shadow: 0 20px 50px -25px black;
-}
+} */
 .slideshow .slider-track {
   -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
   transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
@@ -466,13 +466,20 @@ ul{
   background-image: url(/images/page/bg-ab.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: 145px 0;
+  height: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .breadcrumbs {
   display: flex;
   justify-content: center;
   gap: 5px;
   margin-top: 42px;
+}
+.breadcrumbs a{
+  color: white !important;
 }
 .banner_bread h6{
   color: #FFF;
@@ -490,7 +497,7 @@ ul{
   gap: 36px;
   justify-content: center;
 }
-.gr_top_about div p{
+.gr_top_about div .title_ab{
   color: #009247;
   font-size: 48px;
   font-weight: 700;
@@ -1130,7 +1137,7 @@ ul{
 .not_theme_home.elementor-element.elementor-element-6ac7fd0{
   background-color: #fff !important;
 }
-.theme_home{
+.theme_home {
   z-index: 111 !important;
 }
 .menu_hidden{
@@ -1149,6 +1156,7 @@ ul{
 .home_sticky, .not_home_sticky {
   top: -90px;
   height: 0;
+  z-index: -1;
 }
 .not_home_sticky.fixed_h:after {
   content: "";
@@ -1259,12 +1267,20 @@ ul{
   font-size: 48px !important;
 }
 .partner_group{
-  display: grid;
   gap: 10px;
   grid-template-columns: repeat(5,1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .partner_group img {
-  max-width: 100%;
+  height: 155px;
+  object-fit: contain;
+  margin: 5px;
+  width: calc(100% * (1/6));
+}
+.service-two__card-content .title{
+  max-width: unset !important;
 }
 ul.pagination {
   border-radius: 10px;
@@ -1304,7 +1320,28 @@ li.page-item a {
 .search_pr{
   cursor: pointer;
 }
+.content_about_home ul {
+  list-style: disc;
+  text-align: left;
+  padding-left: 20px;
+}
+
+
 @media screen and (max-width: 1024px) {
+  .partner_group img{
+    width: calc(100% * (1/4));
+  }
+  .agrikon-parallax {
+    background-attachment: unset;
+  }
+  .partner_group img {
+    height: 60px;
+    object-fit: fill;
+}
+.partner_group {
+  grid-template-columns: repeat(3,1fr);
+  object-fit: cover;
+}
   li.page-item a{
     width: 38px;
     height: 38px;
@@ -1414,6 +1451,13 @@ li.page-item a {
   .mobile-nav__toggler.fa-bars{
     color: #fff;
     font-weight: 100;
+    width: 30px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 10px;
   }
   .hotline_mb{
     flex-direction: column;
@@ -1608,6 +1652,7 @@ li.page-item a {
   }
   .banner_bread { 
     background-image: url(/images/page/bc-bg-mb.png);
+    height: 266px;
   }
   .banner_bread h6{
     font-size: 40px;
@@ -1622,7 +1667,7 @@ li.page-item a {
   .top_about{
     margin-top: 30px;
   }
-  .gr_top_about div p{
+  .gr_top_about div .title_ab{
     font-size: 36px;
     margin-bottom: 0;
   }

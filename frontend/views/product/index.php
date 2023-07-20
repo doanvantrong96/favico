@@ -35,9 +35,12 @@ use yii\widgets\LinkPager;
                         <div class="checkbox_option">
                             <?php 
                                 foreach($product_cat as $id => $name){ 
+                                    $checked = '';
+                                    if(isset($_GET['cat']) && $_GET['cat'] == $id)
+                                        $checked = 'checked';
                             ?>
                                 <div class="form_group d-flex gap-16">
-                                    <input class="trigger product_cat" name="product_cat" type="checkbox" value="<?= $id ?>">
+                                    <input class="trigger product_cat" name="product_cat" type="checkbox" <?= $checked ?> value="<?= $id ?>">
                                     <label for="trigger" class="checker"></label>
                                     <label for=""><?= $name ?></label>
                                 </div>
@@ -68,10 +71,10 @@ use yii\widgets\LinkPager;
                         <div class="list_product_hot">
                             <?php foreach($most as $row) { ?>
                                 <div>
-                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                     </a>
-                                    <a href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <p><?= $row['title'] ?></p>
                                     </a>
                                 </div>
@@ -106,7 +109,7 @@ use yii\widgets\LinkPager;
                         <div class="list_product">
                             <?php foreach($item_product as $row) { ?>
                                 <div class="item_product">
-                                    <a class="flex-center" href="<?= Url::to(['/prodict/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
+                                    <a class="flex-center" href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                         <img src="<?= $row['image'] ?>" alt="">
                                         <p><?= $row['title'] ?></p>
                                         <span>Chi tiết</span>
@@ -117,7 +120,7 @@ use yii\widgets\LinkPager;
                     </div>
                     <?php }} ?>
                 </div>
-                <div id="demo"></div>
+                <div id="page_product"></div>
             </div>
         </div>
     </div>
@@ -126,7 +129,27 @@ use yii\widgets\LinkPager;
 
 <script>
     $(document).ready(function(){
-        $(document).on('change','.product_cat,.product_tag', function(){
+        var inputs = $('.product_tag');
+        var checked = inputs.filter(':checked').val();
+        inputs.on('click', function(){
+            if($(this).val() === checked) {
+                $(this).prop('checked', false);
+                checked = '';
+                
+            } else {
+                $(this).prop('checked', true);
+                checked = $(this).val();
+            }
+        });
+
+
+        var width = $(window).width();
+        var scroll_top = 480;
+        if(width < 768)
+            scroll_top = 50;
+
+        $(document).on('click','.product_cat,.product_tag', function(){
+            jQuery("html,body").animate({scrollTop: scroll_top}, 500);
             getDataSearch();
         });
         $(document).on('click','.search_pr', function(){
@@ -135,9 +158,12 @@ use yii\widgets\LinkPager;
 
 
         var totalPage = $('#total_page').val();
+        if(totalPage <= 1)
+            getDataSearch();
+        console.log('totalPage', totalPage);
         renderPagination(totalPage);
         function renderPagination(totalPage){
-            $('#demo').twbsPagination({
+            $('#page_product').twbsPagination({
                 totalPages: totalPage,
                 visiblePages: 10,
                 next: '<img src="/images/icon/next.svg">',
@@ -145,10 +171,9 @@ use yii\widgets\LinkPager;
                 last: '',
                 first: '',
                 onPageClick: function (event, page) {
-                jQuery("html,body").animate({scrollTop: 480}, 500);
-                getDataSearchPage(page);
-                // getDataSearch(page);
-                console.log('getDataSearchs');
+                    jQuery("html,body").animate({scrollTop: scroll_top}, 500);
+                    getDataSearchPage(page);
+                    // getDataSearch(page);
                 }
             });
         }
@@ -167,7 +192,7 @@ use yii\widgets\LinkPager;
             let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
-            url: '/product/index',
+            url: window.location.href,
             data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);
@@ -191,13 +216,13 @@ use yii\widgets\LinkPager;
             let q = $('#ip_search').val();
             $.ajax({
             type: 'POST',
-            url: '/product/index',
+            url: window.location.href,
             data: {category: arr_cat, tag: tag, page:page, q:q},
             success: function(res){
                 var data = $.parseJSON(res);
                 $('.result_product').html(data.res);
                 $('#total_page').val(data.total_page);
-                var $pagination = $('#demo');
+                var $pagination = $('#page_product');
                 $pagination.twbsPagination('destroy');
                 renderPagination(data.total_page);
                 console.log(1121212);

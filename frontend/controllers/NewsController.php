@@ -99,7 +99,7 @@ class NewsController extends Controller
         $post_lq = News::find()
         ->where(['like','category_id',"$post->category_id"])
         ->andWhere(['status' => 1,'is_delete' => 0])
-        ->andWhere(['<>','id', $post->category_id])
+        ->andWhere(['<>','id', $post->id])
         ->limit(6)
         ->all();
         

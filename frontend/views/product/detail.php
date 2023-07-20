@@ -84,7 +84,7 @@ use yii\web\View ;
                 <div class="list_product">
                     <?php foreach($product_lq as $row) { ?>
                         <div class="item_product">
-                            <a class="flex-center" href="<?= Url::to(['/prodict/detail','id' => $row['id']]) ?>">
+                            <a class="flex-center" href="<?= Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) ?>">
                                 <img src="/images/page/image 20.png" alt="">
                                 <p><?= $row['title'] ?></p>
                                 <span>Chi tiết</span>
@@ -93,7 +93,7 @@ use yii\web\View ;
                     <?php } ?>
                 </div>
                 <div class="flex-center w-100 mt-4">
-                    <a href="<?= Url::to(['/prodict/index']) ?>" class="see_more_td flex-center">Xem tất cả</a>
+                    <a href="<?= Url::to(['/product/index']) ?>" class="see_more_td flex-center">Xem tất cả</a>
                 </div>
             </div>
         <?php } ?>

@@ -23,15 +23,8 @@ use yii\web\View ;
                         <h1><?= $new->description ?></h1>
                     </div>
                     <div class="blog-details__image">
-                        <img src="/images/page/new1.png" alt="">
-                        <noscript>
-                            <img
-                                width="1600"
-                                height="900"
-                                src="<?= $new->image ?>"
-                                class="img-fluid wp-post-image"
-                            />
-                        </noscript>
+                        <!-- <img src="/images/page/new1.png" alt=""> -->
+                        <img src="<?= $new->image ?>"/>
                     </div>
                     <div class="blog-details__content">
                         <?= $new->content ?>

@@ -99,87 +99,146 @@ class ProductController extends Controller
         $product_tag = ProductTag::find()
         ->where(['status' => 1])
         ->all();
-
         //san pham noi bat
         $most = Product::find()
         ->where(['is_most' => 1])
         ->all();
 
         $limit = 6;
-        $total_product = Product::find()->count();
-        $total_page = ceil($total_product / $limit);
+        if(isset($_GET['cat'])){
+            $total_product = Product::find()->where(['category_id' => $_GET['cat'], 'status' => 1])->count();
+        }else{
+            $total_product = Product::find()->where(['status' => 1])->count();
+
+        }
+        
+        $total_page = ceil($total_product / ($limit * 3));
         $product_tag = ArrayHelper::map($product_tag, 'id','name');
         $arr_data = [];
-        foreach($product_tag as $id => $tag){
-            $arr_data[$tag] = Product::find()
-            ->where(['status' => 1])
-            ->where(['like','tag_id',";$id;"])
-            ->limit(6)
-            ->asArray()
-            ->all();
-        }
+        // foreach($product_tag as $id => $tag){
+        //     // if(isset($_GET['cat'])){
+        //     //     $arr_data[$tag] = Product::find()
+        //     //     ->where(['status' => 1,'category_id' => $_GET['cat']])
+        //     //     ->andWhere(['like','tag_id',";$id;"])
+        //     //     ->limit(6)
+        //     //     ->asArray()
+        //     //     ->all();
+        //     // }else{
+        //         // $arr_data[$tag] = Product::find()
+        //         // ->where(['status' => 1])
+        //         // ->andWhere(['like','tag_id', ";$id;"])
+        //         // ->limit(6)
+        //         // ->asArray()
+        //         // ->all();
+        //     // }
 
+        // }
         if(!empty($_POST)){
+            $tag = '';
             $page = $_POST['page'];
             $offset = ($page - 1) * $limit;
             $query = Product::find()
-            ->where(['status' => 1]);
+            ->andWhere(['status' => 1]);
+
+            if(isset($_GET['cat']) && !isset($_POST['category'])){
+                $query->andWhere(['in','category_id',$_GET['cat']]);
+            }
 
             if(isset($_POST['category']) && empty($_POST['q'])){
                 $query->andWhere(['in','category_id',$_POST['category']]);
             }
+            
             if(isset($_POST['tag']) && !empty($_POST['tag']) && empty($_POST['q'])){
-                $tag  =$_POST['tag'];
+                $tag  = $_POST['tag'];
                 $query->andWhere(['like','tag_id',";$tag;"]);
             }
             if(isset($_POST['q']) && !empty($_POST['q'])){
                 $q  =$_POST['q'];
                 $query->andWhere(['like','title',"$q"]);
             }
-            
-            foreach($product_tag as $id => $tag){
-                $arr_data[$tag] = $query
+
+             if(empty($_POST['category']) && empty($_POST['tag']) && empty($_POST['q'])){ // mac dinh
+               
+                $total_product = $query->count();
+                $total_page = ceil($total_product / ($limit * 3));
+                foreach($product_tag as $id => $tags){
+                    $arr_data[$tags] = $query
+                    ->where(['like','tag_id',";$id;"])
+                    ->andWhere(['status' => 1])
+                    ->limit($limit)
+                    ->offset($offset)
+                    ->asArray()
+                    ->all();
+                }
+                if(!empty($arr_data)){
+                    $res = '';
+                    foreach($arr_data as $name_tag => $item_product){
+                        $html_product = '';
+                        foreach($item_product as $row) { 
+                            $html_product .= '<div class="item_product">
+                            <a class="flex-center" href="'. Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) .'">
+                                <img src="'. $row['image'] .'" alt="">
+                                <p>'. $row['title'] .'</p>
+                                <span>Chi tiết</span>
+                            </a>
+                        </div>';
+                        }
+                        $res .= '<div class="result_product_gr">
+                                    <div class="cat_result">
+                                        <h6>'. $name_tag .'</h6>
+                                        <div class="line_tit"></div>
+                                    </div>
+                                    <div class="list_product">
+                                            '. $html_product .'
+                                    </div>
+                                </div>';
+                    }
+                    if(!empty($res)){
+                        $data['res'] = $res;
+                        $data['total_page'] = $total_page;
+                        echo json_encode( $data );
+                        exit;
+                    }
+                }
+            }else{
+                $result_all = $query
                 ->limit($limit)
                 ->offset($offset)
                 ->asArray()
                 ->all();
-            }
-
-            $total_product = $query->count();
-            $total_page = ceil($total_product / $limit);
-          
-            if(!empty($arr_data)){
-                $res = '';
-                foreach($arr_data as $name_tag => $item_product){
+                if(!empty($result_all)){
+                    $res = '';
                     $html_product = '';
-                    foreach($item_product as $row) { 
+                    foreach($result_all as $row){
                         $html_product .= '<div class="item_product">
-                        <a class="flex-center" href="'. Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) .'">
-                            <img src="'. $row['image'] .'" alt="">
-                            <p>'. $row['title'] .'</p>
-                            <span>Chi tiết</span>
-                        </a>
-                    </div>';
+                            <a class="flex-center" href="'. Url::to(['/product/detail','slug' => $row['slug'],'id' => $row['id']]) .'">
+                                <img src="'. $row['image'] .'" alt="">
+                                <p>'. $row['title'] .'</p>
+                                <span>Chi tiết</span>
+                            </a>
+                        </div>';
                     }
-                    $res .= '<div class="result_product_gr">
-                                <div class="cat_result">
-                                    <h6>'. $name_tag .'</h6>
-                                    <div class="line_tit"></div>
-                                </div>
+                    $res = '<div class="result_product_gr"> 
                                 <div class="list_product">
                                         '. $html_product .'
                                 </div>
-                            </div>';
-                }
-                if(!empty($res)){
-                    $data['res'] = $res;
-                    $data['total_page'] = $total_page;
-                    echo json_encode( $data );
-                    exit;
+                            </div>
+                            ';
+                    $total_product = $query->count();
+                    $total_page = ceil($total_product / $limit);
+                    if(!empty($res)){
+                        $data['res'] = $res;
+                        $data['total_page'] = $total_page;
+                        echo json_encode( $data );
+                        exit;
+                    }
                 }
             }
+            
         }
-
+        // echo '<pre>';
+        // print_r($total_page);
+        // echo '</pre>';die;
         return $this->render('index',[
             'arr_data'    => $arr_data,
             'product_cat' => $product_cat,
@@ -207,7 +266,7 @@ class ProductController extends Controller
 
         //comment
         $comment = Comment::find()
-        ->where(['status' => 1, 'type' => 1, 'product_id' => $id])
+        ->where(['status' => 1, 'type' => 0, 'product_id' => $id])
         ->all();
         return $this->render('detail',[
             'result'    => $result,
