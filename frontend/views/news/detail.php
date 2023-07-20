@@ -9,9 +9,9 @@ use yii\web\View ;
     <div class="breadcrumbs">
         <a href="/">HOME</a>
         <span>/</span>
-        <p>Tin Tức</p>
+        <p>TIN TỨC</p>
     </div>
-    <h6><?= $new->title ?></h6>
+    <h6>Tin Tức</h6>
 </section>
 
 <section class="content_new">
