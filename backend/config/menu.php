@@ -123,51 +123,37 @@ $group_product = [
         'url' => '/product-tag/index'
     ]
 ];
-
-$group_package = [
-    [
-        'label' => 'Danh sách gói',
-        'icon' => 'fal fa-tasks',
-        'url' => '/packages/index'
-    ],
-    [
-        'label' => 'Thêm mới gói',
-        'icon' => 'fal fa-plus',
-        'url' => '/packages/create'
-    ]
-];
-
 $menu_group_controller = [
     [
-        'label' => 'Cấu hình gói',
+        'label' => 'Cấu hình trang chủ',
         'icon'  => 'fal fa-cog',
-        'controller' => 'packages',
-        'child_action' => $group_package
+        'controller' => 'banner,config',
+        'child_action' => $group_config_home
     ],
-    // [
-    //     'label' => 'Quản lý bình luận',
-    //     'icon'  => 'fal fa-gift',
-    //     'controller' => 'comment',
-    //     'child_action' => $group_comment
-    // ],
-    // [
-    //     'label' => 'Quản lý sản phẩm',
-    //     'icon'  => 'fal fa-book',
-    //     'controller' => 'product',
-    //     'child_action' => $group_product
-    // ],
-    // [
-    //     'label' => 'Tin tức',
-    //     'icon'  => 'fal fa-newspaper',
-    //     'controller' => 'news,category-tags',
-    //     'child_action' => $group_news
-    // ],
-    // [
-    //     'label' => 'Quản lý chi nhánh',
-    //     'icon'  => 'fal fa-map',
-    //     'controller' => 'branch',
-    //     'child_action' => $group_branch
-    // ],
+    [
+        'label' => 'Quản lý bình luận',
+        'icon'  => 'fal fa-gift',
+        'controller' => 'comment',
+        'child_action' => $group_comment
+    ],
+    [
+        'label' => 'Quản lý sản phẩm',
+        'icon'  => 'fal fa-book',
+        'controller' => 'product',
+        'child_action' => $group_product
+    ],
+    [
+        'label' => 'Tin tức',
+        'icon'  => 'fal fa-newspaper',
+        'controller' => 'news,category-tags',
+        'child_action' => $group_news
+    ],
+    [
+        'label' => 'Quản lý chi nhánh',
+        'icon'  => 'fal fa-map',
+        'controller' => 'branch',
+        'child_action' => $group_branch
+    ],
     [
         'label' => 'Quản lý khách hàng',
         'icon'  => 'fal fa-envelope',
