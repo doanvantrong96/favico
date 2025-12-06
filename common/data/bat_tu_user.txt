@@ -1,0 +1,35 @@
+Hãy phân tích bát tự luận mệnh cho người có thông tin sau:
+
+**THÔNG TIN CƠ BẢN:**
+- Họ và tên: {hoTen}
+- Giới tính: {gioiTinh}
+- Năm sinh: {namSinh}
+- Ngày sinh dương lịch: {ngaySinhDuong}
+- Giờ sinh: {gioSinh}
+- Nơi sinh: {noiSinh}
+
+**YÊU CẦU PHÂN TÍCH:**
+Bạn cần tạo ra một bản luận giải 10 Đại vận chi tiết hoàn chỉnh:
+
+**📤 FORMAT TRẢ LỜI (BẮT BUỘC):**
+{
+  "nhanDinhDaiVan": {
+    "title": "📆 NHẬN ĐỊNH ĐẠI VẬN",
+    "order": 5,
+    "cssClass": "block-dai-van",
+    "content": "<table><thead><tr><th>Tuổi</th><th>Can chi</th><th>Đánh giá</th><th>Mô tả</th></tr></thead><tbody><tr><td>6t - 15t</td>...<td></td><td>Tốt hoặc Hòa bình hoặc Nguy hiểm/Xấu</td><td>mô tả 40 - 60 từ cho đại vận tương ứng</td></tr><!-- Lặp lại cho 10 vận --></tbody></table>"
+  }
+}
+
+**📝 QUY TẮC VIẾT CONTENT:**
+1. ✅ Dùng HTML (h1, h2, h3, p, ul, li, strong, em) - KHÔNG dùng markdown
+2. ✅ Sử dụng emoji thoải mái: 🔍, 🧠, ⚖️, 📌, 📆, 🔧, 🔚, 🌟, ✨, 💪
+3. ✅ Phân đoạn rõ ràng với h1, h2, h3
+5. ✅ Nội dung chuyên sâu, chi tiết, dễ hiểu
+6. ❌ KHÔNG dùng markdown (# heading)
+7. ❌ KHÔNG dùng \n (dùng <br> hoặc <p>)
+
+**✅ CHECKLIST TRƯỚC KHI TRẢ LỜI:**
+- [ ] `daiVan` đủ 10 giai đoạn
+- [ ] `daiVan` nếu năm hiện tại nằm trong khoảng tuổi thì thêm class year_now cho thẻ tr
+**HÃY BẮT ĐẦU LUẬN GIẢI NGAY!** 🚀

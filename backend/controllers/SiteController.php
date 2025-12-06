@@ -13,6 +13,7 @@ use backend\models\News;
 use backend\models\ProductCategory;
 use backend\models\Employee;
 use backend\controllers\CommonController;
+use common\components\json\JsonHelper;
 use DatePeriod;
 use DateTime;
 use DateInterval;
@@ -94,10 +95,10 @@ class SiteController extends Controller
                 return $this->getDataStatistic($post['type'], $post['date_start'],$post['date_end'],true);
             }
            
-            $product    = Product::find()->count();
-            $news       = News::find()->count();
-            $user       = Employee::find()->count();
-            $category   = ProductCategory::find()->count();
+            $product    = 0;//Product::find()->count();
+            $news       = 0;//News::find()->count();
+            $user       = 0;//Employee::find()->count();
+            $category   = 0;//ProductCategory::find()->count();
 
             $dataStatistic = [
                 'total_product' => $product,//san pham
